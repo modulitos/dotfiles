@@ -1,0 +1,15 @@
+*
+!.vim/
+!.Xmodmap
+!.Xresources
+!.bashrc
+!.gitconfig
+!.gitignore
+!.gitmodules
+!.tmux.conf
+# !.vimrc
+# !.emacs.d
+!.xbindkeysrc
+!.xinitrc
+!.xmobarrc
+!.xmonad/xmonad.hs

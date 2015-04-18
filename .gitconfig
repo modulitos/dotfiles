@@ -1,0 +1,22 @@
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1678x997+0+24
+	main-window-view = HistoryView
+	history-view-vpane-position = 752
+	file-view-vpane-position = 916
+[user]
+	name = Luke Swart
+	email = lukeswart@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = kdiff3
+[alias]
+  st = status
+  cm = commit
+  outgoing = log --pretty=oneline --abbrev-commit --graph @{u}..
+  incoming = !git fetch && git log --pretty=oneline --abbrev-commit --graph ..@{u}
+[push]
+	default = simple
+[credential]
+	helper = cache
