@@ -133,11 +133,6 @@ export MANPATH=$MANPATH:$TEXDIR/texmf-dist/doc/man
 PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
 
-# Set Emacs as default editor
-#export EMACS="emacs --no-window-system --no-site-file --no-init-file -u root -fg white -bg red"
-#export EDITOR="$EMACS"
-#export VISUAL="$EMACS"
-
 # Android Development Tools / SDK
 export PATH=$PATH:/home/lucas/Development/android-sdk-linux/tools:/home/lucas/Development/android-sdk-linux/platform-tools
 
@@ -149,24 +144,9 @@ export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{if (length($0) > 20)
 PS1='\[\e[1;32m\][\h]$(eval "echo ${MYPS}")$\[\e[0m\] '
 #PS1='\[\e[1;32m\][\u@\h]$(eval "echo ${MYPS}")$\[\e[0m\] '
 
-
-# UWHPSC Class Variable
-export UWHPSC="/home/lucas/class/UWHPSC/uwhpsc/"
-export MYHPSC="/home/lucas/class/UWHPSC/myhpsc/"
-export SOLSTICE="/home/lucas/projects/Research/solstice/"
-
-# NVIDIA Optimus Aliases - bbswitch
-#alias tmulti="sudo $HOME/bin/term_multiscreen"
-#alias rmulti="sudo $HOME/bin/reinit_multiscreen"
-#alias imulti="sudo /home/lucas/bin/init_multiscreen"
-# export DISPLAY=:8 LD_LIBRARY_PATH=/usr/lib/nvidia-current:
-
-# Set Python Path
-#PYTHONPATH="${PYTHONPATH}:/usr/bin/python"
-#export PYTHONPATH
-
-# The next line updates PATH for the Google Cloud SDK.
+# Google Cloud SDK - update PATH and Python 2 version
 source /home/lucas/Development/google-cloud-sdk/path.bash.inc
+export CLOUDSDK_PYTHON=/usr/bin/python2
 
 # The next line enables bash completion for gcloud.
 source /home/lucas/Development/google-cloud-sdk/completion.bash.inc
