@@ -181,7 +181,6 @@ export PATH="$PATH:$SCALA_HOME/bin"
 
 export CLASSPATH=$CLASSPATH:~/class/algorithms/assignments/algorithms/stdlib.jar:~/class/algorithms/assignments/algorithms/algs4.jar:~/class/algorithms/assignments/out/production/algorithms-princeton
 
-
 export NVM_DIR="/home/lucas/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 ## Node: Allow NPM to install global command-line tools that are not in ~/npm:
