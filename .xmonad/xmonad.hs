@@ -35,7 +35,7 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#B8860B" "" . wrap "<" ">"
                 , ppHiddenNoWindows = xmobarColor "#FAFFFF" ""
                 , ppUrgent = xmobarColor "#FFFFAF" "" . wrap "[" "]"
                 , ppLayout = xmobarColor "#aaaaaa" ""
-                , ppTitle =  xmobarColor "#aaaaaa" "" . shorten 120
+                , ppTitle =  xmobarColor "#aaaaaa" "" . shorten 140
                 , ppSep = xmobarColor "#aaaaaa" "" " | "
                 }
 
