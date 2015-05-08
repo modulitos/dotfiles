@@ -51,5 +51,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 xbindkeys
 xmodmap .Xmodmap
+xmodmap -e 'clear Lock' #ensures you're not stuck in CAPS on mode
+xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 exec xmonad
 xsetroot -cursor_name left_ptr
