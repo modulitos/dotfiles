@@ -37,8 +37,13 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-# Examples of commands:
-
+"pactl set-sink-volume 1 +5000"
+  m:0x0 + c:123
+"pactl -- set-sink-volume 1 -5000"
+  m:0x0 + c:122
+"pactl set-sink-mute 1 toggle"
+  m:0x0 + c:121
+ 
 "backlight.sh add -200"
   m:0x0 + c:232
 
@@ -47,6 +52,8 @@
 
 "xbindkeys_show" 
   control+shift + q
+
+# Examples of commands:
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
