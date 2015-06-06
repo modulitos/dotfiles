@@ -37,13 +37,33 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
+# Increase volume
 "pactl set-sink-volume 1 +5000"
   m:0x0 + c:123
+# Decrease volume
 "pactl -- set-sink-volume 1 -5000"
   m:0x0 + c:122
+# Toggle mute
 "pactl set-sink-mute 1 toggle"
   m:0x0 + c:121
- 
+
+# Play/Pause
+# 'tools'
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+  m:0x0 + c:179
+# Next
+# 'search'
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+  m:0x0 + c:152
+# Previous
+# 'launch'
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+  m:0x0 + c:128
+# Stop
+# 'explorer'
+"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+  m:0x0 + c:225
+
 "backlight.sh add -200"
   m:0x0 + c:232
 
