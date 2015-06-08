@@ -1,0 +1,4 @@
+time=$1
+shift
+sleep $time
+exec "$@"

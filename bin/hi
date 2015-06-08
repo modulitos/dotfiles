@@ -1,0 +1,4 @@
+#!/bin/bash
+~/bin/backlight.sh chmod
+tmux-session restore
+xrandr --output eDP-0 --mode 1920x1080
