@@ -187,3 +187,5 @@ export NVM_DIR="/home/lucas/.nvm"
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 export NODE_ENV="development"
+
+test -f ~/.git-completion.bash && . $_
