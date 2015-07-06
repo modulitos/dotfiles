@@ -78,10 +78,10 @@
   inoremap jj <esc>
 
   " change cursor position in insert mode
-  inoremap <C-h> <left>
-  inoremap <C-l> <right>
-
-  inoremap <C-u> <C-g>u<C-u>
+"  inoremap <C-h> <left>
+"  inoremap <C-l> <right>
+"
+"  inoremap <C-u> <C-g>u<C-u>
 
   " capitalize words
   if (&tildeop)
