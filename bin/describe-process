@@ -1,0 +1,2 @@
+#!/bin/bash
+ps wup $(pgrep -f $1)
