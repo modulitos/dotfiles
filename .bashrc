@@ -134,7 +134,7 @@ PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
 
 # Android Development Tools / SDK
-export PATH=$PATH:/home/lucas/Development/android-sdk-linux/tools:/home/lucas/Development/android-sdk-linux/platform-tools
+# export PATH=$PATH:/home/lucas/Development/android-sdk-linux/tools:/home/lucas/Development/android-sdk-linux/platform-tools
 
 # Set colorful prompt 
 # export PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
@@ -189,3 +189,6 @@ export PATH=./node_modules/.bin:$PATH
 export NODE_ENV="development"
 
 test -f ~/.git-completion.bash && . $_
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
