@@ -1,0 +1,5 @@
+#!/bin/bash
+# to verify mount device
+# sudo fdisk -l # (verbose) 
+# lsblk -l # (shorter)
+sudo mount /dev/sdb1 /media/kingston16

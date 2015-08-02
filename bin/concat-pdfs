@@ -1,0 +1,7 @@
+#!/bin/bash
+OUTPUT_FILE=$1
+shift
+echo "Output file: $OUTPUT_FILE"
+echo "remaining args: $@"
+echo "$@"
+gs -q -sPAPERSIZE=a4 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$OUTPUT_FILE" "$@"
