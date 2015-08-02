@@ -192,3 +192,7 @@ test -f ~/.git-completion.bash && . $_
 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+# Docker autocompletion
+. ~/.docker-completion.sh
+
