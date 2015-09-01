@@ -170,7 +170,7 @@ source /usr/bin/virtualenvwrapper.sh
 #alias v.cd='cdvirtualenv'
 #alias v.lssitepackages='lssitepackages'
 
-export PYTHONSTARTUP=~/.pyrc
+export PYTHONSTARTUP="/home/lucas/.pyrc"
 
 export NLTK_DATA=/home/lucas/Development/nltk_data
 
