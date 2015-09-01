@@ -1,4 +1,5 @@
 #!/bin/bash
+# ex: concat-pdfs final_signed.pdf pg1.pdf pg2.pdf
 OUTPUT_FILE=$1
 shift
 echo "Output file: $OUTPUT_FILE"
