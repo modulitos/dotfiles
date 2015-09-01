@@ -198,3 +198,8 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 # Docker autocompletion
 . ~/.docker-completion.sh
 
+# Pandoc
+export PATH=~/.cabal/bin:$PATH
+
+# For Emacs TimeSheet
+export TEXINPUTS=.:$HOME/.emacs.d/elpa/auctex-11.88.8/latex:
