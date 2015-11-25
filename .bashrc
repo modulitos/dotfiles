@@ -154,6 +154,13 @@ source /home/lucas/Development/google-cloud-sdk/completion.bash.inc
 # alias tmux-session="/home/lucas/bin/tmux-session"
 alias tmux='tmux -2'
 
+# alias tmux attach for auto-complete
+# http://www.nathankowald.com/blog/2014/03/tmux-attach-session-alias/
+alias tma='tmux attach -t $1'
+if [ -f /etc/bash_completion.d/tma ]; then
+. /etc/bash_completion.d/tma
+fi
+
 # Python virtual environment and wrapper
 # export WORKON_HOME=$HOME/.virtualenvs
 # source /usr/local/bin/virtualenvwrapper_lazy.sh
