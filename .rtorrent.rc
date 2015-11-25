@@ -14,11 +14,12 @@ max_peers_seed = 50
 max_uploads = 8
 
 # Global upload and download rate in KiB. "0" for unlimited.
-download_rate = 200
+download_rate = 0
 upload_rate = 10
 
 # Default directory to save the downloaded torrents.
-directory = ~/Downloads
+# directory = ~/Downloads
+directory = /home/lucas/bittorrent/incoming
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
@@ -27,10 +28,10 @@ session = ~/.rtorrent.session
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-#schedule = watch_directory,5,5,load_start=./watch/*.torrent
+schedule = watch_directory,5,5,load_start=/home/lucas/bittorrent/watch/*.torrent
 #schedule = untied_directory,5,5,stop_untied=
 
-schedule = watch_directory,5,5,load_start=/home/lucas/watch/*.torrent
+# schedule = watch_directory,5,5,load_start=/home/lucas/watch/*.torrent
 schedule = untied_directory,5,5,stop_untied=
 schedule = tied_directory,5,5,start_tied=
 
