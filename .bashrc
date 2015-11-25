@@ -210,3 +210,9 @@ export PATH=~/.cabal/bin:$PATH
 
 # For Emacs TimeSheet
 export TEXINPUTS=.:$HOME/.emacs.d/elpa/auctex-11.88.8/latex:
+
+export EDITOR="vim"
+export BROWSER="firefox"
+
+export MAILDIR=~/.mail/gmail
+export INFOPATH=$INFOPATH:/usr/share/info
