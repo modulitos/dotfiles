@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -117,7 +117,7 @@ fi
 # export JAVA_HOME=/usr/local/jre1.7.0_51
 # export AWS_AUTO_SCALING_HOME=/usr/local/AutoScaling-1.0.61.4/
 # export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin
-# export AWS_AUTO_SCALING_URL=https://autoscaling.us-west-2b.amazonaws.com  
+# export AWS_AUTO_SCALING_URL=https://autoscaling.us-west-2b.amazonaws.com
 
 # TeX Live PATHS
 # export PATH=$PATH:/usr/local/texlive/2013/bin/x86_64-linux
@@ -136,7 +136,7 @@ PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 # Android Development Tools / SDK
 # export PATH=$PATH:/home/lucas/Development/android-sdk-linux/tools:/home/lucas/Development/android-sdk-linux/platform-tools
 
-# Set colorful prompt 
+# Set colorful prompt
 # export PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 # export PROMPT_DIRTRIM=2
 export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{if (length($0) > 20) { if (NF>4) print $1 "/" $2 "/.../" $(NF-1) "/" $NF; else if (NF>3) print $1 "/" $2 "/.../" $NF; else print $1 "/.../" $NF; } else print $0;}'"'"')'
