@@ -61,69 +61,13 @@ def get_latest_bills():
     #     last_months_bills['bills']
 
 
-# class monthly_results(object):
-#     month = 0
-#     year = 0
-#     results = {}
-#     monthlyTotal = 0
-#     bills_in_order = {}
-
-#     def __init__(self, month, year, results):
-#         self.month = month
-#         self.year = year
-#         self.results = results
-#         bills = {}
-#         # Print all bills
-#         for bill in reversed(list(results.keys())):
-#             amount = results[bill]
-#             self.monthlyTotal += (float)(amount)
-#             bills[bill] = str(amount)
-#             self.bills_in_order = OrderedDict(sorted(bills.items(),
-#                                                      key=lambda t: t[0]))
-#         # always round up by one cent
-#         self.per_person = (self.monthlyTotal /
-#                            (float)(NUMBER_OF_ROOMMATES)) + 0.01
-
-#     def print_last_months_bills(self):
-#         print("SUBJECT:\n%s/%s Rent and Utilities\n\n" %
-#               (calendar.month_abbr[self.month - 1],
-#                calendar.month_abbr[self.month]))
-#         print("Hey all,\n")
-#         print("Here are the bills for this month:")
-#         print("\n```\n")
-#         print("%s/%s %s".center(WIDTH) %
-#               (calendar.month_abbr[self.month - 1],
-#                calendar.month_abbr[self.month], self.year))
-#         print('-' + '-' * WIDTH + '-')
-#         print("| %-18s | %6s |" % ("Utility", "Amount"))
-#         print('|' + '-' * WIDTH + '|')
-#         [print("| %-18s | %6s |" %
-#                (bill, self.bills_in_order[bill]))
-#          for bill in self.bills_in_order]
-#         print('-' + '-' * WIDTH + '-')
-#         print("\n```\n")
-#         print("**Monthly total: %.2f**" % self.monthlyTotal)
-#         # always round up by one cent
-#         print("**Per person: %.2f **" % self.per_person)
-#         print()
-#         print("Also, don't forget to deduct any of your expenses. \
-    # We can use for the house fund for that.")
-#         print()
-#         print("Thanks,\nLuke")
-
-#     def print_CSV_for_records(self):
-#         # Print bills for records
-#         print()
-#         print('-' * WIDTH)
-#         print("\nfor our records:\n")
-#         print("month,", self.month)
-#         print("year,", self.year)
-#         [print(bill + ",",
-#                self.bills_in_order[bill])
-#          for bill in self.bills_in_order]
-#         print("")
-#         print("total, %.2f" % self.monthlyTotal)
-#         print("each, %.2f" % self.per_person)
+def offsetMonthIndex(month, offset):
+    # Translate month to be indexed at 0
+    month = month - 1
+    # Mod as usual, now that we are indexed at 0
+    month = (month + offset) % 12
+    # Translate month to be indexed at 1
+    return month + 1
 
 
 # def print_last_months_bills(month, year, results):
@@ -132,8 +76,10 @@ def print_last_months_bills(monthly_data):
     year = monthly_data['year']
     monthlyTotal = monthly_data['total']
     per_person = monthly_data['each']
-    print("SUBJECT:\n%s/%s Rent and Utilities\n\n" %
-          (calendar.month_abbr[month - 1],
+    print("SUBJECT:\n%s/%s Rent and %s/%s Utilities\n\n" %
+          (calendar.month_abbr[month],
+           calendar.month_abbr[offsetMonthIndex(month, 1)],
+           calendar.month_abbr[offsetMonthIndex(month, -1)],
            calendar.month_abbr[month]))
     print("Hey all,\n")
     print("Here are the bills for this month:")
@@ -193,23 +139,6 @@ def main():
     latest_month_data['bills'] = sorted_bills
     print_last_months_bills(latest_month_data)
     print_JSON_for_records(latest_month_data)
-
-
-# def readlines_reverse(filename):
-#     with open(filename) as qfile:
-#         qfile.seek(0, os.SEEK_END)
-#         position = qfile.tell()
-#         line = ''
-#         while position >= 0:
-#             qfile.seek(position)
-#             next_char = qfile.read(1)
-#             if next_char == "\n":
-#                 yield line[::-1]
-
-#             else:
-#                 line += next_char
-#             position -= 1
-#         yield line[::-1]
 
 
 if __name__ == "__main__":
