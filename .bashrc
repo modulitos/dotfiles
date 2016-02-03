@@ -199,8 +199,10 @@ export NODE_ENV="development"
 
 test -f ~/.git-completion.bash && . $_
 
+# Ruby configs:
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+eval "$(rbenv init -)"
 
 # Docker autocompletion
 . ~/.docker-completion.sh
