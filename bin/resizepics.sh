@@ -34,6 +34,7 @@ if [ $optionPassed -eq 0 ]
 then
 echo "Please pass a '-w' flag to specify width of the conversion"
 echo "ie: 'resizepics -w 500 *.png'"
+echo "ie: 'resizepics -w 60% *.png'"
 exit 2
 fi
 
