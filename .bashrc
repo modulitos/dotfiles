@@ -118,6 +118,9 @@ fi
 # export AWS_AUTO_SCALING_HOME=/usr/local/AutoScaling-1.0.61.4/
 # export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin
 # export AWS_AUTO_SCALING_URL=https://autoscaling.us-west-2b.amazonaws.com
+# awscli auto command completion:
+complete -C '/usr/bin/aws_completer' aws
+export AWS_DEFAULT_PROFILE=default
 
 # TeX Live PATHS
 # export PATH=$PATH:/usr/local/texlive/2013/bin/x86_64-linux
