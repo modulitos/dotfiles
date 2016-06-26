@@ -10,6 +10,7 @@
 [core]
 	editor = vim
 	excludesfile = /home/lucas/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	tool = kdiff3
 [alias]
@@ -17,7 +18,10 @@
   cm = commit
   outgoing = !git fetch && git log --pretty=oneline --abbrev-commit @{u}..
   incoming = !git fetch && git log --pretty=oneline --abbrev-commit ..@{u}
+  # dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [push]
 	default = simple
 [credential]
 	helper = cache
+[diff]
+  compactionHueristic = true
