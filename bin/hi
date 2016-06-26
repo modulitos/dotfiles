@@ -3,3 +3,13 @@
 tmux-session restore
 xrandr --output eDP-0 --mode 1920x1080
 ~/bin/keyboard-reset
+
+# Let's spoof our MAC addy:
+sudo ip link set dev enp0s25 down
+sudo macchanger -e enp0s25
+sudo ip link set dev enp0s25 up
+
+sudo ip link set dev wlp4s0 down
+sudo macchanger -e wlp4s0
+sudo ip link set dev wlp4s0 up
+
