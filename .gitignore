@@ -8,6 +8,7 @@
 !.gitmodules
 !.tmux.conf
 !.tmux.reset.conf
+!.urxvt/
 !bin/
 !bin/*
 # !.vimrc
