@@ -84,10 +84,10 @@
   m:0x0 + c:225
 
 # OTHER
-"backlight.sh add -200"
+"backlight add -200"
   m:0x0 + c:232
 
-"backlight.sh add 200"
+"backlight add 200"
   m:0x0 + c:233
 
 "xbindkeys_show" 
