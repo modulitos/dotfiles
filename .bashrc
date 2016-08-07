@@ -221,3 +221,4 @@ export BROWSER="firefox"
 
 export MAILDIR=~/.mail/gmail
 export INFOPATH=$INFOPATH:/usr/share/info
+

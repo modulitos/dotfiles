@@ -37,6 +37,18 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
+# LOCK SCREEN HOTKEYS
+# home screen button:
+"xscreensaver-command --lock"
+  m:0x10 + c:180
+# calc button:
+"xscreensaver-command --lock"
+  m:0x10 + c:148
+# lock button (doesn't work - hard linked to Mod2+Mod4 + Super_L:
+"xscreensaver-command --lock"
+  m:0x50 + c:133
+
+# AUDIO CONTROLS
 # Increase volume
 "pactl set-sink-volume 1 +5000"
   m:0x0 + c:123
@@ -46,7 +58,6 @@
 # Toggle mute
 "pactl set-sink-mute 1 toggle"
   m:0x0 + c:121
-
 # Play/Pause
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
   m:0x0 + c:172
@@ -72,6 +83,7 @@
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
   m:0x0 + c:225
 
+# OTHER
 "backlight.sh add -200"
   m:0x0 + c:232
 
