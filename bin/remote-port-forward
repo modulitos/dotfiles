@@ -12,5 +12,6 @@ exit
 fi
 
 # To our dev duwamish server:
-ssh -i ~/.ssh/duwamish-aws.pem -nNt -g -R 0.0.0.0:$1:localhost:$2 dev-air-trees
+# ssh -i ~/.ssh/duwamish-aws.pem -nNt -g -R 0.0.0.0:$1:localhost:$2 dev-watershed-trees
+ssh -i ~/.ssh/duwamish-core.pem -nNt -g -R 0.0.0.0:$1:localhost:$2 dev-api
 # ie: remote-port-forward 8015 8000
