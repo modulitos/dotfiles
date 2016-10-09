@@ -14,7 +14,7 @@
 [merge]
 	tool = kdiff3
 [alias]
-  st = status
+  st = status --short --branch
   cm = commit
   please = push --force-with-lease
   outgoing = !git fetch && git log --pretty=oneline --abbrev-commit @{u}..
