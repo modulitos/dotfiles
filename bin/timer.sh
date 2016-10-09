@@ -5,6 +5,6 @@ countdown() {
     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
     sleep 0.1
   done
-  ffplay ~/Music/sounds/bell-ringing-04.wav
+  ffplay ~/music/sounds/bell-ringing-04.wav
 }
 countdown $1
