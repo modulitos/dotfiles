@@ -1,19 +1,22 @@
-Config { font = "size=12,xft:Monospace"
+Config {
+      font = "size=12,xft:Monospace"
     , bgColor = "#101010"
     , fgColor = "#a8a8a8"
     , position = Top
     , lowerOnStart = True
 
-    , commands = [ Run Network "enp0s25" ["-t", "<fc=#556B2F><rx> ↓</fc> <fc=#B22222><tx> ↑</fc>","-S","True"] 10
-                 , Run Network "wlp4s0" ["-t", "<fc=#556B2F><rx> ↓</fc> <fc=#B22222><tx> ↑</fc>","-S","True"] 10
-                 , Run Date "%a %b %_d %Y <fc=#ee9a00>%H:%M:%S</fc>" "date" 10
-                    -- , Run BatteryP ["BAT0"] ["-t", "<acstatus>", "-L", "10", "-H", "80", "-l", "red", "-h", "green", "--", "-O", "Charging", "-o", "Battery: <left>%"] 10
-                 , Run BatteryP ["BAT0"] ["-t", "B: <left>%", "-L", "10", "-H", "80", "-p", "3", "--", "-O", "<fc=green>On</fc> - ", "-o", "", "-L", "-15", "-H", "-5", "-l", "red", "-m", "blue", "-h", "green"] 600
-                 , Run StdinReader
-                 ]
+    , commands = [
+        Run Network "enp0s20u1u2" ["-t", "<fc=#556B2F><rx> ↓</fc> <fc=#B22222><tx> ↑</fc>","-S","True"] 10
+        , Run Network "wlp4s0" ["-t", "<fc=#556B2F><rx> ↓</fc> <fc=#B22222><tx> ↑</fc>","-S","True"] 10
+        , Run Date "%a %b %_d %Y <fc=#ee9a00>%H:%M:%S</fc>" "date" 10
+        , Run BatteryP ["BAT0"] ["-t", "B: <left>%", "-L", "10", "-H", "80", "-p", "3", "--", "-O", "<fc=green>On</fc> - ", "-o", "", "-L", "-15", "-H", "-5", "-l", "red", "-m", "blue", "-h", "green"] 600
+        , Run StdinReader
+        ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %battery% %wlp4s0%%enp0s25% | %date% "
+    , template = "%StdinReader% }{ %battery% %wlp4s0%%enp0s20u1u2% | %date% "
+   -- general behavior
+   , allDesktops =      True    -- show on all desktops
 }
 
 -- vim: ft=haskell
