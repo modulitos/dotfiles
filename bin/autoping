@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ $1 ]]
+then
+    host=$1
+else
+    host="archlinux.org"
+fi
+
+ping -c 3 $host
