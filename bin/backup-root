@@ -1,5 +1,9 @@
 #!/bin/bash
 
 # -S is added to more efficiently handle Docker images
-sudo rsync -SaAXvx --info=progress2 --delete -H / /run/media/lucas/root-backup/
 
+cd ~
+
+sudo rsync -aAXvHS --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home","/var/run/media/lucas"} / /run/media/lucas/root-backup/
+
+cd -

@@ -2,15 +2,12 @@
 
 # -S is added to more efficiently handle Docker images
 # sudo does not affect the backup file ownership!
-# sudo rsync -SaAXvx --info=progress2 --delete -H /home/lucas /run/media/lucas/lucas-backup/
 
-# sudo rsync -SaAXvx --info=progress2 --dry-run --exclude='/home/lucas/.docker/images' --exclude='/home/lucas/.cache' --delete -H /home/lucas /run/media/lucas/lucas-backup/
-# sudo rsync -SaAXvx --info=progress2 --exclude=~/.docker/images/ --exclude=~/.cache/ --delete -H /home/lucas /run/media/lucas/lucas-backup/
 
 # with `--delete-excluded` flag:
-# sudo rsync -SaAXvx --info=progress2 --delete-excluded --exclude=~/.docker/images/ --exclude=~/.cache/ --delete -H /home/lucas /run/media/lucas/lucas-backup/
 
+cd ~/
 
-sudo rsync -SaAXvx --info=progress2 --exclude-from=/home/lucas/bin/rsync-exclude-list.txt --delete -H /home/lucas /run/media/lucas/lucas-backup/
+sudo rsync -aAXvxHS --info=progress2 --exclude={.cache,.docker/images,"VirtualBox VMs",.config/Slack/Cache} --delete /home/lucas /run/media/lucas/lucas-home/
 
-
+cd -
