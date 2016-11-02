@@ -1,13 +1,20 @@
 #!/bin/bash
 ~/bin/backlight chmod
 tmux-session restore
-xrandr --output eDP-0 --mode 1920x1080
-~/bin/keyboard-reset
+
+# http://askubuntu.com/questions/377937/how-to-set-a-custom-resolution
+# ex to add new mode:
+# cvt 1600 900 60
+xrandr --newmode "1600x900_60.00" 118.25  1600 1696
+xrandr --addmode eDP-1 1600x900_60.00
+xrandr --output eDP-1 --mode 1600x900_60.00
+
+keyboard-reset
 
 # Let's spoof our MAC addy:
-sudo ip link set dev enp0s25 down
-sudo macchanger -e enp0s25
-sudo ip link set dev enp0s25 up
+sudo ip link set dev enp0s20u2 down
+sudo macchanger -e enp0s20u2
+sudo ip link set dev enp0s20u2 up
 
 sudo ip link set dev wlp4s0 down
 sudo macchanger -e wlp4s0
