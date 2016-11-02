@@ -47,6 +47,9 @@
 # lock button (doesn't work - hard linked to Mod2+Mod4 + Super_L:
 "xscreensaver-command --lock"
   m:0x50 + c:133
+# pause:
+"xscreensaver-command --lock"
+  m:0x10 + c:127
 
 # AUDIO CONTROLS
 # Increase volume
