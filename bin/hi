@@ -20,3 +20,4 @@ sudo ip link set dev wlp4s0 down
 sudo macchanger -e wlp4s0
 sudo ip link set dev wlp4s0 up
 
+start-airvpn
