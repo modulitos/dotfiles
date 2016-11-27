@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo ip link set dev enp0s20u2 down
+sudo macchanger -e enp0s20u2
+sudo ip link set dev enp0s20u2 up
+
+sudo ip link set dev wlp4s0 down
+sudo macchanger -e wlp4s0
+sudo ip link set dev wlp4s0 up
+
