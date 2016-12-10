@@ -222,3 +222,6 @@ export BROWSER="firefox"
 export MAILDIR=~/.mail/gmail
 export INFOPATH=$INFOPATH:/usr/share/info
 
+
+# added by travis gem
+[ -f /home/lucas/.travis/travis.sh ] && source /home/lucas/.travis/travis.sh
