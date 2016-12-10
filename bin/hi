@@ -9,6 +9,9 @@ xrandr --newmode "1600x900_60.00" 118.25  1600 1696 1856 2112  900 903 908 934 -
 xrandr --addmode eDP-1 1600x900_60.00
 xrandr --output eDP-1 --mode 1600x900_60.00
 
+# Perhaps this can be permianently added by creating a config with
+# `Xorg :0 -configure` and updating the config?
+
 keyboard-reset
 
 # Let's spoof our MAC addy:

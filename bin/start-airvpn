@@ -1,5 +1,9 @@
 #!/bin/bash
 
-sudo killall openvpn
+sudo killall -9 openvpn
+
+# disable ipv6:
+sudo sh -c 'echo 1 > /proc/sys/net/ipv6/conf/wlp4s0/disable_ipv6'
+
 sudo openvpn --log /var/log/openvpn.log --cd /home/lucas/ovpn --config AirVPN_America_UDP-443.ovpn --daemon
 
