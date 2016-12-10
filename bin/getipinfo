@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# for just ip:
+# curl ipinfo.io/ip
+# for more info:
+curl ipinfo.io
+
