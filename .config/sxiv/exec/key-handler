@@ -38,7 +38,17 @@ do
             convert -rotate 90 "$file" "$file" ;;
         "C-c")
             echo -n "$file" | xclip -selection clipboard ;;
-        "C-t")
+        "C-h")
+            echo "options:\nC-x is the prefix" \
+                 "C-d: DELETE: move file to ~/.trash" \
+                 "C-r: ROTATE: rotate file 90 degrees" \
+                 "C-c: COPY: copy to clipboard" \
+                 "C-h: HELP: print this help message" \
+                 "C-e: ECHO: echo the marked files" \
+                 "C-m: MOVE: move files to selected dmenu directory" \
+                 "C-w: NITROGEN: ???"
+            ;;
+        "C-e")
             echo "$file" ;;
         "C-m")
             mv "$file" $dirpath ;;
