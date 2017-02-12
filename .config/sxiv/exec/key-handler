@@ -38,15 +38,20 @@ do
             convert -rotate 90 "$file" "$file" ;;
         "C-c")
             echo -n "$file" | xclip -selection clipboard ;;
+        "C-n")
+            IFS='/'; arrIN=($file); unset IFS;
+            echo "copying file name: ${arrIN[-1]}"
+            echo -n ${arrIN[-1]} | xclip -selection clipboard ;;
         "C-h")
-            echo "options:\nC-x is the prefix" \
-                 "C-d: DELETE: move file to ~/.trash" \
-                 "C-r: ROTATE: rotate file 90 degrees" \
-                 "C-c: COPY: copy to clipboard" \
-                 "C-h: HELP: print this help message" \
-                 "C-e: ECHO: echo the marked files" \
-                 "C-m: MOVE: move files to selected dmenu directory" \
-                 "C-w: NITROGEN: ???"
+            echo $'options:\nC-x is the prefix' \
+                 $'\nC-d: DELETE: move file to ~/.trash' \
+                 $'\nC-r: ROTATE: rotate file 90 degrees' \
+                 $'\nC-c: COPY: copy file PATH to clipboard' \
+                 $'\nC-n: NAME: copy file NAME to clipboard' \
+                 $'\nC-h: HELP: print this help message' \
+                 $'\nC-e: ECHO: echo the marked files' \
+                 $'\nC-m: MOVE: move files to selected dmenu directory' \
+                 $'\nC-w: NITROGEN: ???'
             ;;
         "C-e")
             echo "$file" ;;
