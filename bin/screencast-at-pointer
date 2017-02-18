@@ -1,0 +1,4 @@
+#!/bin/bash
+
+windowid=`getmouselocation`
+recordmydesktop --no-sound --windowid $windowid

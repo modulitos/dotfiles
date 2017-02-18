@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xdotool getmouselocation | awk -F':' '{print $5}'
+# example output of xdotool:
+# x:385 y:266 screen:0 window:33554497
