@@ -4,21 +4,23 @@ case $1 in
   pass|password|p)
     cat /etc/wpa_supplicant/wpa_supplicant-wlp4s0.conf | grep -i -A 1 "$2" | grep -A 1 "^[[:space:]]\+ssid="
     ;;
+  iwscan|iw)
+    sudo iw wlp4s0 scan | grep 'SSID\|signal'
+    ;;
   scan|sc)
     wpa_cli scan && sleep 5 && wpa_cli scan_results | less
-    # sudo iw dev wlp4s0 scan | grep "SSID\|signal" | less
     ;;
   search|s)
     cat /etc/wpa_supplicant/wpa_supplicant-wlp4s0.conf | grep -i -A 3 "$2" | grep -A 3 "^[[:space:]]\+ssid="
-    ;;
-  add|a)
-    echo "2 is: $2"
-    echo "3 is: $3"
-    wpa_passphrase $2 $3 | sudo tee -a /etc/wpa_supplicant/wpa_supplicant-wlp4s0.conf
+    echo "wpa network id's matching the '$2' query:"
+    wpa_cli list_networks | grep $2
     ;;
   current|c)
-    # wpa_cli list_networks | grep CURRENT
     iw wlp4s0 link
+    SSID=`iw wlp4s0 link | grep 'SSID: ' | awk '{print $2}'`
+    echo ""
+    echo "current wpa network info for SSID: $SSID:"
+    wpa_cli list_networks | grep $SSID
     ;;
   *)
     echo "Invalid input."
@@ -33,17 +35,3 @@ case $1 in
     echo "goodbye!"
     ;;
 esac
-
-# sudo iw wlp4s0 scan | grep SSID
-# cat /etc/wpa_supplicant/wpa_supplicant-wlp4s0.conf | grep -A 2
-
-# while getopts 'abf:v --long a-long,b-long:,v-long::' flag; do
-#    echo "${flag}"
-# #   case "${flag}" in
-# #     a) aflag='true' ;;
-# #     b) bflag='true' ;;
-# #     f) files="${OPTARG}" ;;
-# #     v) verbose='true' ;;
-# #     *) error "Unexpected option ${flag}" ;;
-# #   esac
-# done
