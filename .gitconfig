@@ -19,6 +19,12 @@
   please = push --force-with-lease
   outgoing = !git fetch && git log --pretty=oneline --abbrev-commit @{u}..
   incoming = !git fetch && git log --pretty=oneline --abbrev-commit ..@{u}
+	commend = commit --amend --no-edit
+	it = !git init && git commit -m “root” --allow-empty
+	stsh = stash --keep-index
+	staash = stash --include-untracked
+	staaash = stash --all
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
   # dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [push]
 	default = simple
