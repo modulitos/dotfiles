@@ -1,0 +1,34 @@
+#!/bin/bash
+
+case $1 in
+  "--dry-run"|d)
+    case $2 in
+      "")
+        echo "be sure to enter a proper ip for the device"
+        ;;
+      *)
+        rsync -e 'ssh -p 2222' -avzh --dry-run --progress root@$2:/storage/self/primary/DCIM/Camera/*.jpg ~/Pictures/sshdroid/
+        ;;
+    esac
+    ;;
+  "")
+    echo "options:"
+    echo "  dry run:"
+    echo "rsync-sshdroid --dry-run <device-ip>"
+    echo "  for real:"
+    echo "rsync-sshdroid <device-ip>"
+    echo ""
+    echo "goodbye!"
+    ;;
+  *)
+    case $2 in
+      "")
+        echo "ryncing for device ip: $1"
+        rsync -e 'ssh -p 2222' -avzh --progress root@$1:/storage/self/primary/DCIM/Camera/*.jpg ~/Pictures/sshdroid/
+        ;;
+      *)
+        echo "we don't understand your second parameter: $2"
+        ;;
+    esac
+    ;;
+esac
