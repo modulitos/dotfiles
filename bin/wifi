@@ -13,7 +13,7 @@ case $1 in
   search|s)
     cat /etc/wpa_supplicant/wpa_supplicant-wlp4s0.conf | grep -i -A 3 "$2" | grep -A 3 "^[[:space:]]\+ssid="
     echo "wpa network id's matching the '$2' query:"
-    wpa_cli list_networks | grep $2
+    wpa_cli list_networks | grep -i $2
     ;;
   current|c)
     iw wlp4s0 link
