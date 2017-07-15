@@ -38,15 +38,9 @@
 #keystate_scrolllock= enable
 
 # LOCK SCREEN HOTKEYS
-# home screen button:
+# display function button:
 "xscreensaver-command --lock"
-  m:0x10 + c:180
-# calc button:
-"xscreensaver-command --lock"
-  m:0x10 + c:148
-# lock button (doesn't work - hard linked to Mod2+Mod4 + Super_L:
-"xscreensaver-command --lock"
-  m:0x50 + c:133
+  m:0x10 + c:235
 # pause:
 "xscreensaver-command --lock"
   m:0x10 + c:127
