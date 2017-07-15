@@ -1,0 +1,8 @@
+#!/bin/bash
+
+input=$1
+output=$2
+scale=${3:-320}
+
+ffmpeg -i $input -vf scale=$scale:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - $output
+
