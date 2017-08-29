@@ -1,4 +1,6 @@
 #!/bin/bash
 
 windowid=`getmouselocation`
-recordmydesktop --no-sound --windowid $windowid
+FILENAME="${1:-out.ogv}"
+echo "FILENAME arg: $FILENAME"
+recordmydesktop --no-sound --windowid $windowid -o $FILENAME

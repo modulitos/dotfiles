@@ -1,4 +1,4 @@
 #!/bin/bash
 
 windowid=`getmouselocation`
-escrotum -x $windowid
+escrotum -x $windowid $1
