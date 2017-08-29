@@ -9,6 +9,7 @@
 !.tmux.conf
 !.tmux.reset.conf
 !.urxvt/
+!.eslintrc
 !bin/
 !bin/*
 # !.vimrc
