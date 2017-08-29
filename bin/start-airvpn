@@ -6,16 +6,21 @@ sudo killall -9 openvpn
 sudo sh -c 'echo 1 > /proc/sys/net/ipv6/conf/wlp4s0/disable_ipv6'
 
 case $1 in
-    west|wc)
-        config=AirVPN_West-Coast_UDP-443.ovpn
+    canada|bc)
+        config=AirVPN_America_UDP-443.ovpn
         ;;
     asia|a)
         config=AirVPN_Asia_UDP-443.ovpn
         ;;
     *)
-        config=AirVPN_America_UDP-443.ovpn
+        config=AirVPN_West-Coast_UDP-443.ovpn
         ;;
 esac
+
+if [ "$1" == '--tcp' ] || [ "$2" == '--tcp' ] ; then
+  config=AirVPN_West-Coast_TCP-443.ovpn
+fi
+echo "loading openvpn config: $config"
 
 sudo openvpn --log /var/log/openvpn.log --cd /home/lucas/openvpn --config $config --daemon
 
