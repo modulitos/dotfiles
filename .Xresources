@@ -73,7 +73,7 @@ URxvt.font: xft:consolas:size=10
 *color1 :            #B22222
 *color9 :            #FA8072
 !green
-*color2 :            #556B2F
+*color2 :            #98b95f
 *color10:            #779A3E
 !yellow
 *color3 :            #B8860B
