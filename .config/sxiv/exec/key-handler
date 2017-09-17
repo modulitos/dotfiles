@@ -44,14 +44,16 @@ do
             echo -n ${arrIN[-1]} | xclip -selection clipboard ;;
         "C-h")
             echo $'options:\nC-x is the prefix' \
-                 $'\nC-d: DELETE: move file to ~/.trash' \
+                 $'\nC-d: DELETE: move file(s) to ~/.trash' \
                  $'\nC-r: ROTATE: rotate file 90 degrees' \
                  $'\nC-c: COPY: copy file PATH to clipboard' \
                  $'\nC-n: NAME: copy file NAME to clipboard' \
                  $'\nC-h: HELP: print this help message' \
                  $'\nC-e: ECHO: echo the marked files' \
-                 $'\nC-m: MOVE: move files to selected dmenu directory' \
+                 $'\nC-m: MOVE: move file(s) to selected dmenu directory' \
                  $'\nC-w: NITROGEN: ???'
+                 $'\n'
+                 $'\nNOTE: to operate on multiple files, make sure you are in the multi-file viewer (press enter to toggle)'
             ;;
         "C-e")
             echo "$file" ;;
