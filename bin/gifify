@@ -1,8 +1,21 @@
 #!/bin/bash
 
+# help menu:
+if [[ $1 == '--help' ]] || [[ $1 == 'help' ]];
+then
+  echo "gifify usage:"
+  echo "gifify <input-file> <output-file> <scale> <delay>"
+  echo "default output file: <input-file>.gif"
+  echo "default scale: 320"
+  echo "default delay: 5"
+  echo "Goodbye."
+  exit 0
+fi
+
 input=$1
 output=$2
 scale=${3:-320}
+delay=${4:-5}
 
-ffmpeg -i $input -vf scale=$scale:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - $output
+ffmpeg -i $input -vf scale=$scale:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay $delay -loop 0 - gif:- | convert -layers Optimize - $output
 
