@@ -39,10 +39,10 @@
 
 # LOCK SCREEN HOTKEYS
 # display function button:
-"xscreensaver-command --lock"
+"slock"
   m:0x10 + c:235
 # pause:
-"xscreensaver-command --lock"
+"slock"
   m:0x10 + c:127
 
 # AUDIO CONTROLS
