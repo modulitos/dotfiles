@@ -58,8 +58,6 @@ xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 numlockx &
 
 # https://wiki.archlinux.org/index.php/XScreenSaver
-xscreensaver &
-xss-lock -- xscreensaver-command -lock &
 
 exec xmonad
 xsetroot -cursor_name left_ptr
