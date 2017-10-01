@@ -2,26 +2,19 @@
 ~/bin/backlight chmod
 tmux-session restore
 
+
 # http://askubuntu.com/questions/377937/how-to-set-a-custom-resolution
 # ex to add new mode:
+
 # cvt 1600 900 60
-xrandr --newmode "1600x900_60.00" 118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
-xrandr --addmode eDP-1 1600x900_60.00
-xrandr --output eDP-1 --mode 1600x900_60.00
+xrandr --output eDP1 --mode 1600x900
 
 # Perhaps this can be permianently added by creating a config with
 # `Xorg :0 -configure` and updating the config?
 
 keyboard-reset
 
-# Let's spoof our MAC addy:
-sudo ip link set dev enp0s20u2 down
-sudo macchanger -e enp0s20u2
-sudo ip link set dev enp0s20u2 up
-
-sudo ip link set dev wlp4s0 down
-sudo macchanger -e wlp4s0
-sudo ip link set dev wlp4s0 up
+mac-spoof
 
 start-airvpn
-redshift &
+redshift -l 47.606:-122.332 &
