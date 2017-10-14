@@ -154,7 +154,6 @@ export CLOUDSDK_PYTHON=/usr/bin/python2
 # The next line enables bash completion for gcloud.
 source /home/lucas/Development/google-cloud-sdk/completion.bash.inc
 
-# alias tmux-session="/home/lucas/bin/tmux-session"
 alias tmux='tmux -2'
 
 # alias tmux attach for auto-complete
@@ -225,3 +224,6 @@ export INFOPATH=$INFOPATH:/usr/share/info
 
 # added by travis gem
 [ -f /home/lucas/.travis/travis.sh ] && source /home/lucas/.travis/travis.sh
+
+# source autojump (installed via pacman):
+source /etc/profile.d/autojump.sh
