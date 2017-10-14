@@ -2,11 +2,11 @@
 ~/bin/backlight chmod
 tmux-session restore
 
-
+# to add custom resolutions via cvt, see here:
+# https://unix.stackexchange.com/questions/47749/cannot-add-new-mode-in-xrandr-for-external-monitor?rq=1
+# or here:
 # http://askubuntu.com/questions/377937/how-to-set-a-custom-resolution
-# ex to add new mode:
 
-# cvt 1600 900 60
 xrandr --output eDP1 --mode 1600x900
 
 # Perhaps this can be permianently added by creating a config with
