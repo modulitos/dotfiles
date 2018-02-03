@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # help menu:
-if [[ $1 == '--help' ]] || [[ $1 == 'help' ]];
+if [[ $1 == '-h' ]] || [[ $1 == '--help' ]] || [[ $1 == 'help' ]];
 then
   echo "gifify usage:"
   echo "gifify <input-file> <output-file> <scale> <delay>"
