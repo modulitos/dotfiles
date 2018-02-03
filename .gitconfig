@@ -5,7 +5,7 @@
 	history-view-vpane-position = 752
 	file-view-vpane-position = 916
 [user]
-	name = Luke Swart
+	name = modulitos
 	email = luke@lukeswart.net
 [core]
 	editor = vim
@@ -16,6 +16,8 @@
 [alias]
   st = status --short --branch
   cm = commit
+  prune = fetch --prune
+  undo = reset --soft HEAD^
   please = push --force-with-lease
   outgoing = !git fetch && git log --pretty=oneline --abbrev-commit @{u}..
   incoming = !git fetch && git log --pretty=oneline --abbrev-commit ..@{u}
@@ -25,6 +27,7 @@
 	staash = stash --include-untracked
 	staaash = stash --all
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	recent-branches = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
   # dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [push]
 	default = simple
