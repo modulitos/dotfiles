@@ -12,15 +12,36 @@ case $1 in
     asia|a)
         config=AirVPN_Asia_UDP-443.ovpn
         ;;
+    spain|es)
+        config=AirVPN_Spain_UDP-443.ovpn
+        if [ "$2" == '--tcp' ] ; then
+          config=AirVPN_Spain_TCP-443.ovpn
+        fi
+        ;;
     *)
         config=AirVPN_West-Coast_UDP-443.ovpn
+        if [ "$2" == '--tcp' ] ; then
+          config=AirVPN_West-Coast_TCP-443.ovpn
+        fi
         ;;
 esac
 
-if [ "$1" == '--tcp' ] || [ "$2" == '--tcp' ] ; then
+if [ "$1" == '--tcp' ]; then
   config=AirVPN_West-Coast_TCP-443.ovpn
 fi
 echo "loading openvpn config: $config"
 
-sudo openvpn --log /var/log/openvpn.log --cd /home/lucas/openvpn --config $config --daemon
+logfile=/var/log/openvpn.log
+sudo openvpn --log $logfile --cd /home/lucas/openvpn --config $config --daemon
+
+# suboptimal solution because it uses pkill:
+tail -f $logfile | while read LOGLINE
+do
+   echo $LOGLINE
+   if [[ $LOGLINE = *"Initialization Sequence Completed"* ]]; then
+     pkill -P $$ tail
+   fi
+done
+
+echo "vpn is set :-)"
 
