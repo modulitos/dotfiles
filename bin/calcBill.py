@@ -19,9 +19,16 @@ import json
 # print "total, " + str(total)
 # print "each, " + str(each)
 # print "done"
-NUMBER_OF_ROOMMATES = 5
 WIDTH = 29
 BILLS_FILE = 'bills.json'
+NUMBER_OF_ROOMMATES = 5
+ROOMMATES = {
+    'Abraham': 590,
+    'Collin': 579,
+    'Alex': 605,
+    'Michael': 620,
+    'Luke': 615
+}
 
 
 def migrate_bills_info():
@@ -85,8 +92,9 @@ def print_last_months_bills(monthly_data):
     print("Here are the bills for this month:")
     print("\n```\n")
     print("%s/%s %s".center(WIDTH) %
-          (calendar.month_abbr[month - 1],
-           calendar.month_abbr[month], year))
+          (calendar.month_abbr[offsetMonthIndex(month, -1)],
+           calendar.month_abbr[month],
+           year))
     print('-' + '-' * WIDTH + '-')
     print("| %-18s | %6s |" % ("Utility", "Amount"))
     print('|' + '-' * WIDTH + '|')
@@ -99,9 +107,17 @@ def print_last_months_bills(monthly_data):
     # always round up by one cent
     print("**Per person: %.2f **" % per_person)
     print()
-    print("Also, don't forget to deduct any common items like tp, oil, etc")
-    print()
-    print("Thanks,\nLuke")
+    print("Also, don't forget to deduct any common items like tp, oil, etc\n")
+    print("Thanks,\nLuke\n\n")
+    print("PS: If you haven't figured it out, here's the total amount due")
+    print("for each of you:\n")
+    for roommate in ROOMMATES:
+        roommate_rent = ROOMMATES[roommate]
+        print("**{}**: rent + utilities = \${} + \${} = **\${}**"
+              .format(roommate,
+                      roommate_rent,
+                      per_person,
+                      roommate_rent + per_person))
 
 
 def print_JSON_for_records(monthly_data):
