@@ -47,47 +47,47 @@
 
 # AUDIO CONTROLS
 # Increase volume
-"pactl set-sink-volume 1 +5000"
-  m:0x0 + c:123
+"audio i"
+  m:0x10 + c:123
 # Decrease volume
-"pactl -- set-sink-volume 1 -5000"
-  m:0x0 + c:122
+"audio d"
+  m:0x10 + c:122
 # Toggle mute
-"pactl set-sink-mute 1 toggle"
-  m:0x0 + c:121
+"audio m"
+  m:0x10 + c:121
 # Play/Pause
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-  m:0x0 + c:172
+"audio p"
+  m:0x10 + c:172
 # bind to the 'tools' button
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-  m:0x0 + c:179
+"audio p"
+  m:0x10 + c:179
 # Next
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-  m:0x0 + c:171
+"audio f"
+  m:0x10 + c:171
 # bind to the 'search' button
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-  m:0x0 + c:152
+"aduio f"
+  m:0x10 + c:152
 # Previous
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-  m:0x0 + c:173
+"audio b"
+  m:0x10 + c:173
 # bind to the 'launch' button
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-  m:0x0 + c:128
+"audio b"
+  m:0x10 + c:128
 # Stop
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
-  m:0x0 + c:174
+"audio s"
+  m:0x10 + c:174
 # bind to the 'explorer' button
-"dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
-  m:0x0 + c:225
+"audio s"
+  m:0x10 + c:225
 
 # OTHER
 "backlight add -200"
-  m:0x0 + c:232
+  m:0x10 + c:232
 
 "backlight add 200"
-  m:0x0 + c:233
+  m:0x10 + c:233
 
-"xbindkeys_show" 
+"xbindkeys_show"
   control+shift + q
 
 # Examples of commands:
