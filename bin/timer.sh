@@ -8,3 +8,5 @@ countdown() {
   play ~/music/sounds/bell-ringing-04.wav
 }
 countdown $1
+message=$2
+echo "$message"
