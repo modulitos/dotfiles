@@ -11,6 +11,11 @@
 	editor = vim
 	excludesfile = /home/lucas/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
+[push]
+  default = simple
+  followTags = true
+  # Because I get sick of telling git to do it manually
+  # https://git-scm.com/docs/git-config#git-config-pushfollowTags
 [merge]
 	tool = kdiff3
 [alias]
