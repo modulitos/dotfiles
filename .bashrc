@@ -183,21 +183,18 @@ export PYTHONSTARTUP="/home/lucas/.pyrc"
 
 export NLTK_DATA=/home/lucas/Development/nltk_data
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 # export PATH="$PATH:/home/lucas/Development/clion-138.2344.14/bin"
 export PATH="$PATH:/home/lucas/Development/activator-1.2.10"
 export SCALA_HOME="/home/lucas/Applications/scala-2.11.2"
 export PATH="$PATH:$SCALA_HOME/bin"
 
-export CLASSPATH=$CLASSPATH:~/class/algorithms/assignments/algorithms/stdlib.jar:~/class/algorithms/assignments/algorithms/algs4.jar:~/class/algorithms/assignments/out/production/algorithms-princeton
+## Note: Allow NPM to install global command-line tools that are not in ~/npm:
+export PATH=~/npm/bin:$PATH
+export PATH=./node_modules/.bin:$PATH
 
 export NVM_DIR="/home/lucas/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-## Node: Allow NPM to install global command-line tools that are not in ~/npm:
-export PATH=~/npm/bin:$PATH
-export PATH=./node_modules/.bin:$PATH
-export NODE_ENV="development"
+nvm use default
 
 test -f ~/.git-completion.bash && . $_
 
