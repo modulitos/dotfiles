@@ -163,6 +163,8 @@ if [ -f /etc/bash_completion.d/tma ]; then
 . /etc/bash_completion.d/tma
 fi
 
+################################################################################
+
 # Python virtual environment and wrapper
 # export WORKON_HOME=$HOME/.virtualenvs
 # source /usr/local/bin/virtualenvwrapper_lazy.sh
@@ -182,6 +184,16 @@ source /usr/bin/virtualenvwrapper.sh
 export PYTHONSTARTUP="/home/lucas/.pyrc"
 
 export NLTK_DATA=/home/lucas/Development/nltk_data
+
+export PATH="/home/lucas/.local/bin:$PATH"
+
+# Pyenv:
+export PATH="~/.pyenv/versions/:$PATH"
+eval "$(pyenv init -)"
+# Pyenv virtualenv plugins:
+eval "$(pyenv virtualenv-init -)"
+
+################################################################################
 
 # export PATH="$PATH:/home/lucas/Development/clion-138.2344.14/bin"
 export PATH="$PATH:/home/lucas/Development/activator-1.2.10"
