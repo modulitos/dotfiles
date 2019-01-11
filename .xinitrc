@@ -57,7 +57,9 @@ xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
 # https://wiki.archlinux.org/index.php/Activating_Numlock_on_Bootup
 numlockx &
 
+clipmenud &
+
 # https://wiki.archlinux.org/index.php/XScreenSaver
 
-exec xmonad
+exec i3
 xsetroot -cursor_name left_ptr
