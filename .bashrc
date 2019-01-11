@@ -204,11 +204,8 @@ export PATH="$PATH:$SCALA_HOME/bin"
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 
-export NVM_DIR="/home/lucas/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use default
 
-test -f ~/.git-completion.bash && . $_
+source /usr/share/bash-completion/completions/git
 
 # Ruby configs:
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
@@ -236,3 +233,7 @@ export INFOPATH=$INFOPATH:/usr/share/info
 
 # source autojump (installed via pacman):
 source /etc/profile.d/autojump.sh
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
