@@ -1,16 +1,31 @@
 #!/bin/bash
 
-sudo killall -9 openvpn
-
-# disable ipv6:
-sudo sh -c 'echo 1 > /proc/sys/net/ipv6/conf/wlp4s0/disable_ipv6'
-
+# to generate a new config file, go here: https://airvpn.org/generator/
+# select the servers you want, download those config files, and aggregate the remotes
+# into a new file built off of the existing templates.
+# All that is needed is to replace the "remote" directives with the new IP's.
 case $1 in
+    --help)
+        echo "menu:"
+        echo "  start-airvpn canada|bc"
+        echo "  start-airvpn asia|a"
+        echo "  start-airvpn hongKong"
+        echo "  start-airvpn east-coast|e"
+        echo "  start-airvpn spain|es"
+        echo "  start-airvpn default = west coast US"
+        exit 0
+        ;;
     canada|bc)
         config=AirVPN_America_UDP-443.ovpn
         ;;
     asia|a)
         config=AirVPN_Asia_UDP-443.ovpn
+        ;;
+    hongKong|h)
+        config=AirVPN_Hong-Kong_UDP-443.ovpn
+        ;;
+    east-coast|e)
+        config=AirVPN_East-Coast_UDP-443.ovpn
         ;;
     spain|es)
         config=AirVPN_Spain_UDP-443.ovpn
@@ -26,6 +41,12 @@ case $1 in
         ;;
 esac
 
+sudo killall -9 openvpn
+
+# disable ipv6:
+sudo sh -c 'echo 1 > /proc/sys/net/ipv6/conf/wlp4s0/disable_ipv6'
+
+# if [ "$1" == '--tcp' ] || [ "$2" == '--tcp' ] ; then
 if [ "$1" == '--tcp' ]; then
   config=AirVPN_West-Coast_TCP-443.ovpn
 fi
