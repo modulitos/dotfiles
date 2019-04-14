@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# SINK=1
+SINK=0
+
 case $1 in
   mute|m)
-    pactl set-sink-mute 1 toggle
+    pactl set-sink-mute $SINK toggle
     ;;
   play|pause|p)
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -17,12 +20,10 @@ case $1 in
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
     ;;
   increase|i)
-    pactl set-sink-volume 1 +5000
-    # pactl set-sink-volume 0 +5000
+    pactl set-sink-volume $SINK +5000
     ;;
   decrease|d)
-    pactl set-sink-volume 1 -5000
-    # pactl set-sink-volume 0 -5000
+    pactl set-sink-volume $SINK -5000
     ;;
   *)
     echo "Invalid input."
