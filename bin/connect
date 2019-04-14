@@ -1,4 +1,16 @@
 #!/bin/bash
 
-eval `ssh-agent`
-ssh-add
+eval "$(ssh-agent -s)"
+USER=$1
+case $USER in
+  jalmogo)
+    FILE=~/.ssh/jalmogo-github
+    ;;
+  modulitos|*)
+    FILE=~/.ssh/modulitos-github
+    ;;
+esac
+
+echo "adding file: $FILE"
+
+ssh-add $FILE

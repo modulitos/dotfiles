@@ -90,8 +90,6 @@
 "backlight add 200"
   m:0x10 + c:233
 
-"xbindkeys_show"
-  control+shift + q
 
 # Examples of commands:
 
