@@ -16,5 +16,5 @@ keyboard-reset
 
 mac-spoof
 
-redshift -l 47.606:-122.332 &
+start-redshift
 start-airvpn
