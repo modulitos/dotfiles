@@ -136,9 +136,6 @@ export MANPATH=$MANPATH:$TEXDIR/texmf-dist/doc/man
 PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
 
-# Android Development Tools / SDK
-# export PATH=$PATH:/home/lucas/Development/android-sdk-linux/tools:/home/lucas/Development/android-sdk-linux/platform-tools
-
 # Set colorful prompt
 # export PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 # export PROMPT_DIRTRIM=2
