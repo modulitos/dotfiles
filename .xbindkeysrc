@@ -68,7 +68,7 @@
 "audio f"
   m:0x10 + c:171
 # bind to the 'search' button
-"aduio f"
+"audio f"
   m:0x10 + c:152
 # Previous
 "audio b"
