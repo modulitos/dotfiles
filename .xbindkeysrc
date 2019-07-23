@@ -90,6 +90,8 @@
 "backlight add 200"
   m:0x10 + c:233
 
+"emoji"
+  m:0x50 + c:31
 
 # Examples of commands:
 
