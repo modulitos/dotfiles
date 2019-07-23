@@ -1,16 +1,24 @@
 #!/bin/bash
 
-eval "$(ssh-agent -s)"
 USER=$1
 case $USER in
   jalmogo)
     FILE=~/.ssh/jalmogo-github
     ;;
-  modulitos|*)
+  gitlab)
+    FILE=~/.ssh/gitlab
+    ;;
+  modulitos)
     FILE=~/.ssh/modulitos-github
+    ;;
+  help|--help|*)
+    echo "enter one of the following keys:"
+    echo "jalmogo | gitlab | modulitos"
+    return 0
     ;;
 esac
 
+eval "$(ssh-agent -s)"
 echo "adding file: $FILE"
 
 ssh-add $FILE

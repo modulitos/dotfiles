@@ -5,8 +5,8 @@
 	history-view-vpane-position = 752
 	file-view-vpane-position = 916
 [user]
-	name = modulitos
-	email = luke@lukeswart.net
+	name = jalmogo
+	email = you@example.com
 [core]
 	editor = vim
 	excludesfile = /home/lucas/.gitignore_global
