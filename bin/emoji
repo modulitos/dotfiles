@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# https://github.com/porras/dmenu-emoji/blob/master/dmenu-emoji.sh
 set -e
 
 case "$1" in
@@ -10,7 +10,8 @@ case "$1" in
   "copy")
     input=$(tee)
     if [ ! -z "$input" ]; then
-      emoji=${input: -1}
+      IFS=' ' read -ra items <<< $input
+      emoji=${items[-1]}
       echo -n "$emoji" | xclip -selection c
       command -v notify-send > /dev/null && notify-send -t 200 "$emoji copied!"
     fi
@@ -23,6 +24,7 @@ esac
 exit
 
 __DATA__
+whatever                                   ¯\(ツ)/¯
 grinning face                                   😀
 smiling face with open mouth                    😃
 smiling face with open mouth & smiling eyes     😄
