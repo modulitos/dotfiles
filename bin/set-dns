@@ -1,0 +1,25 @@
+#!/bin/bash
+
+case $1 in
+    --help)
+        echo "menu:"
+        echo "  set-dns air"
+        echo "  set-dns google"
+        echo "  set-dns openvpn"
+        exit 0
+        ;;
+    air)
+        config=air
+        ;;
+    google)
+        config=google
+        ;;
+    opendns)
+        config=opendns
+        ;;
+    *)
+        config=opendns
+        ;;
+esac
+
+sudo cp /etc/resolv.$config /etc/resolv.conf
