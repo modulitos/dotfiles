@@ -144,12 +144,6 @@ export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{if (length($0) > 20)
 PS1='\[\e[1;32m\][\h]$(eval "echo ${MYPS}")$\[\e[0m\] '
 #PS1='\[\e[1;32m\][\u@\h]$(eval "echo ${MYPS}")$\[\e[0m\] '
 
-# Google Cloud SDK - update PATH and Python 2 version
-source /home/lucas/Development/google-cloud-sdk/path.bash.inc
-export CLOUDSDK_PYTHON=/usr/bin/python2
-
-# The next line enables bash completion for gcloud.
-source /home/lucas/Development/google-cloud-sdk/completion.bash.inc
 
 alias tmux='tmux -2'
 
@@ -162,11 +156,20 @@ fi
 
 ################################################################################
 
+export PATH="~/.local/bin:$PATH"
+export PATH="~/bin:$PATH"
+
+# Pyenv:
+export PATH="~/.pyenv/versions/:$PATH"
+eval "$(pyenv init -)"
+
 # Python virtual environment and wrapper
 # export WORKON_HOME=$HOME/.virtualenvs
 # source /usr/local/bin/virtualenvwrapper_lazy.sh
+export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/shims/python
 export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+mkdir -p $WORKON_HOME
+. ~/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh
 # Python virtual environment aliases
 #alias v='workon'
 #alias v.deactivate='deactivate'
@@ -178,24 +181,8 @@ source /usr/bin/virtualenvwrapper.sh
 #alias v.cd='cdvirtualenv'
 #alias v.lssitepackages='lssitepackages'
 
-export PYTHONSTARTUP="/home/lucas/.pyrc"
-
-export NLTK_DATA=/home/lucas/Development/nltk_data
-
-export PATH="/home/lucas/.local/bin:$PATH"
-
-# Pyenv:
-export PATH="~/.pyenv/versions/:$PATH"
-eval "$(pyenv init -)"
-# Pyenv virtualenv plugins:
-eval "$(pyenv virtualenv-init -)"
-
 ################################################################################
 
-# export PATH="$PATH:/home/lucas/Development/clion-138.2344.14/bin"
-export PATH="$PATH:/home/lucas/Development/activator-1.2.10"
-export SCALA_HOME="/home/lucas/Applications/scala-2.11.2"
-export PATH="$PATH:$SCALA_HOME/bin"
 
 ## Note: Allow NPM to install global command-line tools that are not in ~/npm:
 export PATH=~/npm/bin:$PATH
@@ -226,7 +213,6 @@ export INFOPATH=$INFOPATH:/usr/share/info
 
 
 # added by travis gem
-[ -f /home/lucas/.travis/travis.sh ] && source /home/lucas/.travis/travis.sh
 
 # source autojump (installed via pacman):
 source /etc/profile.d/autojump.sh
