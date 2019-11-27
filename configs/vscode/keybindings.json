@@ -58,6 +58,11 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "ctrl+shift+o",
+    "command": "python.sortImports",
+    "when": "editorTextFocus && editorLangId == python"
+  },
+  {
     "key": "ctrl+alt+p",
     "command": "workbench.action.editor.previousChange",
     "when": "editorTextFocus"
