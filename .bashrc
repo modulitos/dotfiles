@@ -225,3 +225,9 @@ source /etc/profile.d/autojump.sh
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# mac OS specifics:
+
+if [ -f "~/.macosrc" ]; then
+  source ~/.macosrc
+fi
