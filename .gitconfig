@@ -19,8 +19,9 @@
 [merge]
 	tool = kdiff3
 [alias]
-  start = !git init && git commit --allow-empty -m "Initial commit"
-  commit-empty = !git commit --allow-empty -m "Initial commit"
+  commit-empty = !sh -c 'git commit --allow-empty -m "!"'
+  set-modulitos = !git config user.name modulitos
+  set-jalmogo = !git config user.name jalmogo
   st = status --short --branch
   cm = commit
   prune = fetch --prune
