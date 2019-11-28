@@ -77,6 +77,8 @@
 "  inoremap kj <esc>
   inoremap jj <esc>
 
+  set clipboard+=unnamed
+
   " change cursor position in insert mode
 "  inoremap <C-h> <left>
 "  inoremap <C-l> <right>
