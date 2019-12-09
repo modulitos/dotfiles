@@ -3,13 +3,14 @@
 USER=$1
 case $USER in
   jalmogo)
-    FILE=~/.ssh/jalmogo-github
+    FILE=~/.ssh/jalmogo-mac-github
     ;;
   gitlab)
     FILE=~/.ssh/gitlab
     ;;
-  modulitos)
-    FILE=~/.ssh/modulitos-github
+  modulitos|*)
+    FILE=~/.ssh/modulitos-mac-github
+    # FILE=~/.ssh/modulitos-github
     ;;
   help|--help|*)
     echo "enter one of the following keys:"

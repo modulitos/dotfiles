@@ -189,12 +189,12 @@ export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 
 
-source /usr/share/bash-completion/completions/git
+# source /usr/share/bash-completion/completions/git
 
 # Ruby configs:
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-eval "$(rbenv init -)"
+# PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+# export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+# eval "$(rbenv init -)"
 
 # Docker autocompletion
 . ~/.docker-completion.sh
@@ -214,13 +214,12 @@ export INFOPATH=$INFOPATH:/usr/share/info
 
 # added by travis gem
 
-# source autojump (installed via pacman):
-source /etc/profile.d/autojump.sh
+# # source autojump (installed via pacman):
+# source /etc/profile.d/autojump.sh
 
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
-
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -228,6 +227,6 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # mac OS specifics:
 
-if [ -f "~/.macosrc" ]; then
+if [ -f $HOME/.macosrc ]; then
   source ~/.macosrc
 fi

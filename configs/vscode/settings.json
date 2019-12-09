@@ -12,6 +12,7 @@
   "vim.useSystemClipboard": true,
   "vim.easymotion": true,
   "editor.suggestSelection": "first",
+  "breadcrumbs.enabled": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "python.jediEnabled": false,
   "peacock.favoriteColors": [
@@ -111,10 +112,28 @@
   "multiCommand.commands": [
     {
       "command": "multiCommand.comment",
-      "sequence": [ "editor.action.commentLine", "cursorDown"]
+      "sequence": ["editor.action.commentLine", "cursorDown"]
     }
   ],
   "[rust]": {
     "editor.formatOnSave": true
-    }
+  },
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.formatOnSave": true
+  },
+  // If not sepcified, searches for 'rubocop' executable available on PATH (default and recommended)
+  "ruby.rubocop.executePath": "/Users/lucas/.gem/ruby/2.6.0/bin/",
+  "ruby.format": "rubocop",
+  "ruby.rubocop.onSave": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "ruby": true
+  },
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveTimeout": 5000,
+    "editor.defaultFormatter": "misogi.ruby-rubocop"
+    // "ruby.rubocop.executePath": "path/where/rubocop/is/located",
+  }
 }

@@ -16,8 +16,6 @@
   followTags = true
   # Because I get sick of telling git to do it manually
   # https://git-scm.com/docs/git-config#git-config-pushfollowTags
-[merge]
-	tool = kdiff3
 [alias]
   commit-empty = !sh -c 'git commit --allow-empty -m "!"'
   set-modulitos = !git config user.name modulitos
