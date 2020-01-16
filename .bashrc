@@ -192,9 +192,9 @@ export PATH=./node_modules/.bin:$PATH
 # source /usr/share/bash-completion/completions/git
 
 # Ruby configs:
+alias bex='bundle exec "$@"'
 # PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 # export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-# eval "$(rbenv init -)"
 
 # Docker autocompletion
 . ~/.docker-completion.sh
