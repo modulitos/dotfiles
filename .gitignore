@@ -3,6 +3,7 @@
 !.Xmodmap
 !.Xresources
 !.bashrc
+!.bash_aliases
 !.gitconfig
 !.gitignore
 !.gitmodules
