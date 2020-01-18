@@ -18,12 +18,12 @@ def timer(seconds: int, message: str):
 
     print(f"message: {message}")
     home = str(Path.home())
-    bell_path = os.path.join(home, "sounds/bell-ringing-04.wav")
 
     # if macos:
     subprocess.run(
         ["osascript", "-e", f'display notification "" with title "{message}"']
     )
+    bell_path = os.path.join(home, "sounds/bell-ringing-04.wav")
     subprocess.run(["afplay", bell_path])
 
 

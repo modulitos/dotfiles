@@ -70,12 +70,13 @@
     }
   ],
   "editor.wordWrap": "on",
-  "center-editor-window.threeStateToggle": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.associations": {
-    ".env": "dockerfile"
+    ".env": "shellscript",
+    "*.development": "shellscript",
+    "*.local": "shellscript",
   },
   "[typescript]": {
     "editor.formatOnSave": true,
@@ -123,17 +124,19 @@
     "editor.formatOnSave": true
   },
   // If not sepcified, searches for 'rubocop' executable available on PATH (default and recommended)
-  "ruby.rubocop.executePath": "/Users/lucas/.gem/ruby/2.6.0/bin/",
-  "ruby.format": "rubocop",
-  "ruby.rubocop.onSave": true,
+  "ruby.rubocop.executePath": "/Users/lucas/.asdf/shims/",
+
+  "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "ruby.lint": {
-    "ruby": true
+    "rubocop": true,
   },
   "[ruby]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.formatOnSaveTimeout": 5000,
-    "editor.defaultFormatter": "misogi.ruby-rubocop"
+
+    // make sure to run: npm i -g @prettier/plugin-ruby
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
     // "ruby.rubocop.executePath": "path/where/rubocop/is/located",
   }
 }
