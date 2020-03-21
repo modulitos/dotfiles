@@ -7,6 +7,7 @@
 case $1 in
     --help)
         echo "menu:"
+        echo "  start-airvpn sweden|swe"
         echo "  start-airvpn canada|bc"
         echo "  start-airvpn asia|a"
         echo "  start-airvpn hongKong"
@@ -14,6 +15,9 @@ case $1 in
         echo "  start-airvpn spain|es"
         echo "  start-airvpn default = west coast US"
         exit 0
+        ;;
+    sweden|swe)
+        config=AirVPN_SE-Stockholm_Ain_UDP-443.ovpn
         ;;
     canada|bc)
         config=AirVPN_America_UDP-443.ovpn
@@ -34,7 +38,7 @@ case $1 in
         fi
         ;;
     *)
-        config=AirVPN_West-Coast_UDP-443.ovpn
+        config=AirVPN_SE-Stockholm_Ain_UDP-443.ovpn
         if [ "$2" == '--tcp' ] ; then
           config=AirVPN_West-Coast_TCP-443.ovpn
         fi
