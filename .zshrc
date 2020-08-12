@@ -52,11 +52,11 @@ export MANPATH=$MANPATH:$TEXDIR/texmf-dist/doc/man
 # set path for tlmgr:
 PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
-export PATH="~/.local/bin:$PATH"
-export PATH="~/bin:$PATH"
+export PATH=~/.local/bin:$PATH
+export PATH=~/bin:$PATH
 
 # Pyenv:
-export PATH="~/.pyenv/versions/:$PATH"
+export PATH=~/.pyenv/versions/:$PATH
 eval "$(pyenv init -)"
 
 mkdir -p $WORKON_HOME
@@ -108,7 +108,7 @@ export INFOPATH=$INFOPATH:/usr/share/info
 # . $HOME/.asdf/completions/asdf.bash
 
 # rust
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=~/.cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 
