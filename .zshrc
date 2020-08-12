@@ -117,3 +117,21 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 if [ -f $HOME/.macosrc ]; then
   source ~/.macosrc
 fi
+
+
+# Overrides config
+if [ -f $HOME/.localrc ]; then
+  source ~/.localrc
+fi
+
+# Yarn:
+export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then . ~/google-cloud-sdk/path.zsh.inc; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then . ~/google-cloud-sdk/completion.zsh.inc; fi
+
+alias diso='OVERCOMMIT_DISABLE=1'
+alias k='kubectl'
