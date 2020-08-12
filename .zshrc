@@ -2,7 +2,8 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -e
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
 
 # for vim?
 # bindkey -v
