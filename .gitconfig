@@ -18,7 +18,8 @@
   # https://git-scm.com/docs/git-config#git-config-pushfollowTags
 [alias]
   commit-empty = !sh -c 'git commit --allow-empty -m "!"'
-  set-modulitos = !git config user.name modulitos
+  set-modulitos = !git config user.name modulitos && git config user.email modulitos@users.noreply.github.com
+  set-gh-email = !git config user.email modulitos@users.noreply.github.com
   set-jalmogo = !git config user.name jalmogo
   st = status --short --branch
   cm = commit
