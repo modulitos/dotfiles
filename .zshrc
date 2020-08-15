@@ -17,11 +17,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
-
 # https://starship.rs/
 eval "$(starship init zsh)"
-
 
 # AWS Environmental Variables for Auto-Scaling commandline tools
 # export JAVA_HOME=/usr/local/jre1.7.0_51
