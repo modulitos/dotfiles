@@ -42,3 +42,5 @@
 	helper = cache
 [diff]
   compactionHueristic = true
+[pull]
+	rebase = false
