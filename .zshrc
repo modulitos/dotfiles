@@ -2,9 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
-bindkey -M viins 'jj' vi-cmd-mode
-bindkey "^R" history-incremental-search-backward
+bindkey -e
 
 # for vim?
 # bindkey -v
@@ -53,6 +51,9 @@ eval "$(pyenv init -)"
 mkdir -p $WORKON_HOME
 . ~/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh
 
+# Ripgrep
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 
 # Python virtual environment and wrapper
 # export WORKON_HOME=$HOME/.virtualenvs
@@ -65,6 +66,8 @@ export WORKON_HOME=~/.virtualenvs
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 
+
+alias ll='ls -la'
 
 # source /usr/share/bash-completion/completions/git
 
