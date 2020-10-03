@@ -9,6 +9,7 @@
 !.gitignore
 !.gitmodules
 !.ripgreprc
+!.ignore
 !.tmux.conf
 !.tmux.reset.conf
 !.config/redshift.conf
