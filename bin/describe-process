@@ -1,2 +1,7 @@
 #!/bin/bash
-ps wup $(pgrep -f $1)
+
+# get a list of process id's:
+process_ids=$(pgrep -i -f "$1")
+
+# the PID's are separated by newlines, so replace the separaters with single linesJ
+ps wup "$(echo "$process_ids" | tr '\n' ' ')"
