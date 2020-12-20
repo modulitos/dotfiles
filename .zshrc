@@ -15,9 +15,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# https://starship.rs/
-eval "$(starship init zsh)"
-
 # AWS Environmental Variables for Auto-Scaling commandline tools
 # export JAVA_HOME=/usr/local/jre1.7.0_51
 # export AWS_AUTO_SCALING_HOME=/usr/local/AutoScaling-1.0.61.4/
@@ -42,6 +39,8 @@ export MANPATH=$MANPATH:$TEXDIR/texmf-dist/doc/man
 PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
 export PATH=~/.local/bin:$PATH
+# Updating path in zsh:
+# https://stackoverflow.com/a/18077919/1884158
 export PATH=~/bin:$PATH
 
 # Pyenv:
@@ -105,6 +104,8 @@ export INFOPATH=$INFOPATH:/usr/share/info
 export PATH=~/.cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
+# https://starship.rs/
+eval "$(starship init zsh)"
 
 # mac OS specifics:
 
@@ -129,3 +130,7 @@ if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then . ~/google-cloud-sdk/compl
 
 alias diso='OVERCOMMIT_DISABLE=1'
 alias k='kubectl'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/lucas/.sdkman"
+[[ -s "/Users/lucas/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/lucas/.sdkman/bin/sdkman-init.sh"
