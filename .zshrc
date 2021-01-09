@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -42,13 +44,21 @@ export PATH=~/.local/bin:$PATH
 # Updating path in zsh:
 # https://stackoverflow.com/a/18077919/1884158
 export PATH=~/bin:$PATH
+# path=('~/bin' $path)
+# export PATH
 
 # Pyenv:
 export PATH=~/.pyenv/versions/:$PATH
+
 eval "$(pyenv init -)"
 
-mkdir -p $WORKON_HOME
-. ~/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh
+mkdir -p "$WORKON_HOME"
+
+# Overrides config
+if [ -f "$HOME/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh" ]; then
+  # shellcheck source=/dev/null
+  source "$HOME/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh"
+fi
 
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
@@ -71,7 +81,8 @@ alias ll='ls -la'
 # source /usr/share/bash-completion/completions/git
 
 # Ruby configs:
-alias bex='bundle exec "$@"'
+bex() { bundle exec "$@"; }
+
 # PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 # export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
@@ -96,7 +107,11 @@ export INFOPATH=$INFOPATH:/usr/share/info
 # # source autojump (installed via pacman):
 # source /etc/profile.d/autojump.sh
 
-. $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/asdf.sh
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  # shellcheck source=/dev/null
+  source ~/.asdf/asdf.sh
+fi
 
 # . $HOME/.asdf/completions/asdf.bash
 
@@ -109,28 +124,40 @@ eval "$(starship init zsh)"
 
 # mac OS specifics:
 
-if [ -f $HOME/.macosrc ]; then
-  source ~/.macosrc
+if [ -f "$HOME/.macosrc" ]; then
+  # shellcheck disable=SC1090
+  source "$HOME/.macosrc"
 fi
 
 
 # Overrides config
-if [ -f $HOME/.localrc ]; then
-  source ~/.localrc
+if [ -f "$HOME/.localrc" ]; then
+  # shellcheck disable=SC1090
+  source "$HOME/.localrc"
 fi
 
 # Yarn:
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then . ~/google-cloud-sdk/path.zsh.inc; fi
+if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
+  # shellcheck source=/dev/null
+  . ~/google-cloud-sdk/path.zsh.inc;
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then . ~/google-cloud-sdk/completion.zsh.inc; fi
+if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
+  # shellcheck source=/dev/null
+  . ~/google-cloud-sdk/completion.zsh.inc;
+fi
 
 alias diso='OVERCOMMIT_DISABLE=1'
 alias k='kubectl'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/lucas/.sdkman"
-[[ -s "/Users/lucas/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/lucas/.sdkman/bin/sdkman-init.sh"
+
+if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+  # shellcheck source=/dev/null
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
