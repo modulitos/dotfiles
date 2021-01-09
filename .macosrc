@@ -9,3 +9,11 @@
 
 # brew install openvpn
 export PATH=$(brew --prefix openvpn)/sbin:$PATH
+
+
+# using the latest llvm on macos to enable ASAN, based on this answer:
+# https://stackoverflow.com/a/55778432/1884158
+alias clang@9='/usr/local/opt/llvm@9/bin/clang'
+
+# /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk
+# export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
