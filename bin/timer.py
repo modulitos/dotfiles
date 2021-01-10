@@ -6,7 +6,6 @@ from pathlib import Path
 
 
 def timer(seconds: int, message: str):
-
     message = message if message else "time is up!"
     for remaining in range(seconds, 0, -1):
         sys.stdout.write("\r")
