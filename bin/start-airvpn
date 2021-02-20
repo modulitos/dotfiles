@@ -38,17 +38,34 @@ case $1 in
         fi
         ;;
     *)
-        config=AirVPN_SE-Stockholm_Ain_UDP-443.ovpn
+        # config=AirVPN_SE-Stockholm_Ain_UDP-443.ovpn
+        config=AirVPN_West-Coast_UDP-443.ovpn
         if [ "$2" == '--tcp' ] ; then
           config=AirVPN_West-Coast_TCP-443.ovpn
         fi
         ;;
 esac
 
-sudo killall -9 openvpn
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*) machine=Linux;;
+  Darwin*) machine=Mac;;
+  *) machine="UNKNOWN:${unameOut}"
+esac
 
-# disable ipv6:
-disable-ipv6
+if [[ $machine == Mac ]]; then
+  networksetup -setv6off "Wi-Fi"
+
+  # to re-enable: ipv6
+  # networksetup -setv6automatic Wi-Fi
+elif [[ $machine == Linux ]]; then
+  echo "on linux!"
+  # disable ipv6:
+  disable-ipv6
+
+fi
+
+sudo killall -9 openvpn
 
 # if [ "$1" == '--tcp' ] || [ "$2" == '--tcp' ] ; then
 if [ "$1" == '--tcp' ]; then
@@ -57,14 +74,23 @@ fi
 echo "loading openvpn config: $config"
 
 logfile=/var/log/openvpn.log
-sudo openvpn --log $logfile --cd /home/lucas/openvpn --config $config --daemon
+# sudo openvpn --log $logfile --cd /home/lucas/openvpn --config $config --daemon
 
-# suboptimal solution because it uses pkill:
-tail -f $logfile | while read LOGLINE
+openvpn_config_dir=~/openvpn
+
+sudo openvpn --log $logfile --cd $openvpn_config_dir --config $config --daemon
+
+# sudo openvpn --log $logfile --cd /home/lucas/openvpn --config $config --daemon
+
+# suboptimal solution because it uses pkill,:
+sudo tail -f $logfile | while read -r LOGLINE
 do
-   echo $LOGLINE
+   echo "$LOGLINE"
    if [[ $LOGLINE = *"Initialization Sequence Completed"* ]]; then
-     pkill -P $$ tail
+     echo "openvpn started successfully"
+     # pkill -P $$ tail
+     # unfortunately this doesn't break out
+     break
    fi
 done
 
