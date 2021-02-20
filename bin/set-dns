@@ -1,25 +1,39 @@
 #!/bin/bash
 
 case $1 in
-    --help)
-        echo "menu:"
-        echo "  set-dns air"
-        echo "  set-dns google"
-        echo "  set-dns openvpn"
-        exit 0
-        ;;
     air)
         config=air
+        addy1="10.4.0.1"
+        addy2="10.5.0.1"
         ;;
     google)
         config=google
+        addy1="8.8.8.8"
+        addy2="8.8.4.4"
         ;;
     opendns)
         config=opendns
+        addy1="208.67.222.222"
+        addy2="208.67.220.220"
         ;;
-    *)
-        config=opendns
+    --help|*)
+        echo "menu:"
+        echo "  set-dns air"
+        echo "  set-dns google"
+        echo "  set-dns opendns"
+        exit 0
         ;;
 esac
 
-sudo cp /etc/resolv.$config /etc/resolv.conf
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*) machine=Linux;;
+  Darwin*) machine=Mac;;
+  *) machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ $machine == Mac ]]; then
+  networksetup -setdnsservers Wi-Fi $addy1 $addy2
+elif [[ $machine == Linux ]]; then
+  sudo cp /etc/resolv.$config /etc/resolv.conf
+fi
