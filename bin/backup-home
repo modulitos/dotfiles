@@ -5,6 +5,6 @@
 
 cd ~/
 
-sudo rsync -aAXvxHS --info=progress2 --exclude={.cache,.docker/images,"VirtualBox VMs",.config/Slack/Cache,.npm} --delete /home/lucas /run/media/lucas/lucas-home/
+sudo rsync -aAXvxHS --info=progress2 --exclude={.cache,.docker/images,"VirtualBox VMs",.config/Slack/Cache,.npm,.asdf,.cargo,.mozilla} --delete /home/lucas /run/media/lucas/lucas-home/
 
 cd -
