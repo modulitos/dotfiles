@@ -122,11 +122,20 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # https://starship.rs/
 eval "$(starship init zsh)"
 
-# mac OS specifics:
+# OS specifics:
 
-if [ -f "$HOME/.macosrc" ]; then
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*) machine=Linux;;
+  Darwin*) machine=Mac;;
+  *) machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ $machine == Mac ]]; then
   # shellcheck disable=SC1090
   source "$HOME/.macosrc"
+elif [[ $machine == Linux ]]; then
+  echo "on linux!"
 fi
 
 
