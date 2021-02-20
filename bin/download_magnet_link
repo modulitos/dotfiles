@@ -3,4 +3,19 @@
 ## usage: ./download_magnet_url.sh "magnet_link"
 ## magnet link should be enclosed in quotes.
 
-transmission-cli -w ~/bittorrent/incoming/ "$1"
+# transmission-remote -w ~/bittorrent/incoming/ -a "$1"
+
+# transmission-daemon &
+# sleep 2
+# wait
+
+# echo "downloading magnet!"
+# transmission-remote --torrent-done-script ~/bin/stop-transmission -w ~/bittorrent/incoming/ -a "$1"
+transmission-remote -w ~/bittorrent/incoming/ -a "$1"
+# remove all torrents:
+# transmission-remote -t all -r
+
+
+# https://cli-ck.io/transmission-cli-user-guide/
+
+# transmission-remote -a "magnet:?xt=urn:btih:magnet-url"
