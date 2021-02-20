@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+# frozen_string_literal: true
+
+# By Uğur Özyılmazel, @vigobronx | @ugurozyilmazel
+# http://vigodome.com | http://ugur.ozyilmazel.com | http://github.com/vigo
+# https://gist.github.com/vigo/1690045
+
+
+def get_paged_memory_usage(match_string, paging = 4096)
+  mvar = 3
+  mvar = 4 if match_string.split(/[^\w]/).length > 1
+  paged_val = \
+    `vm_stat | grep "Pages #{match_string}:" | awk '{ print $#{mvar}}'`.to_i
+  _gigabyte_val = (paged_val * paging) / 1024 / 1024 / 1000.0
+end
+
+installed_memory = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 1000.0
+total_consumed = 0
+['wired down', 'active', 'inactive'].each do |key|
+  total_consumed += get_paged_memory_usage(key)
+end
+
+printf(
+  "Installed memory: %<installed_mem>.2fG\n",
+  installed_mem: installed_memory
+) # returns in gigabytes
+printf(
+  "Free memory: %<free_mem>.2fG\n",
+  free_mem: (installed_memory - total_consumed)
+) # returns in gigabytes
