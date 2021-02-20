@@ -136,6 +136,8 @@ if [[ $machine == Mac ]]; then
   source "$HOME/.macosrc"
 elif [[ $machine == Linux ]]; then
   echo "on linux!"
+else
+  echo "machine not recognized: $machine"
 fi
 
 

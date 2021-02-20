@@ -36,4 +36,7 @@ if [[ $machine == Mac ]]; then
   networksetup -setdnsservers Wi-Fi $addy1 $addy2
 elif [[ $machine == Linux ]]; then
   sudo cp /etc/resolv.$config /etc/resolv.conf
+else
+  echo "machine not recognized: $machine"
+  exit 1
 fi
