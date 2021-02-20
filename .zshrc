@@ -135,7 +135,8 @@ if [[ $machine == Mac ]]; then
   # shellcheck disable=SC1090
   source "$HOME/.macosrc"
 elif [[ $machine == Linux ]]; then
-  echo "on linux!"
+  # shellcheck disable=SC1090
+  source "$HOME/.linuxsrc"
 else
   echo "machine not recognized: $machine"
 fi
