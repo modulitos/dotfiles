@@ -71,5 +71,11 @@
     "key": "ctrl+alt+p",
     "command": "workbench.action.editor.previousChange",
     "when": "editorTextFocus"
+  },
+  {
+    // vscode doesn't support capslock remaps on Linux:
+    "key": "capslock",
+    "command": "extension.vim_backspace",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
   }
 ]
