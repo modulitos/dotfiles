@@ -1,11 +1,12 @@
 #!/bin/bash
 ~/bin/backlight chmod
 
-# for some reason this keyboard mapping doesn't get picked up in .xinitrc, so we're doing it here:
-# although this does't work either!
-xmodmap -e 'keycode 0x42=BackSpace'
-
 tmux-session restore
+
+# keyboard setup:
+xmodmap -e 'clear Lock' #ensures you're not stuck in CAPS on mode
+setxkbmap -option caps:backspace
+setxkbmap -option altwin:prtsc_rwin
 
 # to add custom resolutions via cvt, see here:
 # https://unix.stackexchange.com/questions/47749/cannot-add-new-mode-in-xrandr-for-external-monitor?rq=1
@@ -26,12 +27,10 @@ resize-screen
 # Perhaps this can be permianently added by creating a config with
 # `Xorg :0 -configure` and updating the config?
 
-keyboard-reset
 
 # mac-spoof
 
 start-redshift
 set-dns
 # start-airvpn
-
 

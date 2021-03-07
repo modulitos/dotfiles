@@ -17,14 +17,16 @@ case "$1" in
     fi
     ;;
   "")
-    bash $0 list | dmenu -p 'Emoji: ' | bash $0 copy
+    bash $0 list | dmenu -fn 'NotoSans-BoldItalic' -p 'Emoji: ' | bash $0 copy
     ;;
 esac
 
 exit
 
 __DATA__
-whatever                                   ¯\(ツ)/¯
+ride that wave                                  ЯןÐ€ ┼ḩѦ┼ ẘΔVΞ
+bulls eye                                       ∠(・.-)―〉→◎
+whatever                                        ¯\(ツ)/¯
 grinning face                                   😀
 smiling face with open mouth                    😃
 smiling face with open mouth & smiling eyes     😄

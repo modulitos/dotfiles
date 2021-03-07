@@ -51,9 +51,6 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 xbindkeys
 xmodmap .Xmodmap
-xmodmap -e 'clear Lock' #ensures you're not stuck in CAPS on mode
-# xmodmap -e 'keycode 0x42=Escape' #remaps the keyboard so CAPS LOCK=ESC
-xmodmap -e 'keycode 0x42=BackSpace' #remaps the keyboard so CAPS LOCK=BackSpace
 
 # https://wiki.archlinux.org/index.php/Activating_Numlock_on_Bootup
 numlockx &

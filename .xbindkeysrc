@@ -38,7 +38,7 @@
 #keystate_scrolllock= enable
 
 "clipmenu"
-  m:0x50 + c:55
+  m:0x50 + c:58 # win + m
 
 # LOCK SCREEN HOTKEYS
 # display function button:
@@ -90,8 +90,6 @@
 "backlight add 200"
   m:0x10 + c:233
 
-"emoji"
-  m:0x50 + c:31
 
 # Examples of commands:
 
