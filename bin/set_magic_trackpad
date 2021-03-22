@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# https://gist.github.com/NoraCodes/13c5c2f9e6b161b2ce56fbdf97a3bb17
+
+# this returns 21, but not always
+ID="$(xinput | grep "Apple Inc. Magic Trackpad 2" | cut -d "=" -f 2 | cut -f 1)"
+
+if [ -z "$ID" ]; then
+  echo "No AMT2 found in xinput list; aborting."
+  exit 1
+fi
+echo "ID: $ID"
+
+# this returns 324
+PROP="$(xinput list-props "$ID" | grep " Finger " | cut -d "(" -f 2 | cut -d ")" -f 1)"
+
+if [ -z "$PROP" ]; then
+  echo "No Finger property found in xinput list; aborting."
+  exit 2
+fi
+echo "PROP: $PROP"
+
+xinput set-prop "$ID" "$PROP" 2, 2, 0
+# xinput set-prop 21 324 2, 2, 0
+# xinput set-prop 21 "$PROP" 2, 2, 0
+
+synclient ClickFinger3=2
+synclient HorizTwoFingerScroll=1
+synclient TapButton2=0
+synclient TapButton1=0
