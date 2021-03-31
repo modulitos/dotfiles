@@ -52,7 +52,6 @@ export PATH=~/.pyenv/versions/:$PATH
 
 eval "$(pyenv init -)"
 
-mkdir -p "$WORKON_HOME"
 
 # Overrides config
 if [ -f "$HOME/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh" ]; then
@@ -75,8 +74,9 @@ export WORKON_HOME=~/.virtualenvs
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 
-
+# some helpful posix aliases:
 alias ll='ls -la'
+alias rm="rm -I"
 
 # source /usr/share/bash-completion/completions/git
 
