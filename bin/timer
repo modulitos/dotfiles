@@ -3,7 +3,6 @@
 # #!/bin/bash
 
 # echo "$BASH_VERSION"
-
 source "utils.sh"
 
 message=$2
