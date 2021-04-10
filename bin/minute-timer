@@ -1,33 +1,43 @@
-#!/usr/bin/env python3
-from timer import timer
-import sys
+#!/usr/bin/bash
+
+source "utils.sh"
+
+message=$2
+
+countdown $(("$1" * 60))
+echo "$message"
+
+# python version:
+# #!/usr/bin/env python3
+# from timer import timer
+# import sys
 
 
-# bash version:
-# #!/bin/bash
-# minutes=$1
-# message=$2
-# countdown() {
-#   date1=$((`date +%s` + $1));
-#   while [ "$date1" -ne `date +%s`  ]; do
-#     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
-#     sleep 0.1
-#   done
-#   # if linux:
-#   # notify-send "Time is up!" "$message"
-#   # play ~/sounds/bell-ringing-04.wav
+# # bash version:
+# # #!/bin/bash
+# # minutes=$1
+# # message=$2
+# # countdown() {
+# #   date1=$((`date +%s` + $1));
+# #   while [ "$date1" -ne `date +%s`  ]; do
+# #     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+# #     sleep 0.1
+# #   done
+# #   # if linux:
+# #   # notify-send "Time is up!" "$message"
+# #   # play ~/sounds/bell-ringing-04.wav
 
-#   # if macos
-#   osascript -e 'display notification "test2" with title "test"'
-#   afplay ~/sounds/bell-ringing-04.wav
-# }
-# echo "minutes: $minutes"
-# seconds=$((($minutes)*60))
-# echo "seconds: $seconds"
-# countdown $seconds
-# echo "$message"
+# #   # if macos
+# #   osascript -e 'display notification "test2" with title "test"'
+# #   afplay ~/sounds/bell-ringing-04.wav
+# # }
+# # echo "minutes: $minutes"
+# # seconds=$((($minutes)*60))
+# # echo "seconds: $seconds"
+# # countdown $seconds
+# # echo "$message"
 
-if __name__ == "__main__":
-    seconds = int(sys.argv[1])
-    message = sys.argv[2] if len(sys.argv) > 2 else None
-    timer(seconds * 60, message)
+# if __name__ == "__main__":
+#     seconds = int(sys.argv[1])
+#     message = sys.argv[2] if len(sys.argv) > 2 else None
+#     timer(seconds * 60, message)
