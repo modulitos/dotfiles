@@ -175,3 +175,5 @@ if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
 fi
 
 alias tsm=transmission-remote
+
+eval "$(direnv hook zsh)"
