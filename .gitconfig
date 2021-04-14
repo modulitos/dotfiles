@@ -23,6 +23,7 @@
   set-jalmogo = !git config user.name jalmogo
   st = status --short --branch
   cm = commit
+  shortstat = diff master --shortstat
   prune = fetch --prune
   undo = reset --soft HEAD^
   please = push --force-with-lease
@@ -35,6 +36,8 @@
   staaash = stash --all
   grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
   recent-branches = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+  # this alias isn't quite working, but works when run manually
+  prune-branches = !git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
   # dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [push]
 	default = simple
