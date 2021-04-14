@@ -1,13 +1,8 @@
-#!/usr/bin/bash
+#!/bin/bash
+
+# #!/usr/bin/bash
 
 countdown() {
-  date1=$(($(date +%s) + $1));
-  while [ "$date1" -ne   "$(date +%s)"  ]; do
-    echo -ne "$(date -u --date @$((date1 - $(date +%s))) +%H:%M:%S)\r";
-    sleep 0.1
-  done
-
-
   unameOut="$(uname -s)"
   case "${unameOut}" in
     Linux*) machine=Linux;;
@@ -15,15 +10,26 @@ countdown() {
     *) machine="UNKNOWN:${unameOut}"
   esac
 
+  date1=$(($(date +%s) + $1));
+  while [ "$date1" -ne   "$(date +%s)"  ]; do
+    # print out the current time (this is OS-specific)
+    if [[ $machine == Mac ]]; then
+      echo -ne "$(date -u -r $((date1 - $(date +%s))) +%H:%M:%S)\r";
+    elif [[ $machine == Linux ]]; then
+      echo -ne "$(date -u --date @$((date1 - $(date +%s))) +%H:%M:%S)\r";
+    else
+      echo "machine not recognized: $machine"
+      exit 1
+    fi
+    sleep 0.1
+  done
+
   if [[ $machine == Mac ]]; then
-    # if macos
     osascript -e 'display notification "test2" with title "test"'
     afplay ~/sounds/bell-ringing-04.wav
   elif [[ $machine == Linux ]]; then
     notify-send "time is up!" "$message"
     play ~/music/sounds/bell-ringing-04.wav
-  else
-    echo "machine not recognized: $machine"
   fi
 }
 # for arch scripts, will need to export:
