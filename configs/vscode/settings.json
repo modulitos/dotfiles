@@ -76,7 +76,7 @@
   "files.associations": {
     ".env": "shellscript",
     "*.development": "shellscript",
-    "*.local": "shellscript",
+    "*.local": "shellscript"
   },
   "[typescript]": {
     "editor.formatOnSave": true,
@@ -120,23 +120,36 @@
     "editor.formatOnSave": true
   },
   "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
   "[python]": {
     "editor.formatOnSave": true
   },
   // If not sepcified, searches for 'rubocop' executable available on PATH (default and recommended)
-  "ruby.rubocop.executePath": "/Users/lucas/.asdf/shims/",
 
-  "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "ruby.lint": {
-    "rubocop": true,
+    "rubocop": {
+      "lint": true,
+    },
   },
+  "solargraph.commandPath": "/Users/lucas/.rbenv/shims/solargraph",
+  "editor.formatOnSaveTimeout": 5000,
   "[ruby]": {
     "editor.formatOnSave": false,
-    "editor.formatOnSaveTimeout": 5000,
 
     // make sure to run: npm i -g @prettier/plugin-ruby
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "misogi.ruby-rubocop"
     // "ruby.rubocop.executePath": "path/where/rubocop/is/located",
-  }
+  },
+  "python.languageServer": "Microsoft",
+  "ruby.rubocop.useBundler": false,
+  "ruby.rubocop.onSave": false,
+  "ruby.format": false,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }

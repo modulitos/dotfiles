@@ -76,7 +76,6 @@ export PATH=./node_modules/.bin:$PATH
 
 # some helpful posix aliases:
 alias ll='ls -la'
-alias rm="rm -I"
 
 # source /usr/share/bash-completion/completions/git
 
@@ -165,6 +164,7 @@ fi
 
 alias diso='OVERCOMMIT_DISABLE=1'
 alias k='kubectl'
+alias vy="vim -c 'set syntax=yaml' -"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/lucas/.sdkman"
