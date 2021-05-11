@@ -75,6 +75,7 @@
   },
   "files.associations": {
     ".env": "shellscript",
+    "*.yml.tmpl": "yaml",
     "*.development": "shellscript",
     "*.local": "shellscript"
   },
