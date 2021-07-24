@@ -165,6 +165,7 @@ fi
 alias diso='OVERCOMMIT_DISABLE=1'
 alias k='kubectl'
 alias vy="vim -c 'set syntax=yaml' -"
+alias vj="vim -c 'set syntax=json' -"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/lucas/.sdkman"
@@ -177,3 +178,8 @@ fi
 alias tsm=transmission-remote
 
 eval "$(direnv hook zsh)"
+
+
+gitb() {
+  git checkout "$(git branch | fzf| tr -d '[:space:]')"
+}
