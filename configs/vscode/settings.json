@@ -147,10 +147,7 @@
   "ruby.rubocop.useBundler": false,
   "ruby.rubocop.onSave": false,
   "ruby.format": false,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ]
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  }
 }
