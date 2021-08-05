@@ -76,7 +76,10 @@ echo "loading openvpn config: $config"
 logfile=/var/log/openvpn.log
 # sudo openvpn --log $logfile --cd /home/lucas/openvpn --config $config --daemon
 
+# when running a root, HOME is the /root dir!
 openvpn_config_dir=~/openvpn
+# openvpn_config_dir="$HOME/openvpn"
+echo "loading open_config_dir: $openvpn_config_dir"
 
 sudo openvpn --log $logfile --cd $openvpn_config_dir --config $config --daemon
 
@@ -95,7 +98,14 @@ do
 done
 
 # there is a .conf dns file that is in sync with our .openvpn config
+# Or if we're no longer using systemd-reosolved, then comment out those scripts and use this intead:
 set-dns air
+
+# better option to pipe tail output, tee it to console, then break the pipe soon as
+# match is complete. By backgrounding the tty and tail processes
+# ( tail -f -n0 $logfile & ) | grep -q "Initialization Sequence Completed"
+# ( tail -f -n0 $logfile & ) | grep -m1 -v "Initialization Sequence Completed"
+# ( tail -f -n0 $logfile & ) | (  tee /dev/tty & ) | grep -m1 -v "Initialization Sequence Completed"
 
 echo "vpn is set :-)"
 
