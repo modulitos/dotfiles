@@ -71,7 +71,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf)
+plugins=(git fzf kubectl)
 
 # shellcheck disable=SC1091
 source "$ZSH/oh-my-zsh.sh"
@@ -251,7 +251,6 @@ if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
 fi
 
 alias diso='OVERCOMMIT_DISABLE=1'
-alias k='kubectl'
 alias vy="vim -c 'set syntax=yaml' -"
 alias vj="vim -c 'set syntax=json' -"
 
