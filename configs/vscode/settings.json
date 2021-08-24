@@ -76,6 +76,7 @@
   "files.associations": {
     ".env": "shellscript",
     "*.yml.tmpl": "yaml",
+    "*.yaml.tmpl": "yaml",
     "*.development": "shellscript",
     "*.local": "shellscript"
   },
@@ -123,6 +124,8 @@
   "[go]": {
     "editor.formatOnSave": true
   },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
@@ -134,8 +137,8 @@
   "ruby.useLanguageServer": true,
   "ruby.lint": {
     "rubocop": {
-      "lint": true,
-    },
+      "lint": true
+    }
   },
   "solargraph.commandPath": "/Users/lucas/.rbenv/shims/solargraph",
   "editor.formatOnSaveTimeout": 5000,
