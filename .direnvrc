@@ -5,6 +5,5 @@ use_go() {
   # Is there a way to use "$HOME/go/bin/go1.17" instead?
   local go_dir=$HOME/sdk/$1
   load_prefix $go_dir
-  which go
   layout go
 }
