@@ -15,6 +15,7 @@
 !.config/redshift.conf
 !.urxvt/
 !.eslintrc
+!.direnvrc
 !bin/
 !bin/*
 # !.vimrc

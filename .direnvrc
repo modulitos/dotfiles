@@ -1,0 +1,10 @@
+# example usage in .envrc file:
+# use go go1.17
+use_go() {
+  # By default, this will add "$HOME/sdk/$1/bin" to PATH.
+  # Is there a way to use "$HOME/go/bin/go1.17" instead?
+  local go_dir=$HOME/sdk/$1
+  load_prefix $go_dir
+  which go
+  layout go
+}
