@@ -189,22 +189,15 @@ export MAILDIR=~/.mail/gmail
 export INFOPATH=$INFOPATH:/usr/share/info
 
 
-# added by travis gem
-
-# # source autojump (installed via pacman):
-# source /etc/profile.d/autojump.sh
-
-# . $HOME/.asdf/asdf.sh
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-  # shellcheck source=/dev/null
-  source ~/.asdf/asdf.sh
-fi
-
-# . $HOME/.asdf/completions/asdf.bash
-
 # rust
 export PATH=~/.cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# Golang
+export GOPATH=~/go
+export GOBIN=$(go env GOPATH)/bin
+export PATH=$GOPATH:$PATH
+export PATH=$GOBIN:$PATH
 
 # https://starship.rs/
 eval "$(starship init zsh)"
@@ -252,7 +245,9 @@ fi
 
 alias diso='OVERCOMMIT_DISABLE=1'
 alias vy="vim -c 'set syntax=yaml' -"
+alias vimy="vim -c 'set syntax=yaml'"
 alias vj="vim -c 'set syntax=json' -"
+alias vimj="vim -c 'set syntax=json'"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
