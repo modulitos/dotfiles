@@ -1,11 +1,21 @@
 #!/bin/bash
 
-# SINK=1
-SINK=0
+SINK=$(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
+# echo "SINK: $SINK"
+
+# getdefaultsinkname() {
+#     pacmd stat | awk -F": " '/^Default sink name: /{print $2}'
+# }
+
+# getdefaultsinkvol() {
+#     pacmd list-sinks |
+#         awk '/^\s+name: /{indefault = $2 == "<'$(getdefaultsinkname)'>"}
+#             /^\s+volume: / && indefault {print $5; exit}'
+# }
 
 case $1 in
   mute|m)
-    pactl set-sink-mute $SINK toggle
+    pactl set-sink-mute "$SINK" toggle
     ;;
   play|pause|p)
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -20,13 +30,13 @@ case $1 in
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
     ;;
   increase|i)
-    pactl set-sink-volume $SINK +5000
+    pactl set-sink-volume "$SINK" +5000
     ;;
   current|c)
-    pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+    pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( "$SINK" + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
     ;;
   decrease|d)
-    pactl set-sink-volume $SINK -5000
+    pactl set-sink-volume "$SINK" -5000
     ;;
   *)
     echo "Invalid input."
