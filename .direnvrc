@@ -7,3 +7,13 @@ use_go() {
   load_prefix $go_dir
   layout go
 }
+
+use_istioctl() {
+  local istioctl_dir=$HOME/istioctl/$1
+  load_prefix $istioctl_dir
+}
+
+use_helm() {
+  local helm_dir=$HOME/helm/$1
+  load_prefix $helm_dir
+}
