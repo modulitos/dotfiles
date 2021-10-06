@@ -3,10 +3,16 @@
 
 source "utils.sh"
 
-message=$2
+# This can include fractions of a minute:
+MINUTES=$1
+MESSAGE=$2
 
-countdown $(($1 * 60))
-echo "$message"
+FLOAT_SECONDS=$(echo "$MINUTES" 60 | awk '{printf "%4.3f\n",$1*$2}')
+INT_SECONDS=$(printf "%.${2:-0}f" "$FLOAT_SECONDS")
+
+countdown "$INT_SECONDS"
+
+echo "$MESSAGE"
 
 # python version:
 # #!/usr/bin/env python3
