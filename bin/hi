@@ -31,6 +31,6 @@ resize-screen
 # mac-spoof
 
 start-redshift
-set-dns
+set-dns google
 # start-airvpn
 
