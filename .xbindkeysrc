@@ -39,14 +39,22 @@
 
 "clipmenu"
   m:0x50 + c:58 # win + m
+  # m:0x50 + c:57 # win + n
+
+# close notifications
+"dunstctl close-all"
+  m:0x50 + c:54 # win + c
+  # This prevents the backtick key from working(?):
+  # m:0x50 + c:49 # win + backtick
 
 # LOCK SCREEN HOTKEYS
-# display function button:
 "slock"
-  m:0x10 + c:235
+  m:0x10 + c:235 # "display function" button:
 # pause:
 "slock"
   m:0x10 + c:127
+"slock"
+  m:0x54 + c:24 # Control+Mod2+Mod4 + q
 
 # AUDIO CONTROLS
 # Increase volume
