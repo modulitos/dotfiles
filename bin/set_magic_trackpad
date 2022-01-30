@@ -3,7 +3,9 @@
 # https://gist.github.com/NoraCodes/13c5c2f9e6b161b2ce56fbdf97a3bb17
 
 # this returns 21, but not always
-ID="$(xinput | grep "Apple Inc. Magic Trackpad 2" | cut -d "=" -f 2 | cut -f 1)"
+# ID="$(DISPLAY=:0 xinput | grep "Apple Inc. Magic Trackpad 2" | cut -d "=" -f 2 | cut -f 1)"
+ID="$(DISPLAY=:0 xinput | grep "Apple Inc. Magic Trackpad 2" | cut -d "=" -f 2 | cut -f 1)"
+# ID=16
 
 if [ -z "$ID" ]; then
   echo "No AMT2 found in xinput list; aborting."
@@ -12,7 +14,7 @@ fi
 echo "ID: $ID"
 
 # this returns 324
-PROP="$(xinput list-props "$ID" | grep " Finger " | cut -d "(" -f 2 | cut -d ")" -f 1)"
+PROP="$(DISPLAY=:0 xinput list-props "$ID" | grep " Finger " | cut -d "(" -f 2 | cut -d ")" -f 1)"
 
 if [ -z "$PROP" ]; then
   echo "No Finger property found in xinput list; aborting."
@@ -20,11 +22,12 @@ if [ -z "$PROP" ]; then
 fi
 echo "PROP: $PROP"
 
-xinput set-prop "$ID" "$PROP" 2, 2, 0
+DISPLAY=:0 xinput set-prop "$ID" "$PROP" 2, 2, 0
+# xinput set-prop "$ID" "$PROP" 2, 2, 0
 # xinput set-prop 21 324 2, 2, 0
 # xinput set-prop 21 "$PROP" 2, 2, 0
 
-synclient ClickFinger3=2
-synclient HorizTwoFingerScroll=1
-synclient TapButton2=0
-synclient TapButton1=0
+DISPLAY=:0 synclient ClickFinger3=2
+DISPLAY=:0 synclient HorizTwoFingerScroll=1
+DISPLAY=:0 synclient TapButton2=0
+DISPLAY=:0 synclient TapButton1=0
