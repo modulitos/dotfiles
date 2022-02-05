@@ -77,8 +77,11 @@
     ".env": "shellscript",
     "*.yml.tmpl": "yaml",
     "*.yaml.tmpl": "yaml",
+    "*.yaml.tpl": "yaml",
+    "*.json.tpl": "json",
     "*.development": "shellscript",
-    "*.local": "shellscript"
+    "*.local": "shellscript",
+    "*.gemfile": "ruby"
   },
   "[typescript]": {
     "editor.formatOnSave": true,
@@ -105,7 +108,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -149,11 +152,37 @@
     "editor.defaultFormatter": "misogi.ruby-rubocop"
     // "ruby.rubocop.executePath": "path/where/rubocop/is/located",
   },
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Default",
   "ruby.rubocop.useBundler": false,
   "ruby.rubocop.onSave": false,
   "ruby.format": false,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "terraform-ls.rootModules": [
+    "environments/customerfacing/sandbox/regional",
+    "environments/customerfacing/sandbox/global",
+    "environments/dev-sre/regional",
+    "environments/dev-sre/global",
+    "environments/dev-xport/regional",
+    "environments/dev-xport/global",
+    "environments/dev-wse/regional",
+    "environments/dev-wse/global",
+    "environments/dev-sa/regional",
+    "environments/dev-sa/global",
+    "environments/dev-oms/regional",
+    "environments/dev-oms/global",
+    "terraform"
+  ],
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
   }
 }
