@@ -28,6 +28,7 @@
   set-modulitos = !git config user.name modulitos && git config user.email modulitos@users.noreply.github.com
   set-gh-email = !git config user.email modulitos@users.noreply.github.com
   set-jalmogo = !git config user.name jalmogo && git config user.email jalmogo@users.noreply.github.com
+  set-flexe = !git config user.name luke.swart && git config user.email luke.swart@flexe.com
   st = status --short --branch
   cm = commit
   shortstat = diff master --shortstat
@@ -53,4 +54,7 @@
 [diff]
   compactionHueristic = true
 [pull]
-	rebase = false
+  rebase = false
+# forcibly override ssh for https, in special cases:
+# [url "git@gitlab.com:"]
+# insteadOf = https://gitlab.com/
