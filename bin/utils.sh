@@ -25,7 +25,9 @@ countdown() {
   done
 
   if [[ $machine == Mac ]]; then
-    osascript -e 'display notification "test2" with title "test"'
+    MESSAGE=$2
+    # osascript -e "display notification "$1" with title "$1"'
+    osascript -e "display notification \"$MESSAGE\" with title \"Timer is up!\""
     afplay ~/sounds/bell-ringing-04.wav
   elif [[ $machine == Linux ]]; then
     notify-send "time is up!" "$message"
