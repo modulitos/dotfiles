@@ -35,3 +35,7 @@ use_node() {
   load_prefix "$node_dir"
 }
 
+
+# python: currently using pyenv:
+# https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
+# ie: layout pyenv 3.9.7

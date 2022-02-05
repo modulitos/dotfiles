@@ -1,4 +1,11 @@
 #!/bin/bash
 
-windowid=`getmouselocation`
-escrotum -x $windowid $1
+set -euo pipefail
+
+# https://github.com/naelstrof/maim#examples
+
+# maim -i $(xdotool getactivewindow) ~/mypicture.jpg
+
+windowid=$(getmouselocation)
+
+maim -i "$windowid" "$HOME/Pictures/screenshot_$(date +%s).png"

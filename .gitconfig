@@ -6,6 +6,7 @@
 	file-view-vpane-position = 916
 [user]
 	name = modulitos
+    # email = you@example.com
 	email = modulitos@users.noreply.github.com
 [core]
 	editor = vim
@@ -13,14 +14,20 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
   default = simple
+  # "push the current branch back to the branch whose changes are usually integrated into the current branch"
+  # "refuse to push if the upstream branch’s name is different from the local one"
+  # https://git-scm.com/docs/git-config#git-config-pushdefault
+
   followTags = true
   # Because I get sick of telling git to do it manually
   # https://git-scm.com/docs/git-config#git-config-pushfollowTags
 [alias]
+  # start = !git init && git commit --allow-empty -m "Initial commit"
+  # commit-empty = commit --allow-empty -m "Initial commit"
   commit-empty = !sh -c 'git commit --allow-empty -m "!"'
   set-modulitos = !git config user.name modulitos && git config user.email modulitos@users.noreply.github.com
   set-gh-email = !git config user.email modulitos@users.noreply.github.com
-  set-jalmogo = !git config user.name jalmogo
+  set-jalmogo = !git config user.name jalmogo && git config user.email jalmogo@users.noreply.github.com
   st = status --short --branch
   cm = commit
   shortstat = diff master --shortstat
