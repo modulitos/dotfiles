@@ -141,11 +141,6 @@ eval "$(pyenv init -)"
 
 # mkdir -p "$WORKON_HOME"
 
-# Overrides config
-if [ -f "$HOME/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh" ]; then
-  # shellcheck source=/dev/null
-  source "$HOME/.pyenv/versions/3.8.0/bin/virtualenvwrapper.sh"
-fi
 
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
@@ -243,6 +238,9 @@ if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
   . ~/google-cloud-sdk/completion.zsh.inc;
 fi
 
+# added by Nix installer
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
+
 alias diso='OVERCOMMIT_DISABLE=1'
 alias vy="vim -c 'set syntax=yaml' -"
 alias vimy="vim -c 'set syntax=yaml'"
@@ -258,6 +256,7 @@ if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
 fi
 
 alias tsm=transmission-remote
+alias kx=kubectx
 
 eval "$(direnv hook zsh)"
 
