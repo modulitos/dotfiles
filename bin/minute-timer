@@ -8,11 +8,12 @@ MINUTES=$1
 MESSAGE=$2
 
 FLOAT_SECONDS=$(echo "$MINUTES" 60 | awk '{printf "%4.3f\n",$1*$2}')
-INT_SECONDS=$(printf "%.${2:-0}f" "$FLOAT_SECONDS")
+# INT_SECONDS=$(printf "%.${1:-0}f" "$FLOAT_SECONDS")
+INT_SECONDS=$(printf "%.0f\n" "$FLOAT_SECONDS")
 
-countdown "$INT_SECONDS"
+countdown "$INT_SECONDS" "$MESSAGE"
 
-echo "$MESSAGE"
+printf "%s\n" "$MESSAGE"
 
 # python version:
 # #!/usr/bin/env python3
