@@ -33,6 +33,11 @@ use_node() {
   # npm install --global yarn
   local node_dir=$HOME/sdk/$1
   load_prefix "$node_dir"
+
+  # Or consider doing this instead inside the .envrc file:
+  # export NODE_VERSIONS=~/.nvm/versions/node
+  # export NODE_VERSION_PREFIX='v'
+  # use node 12.13
 }
 
 
