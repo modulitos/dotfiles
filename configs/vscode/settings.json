@@ -81,7 +81,7 @@
     "*.json.tpl": "json",
     "*.development": "shellscript",
     "*.local": "shellscript",
-    "*.gemfile": "ruby"
+    "**.gemfile": "ruby"
   },
   "[typescript]": {
     "editor.formatOnSave": true,
