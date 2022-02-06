@@ -9,7 +9,7 @@ source "utils.sh"
 
 message=$2
 
-countdown "$1"
+countdown "$1" "$2"
 echo "$message"
 
 
