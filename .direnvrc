@@ -25,19 +25,40 @@ use_helm() {
 }
 
 use_node() {
-  # Download:
-  # https://nodejs.org/dist/
-  # https://nodejs.org/dist/v12.13.1/
+  # https://gist.github.com/gudleik/7ae3ef00f42440671f16
   #
-  # to access yarn:
-  # npm install --global yarn
-  local node_dir=$HOME/sdk/$1
-  load_prefix "$node_dir"
+  # Either use node version specified in package.json:
+  # use node package.json
+  # Or a specific version:
+  # use node 5.0.0
+  #
+  layout node
 
-  # Or consider doing this instead inside the .envrc file:
-  # export NODE_VERSIONS=~/.nvm/versions/node
-  # export NODE_VERSION_PREFIX='v'
-  # use node 12.13
+  local node_version=$1
+
+  if [ "$node_version" == "package.json" ]; then
+    # Requires jq: `brew install jq`
+    node_version=$(jq --raw-output .engines.node package.json | tr -d "<=> ")
+  fi
+
+  local node_path=${NODE_DIR:-$HOME/sdk/n/versions/node}
+  # This is what the path should look like:
+  #
+  # ❯ ls -l ~/sdk/n/versions/node
+  # total 0
+  # drwxr-xr-x  9 lucas  staff  288 Feb 24 11:33 10.16.0
+  # drwxr-xr-x  9 lucas  staff  288 Feb 24 10:50 12.13.1
+
+  if [ -x "$node_path/$node_version/bin/node" ]; then
+    PATH_add "$node_path/$node_version/bin"
+  elif [ -x "$node_path/v$node_version/bin/node" ]; then
+    # Support nvm users (nvm prefixes versions with 'v')
+    PATH_add "$node_path/v$node_version/bin"
+  else
+    echo "!!! Node.js version $node_version is not installed"
+  fi
+
+  export NODE_PATH=./node_modules
 }
 
 
