@@ -156,6 +156,7 @@ export WORKON_HOME=~/.virtualenvs
 ## Note: Allow NPM to install global command-line tools that are not in ~/npm:
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
+export N_PREFIX=$HOME/sdk
 
 # some helpful posix aliases:
 alias ll='ls -la'
