@@ -186,6 +186,10 @@ export MAILDIR=~/.mail/gmail
 export INFOPATH=$INFOPATH:/usr/share/info
 
 
+# added by Nix installer
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
+
+
 # added by travis gem
 
 # # source autojump (installed via pacman):
@@ -199,8 +203,27 @@ export INFOPATH=$INFOPATH:/usr/share/info
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-# mac OS specifics:
+# OS specifics:
 
-if [ -f $HOME/.macosrc ]; then
-  source ~/.macosrc
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*) machine=Linux;;
+  Darwin*) machine=Mac;;
+  *) machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ $machine == Mac ]]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.macosrc"
+elif [[ $machine == Linux ]]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.linuxsrc"
+else
+  echo "machine not recognized: $machine"
+fi
+
+# Overrides config
+if [ -f "$HOME/.localrc" ]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.localrc"
 fi
