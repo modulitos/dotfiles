@@ -1,6 +1,10 @@
 #!/bin/bash
 
-SINK=$(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
+readarray -t SINKS < <(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
+
+# printf 'sinks!: %s\n' "${SINKS[@]}"
+
+
 # echo "SINK: $SINK"
 
 # getdefaultsinkname() {
@@ -13,9 +17,12 @@ SINK=$(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
 #             /^\s+volume: / && indefault {print $5; exit}'
 # }
 
+
 case $1 in
   mute|m)
-    pactl set-sink-mute "$SINK" toggle
+    for sink in "${SINKS[@]}"; do
+      pactl set-sink-mute "$sink" toggle
+    done
     ;;
   play|pause|p)
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -30,13 +37,25 @@ case $1 in
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
     ;;
   increase|i)
-    pactl set-sink-volume "$SINK" +5000
+    # TODO: make the sinks to start at the same volume?
+    for sink in "${SINKS[@]}"; do
+      echo "adjusting sink volume: $sink"
+      pactl set-sink-volume "$sink" +5000
+    done
     ;;
   current|c)
-    pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( "$SINK" + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+    for sink in "${SINKS[@]}"; do
+      # pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( "$sink" + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+      VOLUME_INFO=$(pactl list sinks | grep "Sink #$sink" -A 10 | grep '^[[:space:]]Volume:')
+      DESCRIPTION=$(pactl list sinks | grep "Sink #$sink" -A 10 | grep '^[[:space:]]Description:')
+      printf "sink $sink:\n%s\n%s\n" "$DESCRIPTION" "$VOLUME_INFO"
+    done
     ;;
   decrease|d)
-    pactl set-sink-volume "$SINK" -5000
+    for sink in "${SINKS[@]}"; do
+      echo "adjusting sink volume: $sink"
+      pactl set-sink-volume "$sink" -5000
+    done
     ;;
   *)
     echo "Invalid input."
