@@ -1,11 +1,15 @@
 #!/bin/sh
 
 # https://gist.github.com/NoraCodes/13c5c2f9e6b161b2ce56fbdf97a3bb17
+#
+# Using X11:
+# https://askubuntu.com/questions/1289969/restore-apple-magic-trackpad-2-settings-on-ubuntu/1316185#1316185
 
 # this returns 21, but not always
 IDS=$(DISPLAY=:0 xinput | grep "Apple Inc. Magic Trackpad" | cut -d "=" -f 2 | cut -f 1)
 # Sometimes we'll have multiple entries in the xinput - just choose the first one.
 ID=$(echo "$IDS" | tail -n 1)
+# ID=$(echo "$IDS" | head -n 1)
 
 if [ -z "$ID" ]; then
   echo "No AMT2 found in xinput list; aborting."
