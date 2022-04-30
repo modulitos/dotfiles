@@ -5,3 +5,4 @@
 # for more info:
 curl ipinfo.io
 
+# dig +short myip.opendns.com @resolver1.opendns.com -4

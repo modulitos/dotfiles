@@ -24,6 +24,11 @@ use_helm() {
   load_prefix "$helm_dir"
 }
 
+use_kustomize() {
+  local kustomize_dir=$HOME/kustomize/$1
+  load_prefix "$kustomize_dir"
+}
+
 use_node() {
   # https://gist.github.com/gudleik/7ae3ef00f42440671f16
   #
