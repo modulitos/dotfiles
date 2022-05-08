@@ -17,5 +17,11 @@ output=$2
 scale=${3:-320}
 delay=${4:-5}
 
+# TODO: if only $input is provided, set $output to be ${input}.gif
+
+# echo "scale: $scale"
+# echo "delay: $delay"
+
+# ffmpeg -i $input -vf scale=$scale:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay 5 -loop 0 - gif:- | convert -layers Optimize - $output
 ffmpeg -i $input -vf scale=$scale:-1 -r 10 -f image2pipe -vcodec ppm - | convert -delay $delay -loop 0 - gif:- | convert -layers Optimize - $output
 
