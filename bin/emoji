@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# causes failure:
+#!/usr/bin/env sh
+# set -euo pipefail
+
 # https://github.com/porras/dmenu-emoji/blob/master/dmenu-emoji.sh
 set -e
 
@@ -9,15 +14,23 @@ case "$1" in
     ;;
   "copy")
     input=$(tee)
-    if [ ! -z "$input" ]; then
-      IFS=' ' read -ra items <<< $input
+    if [ -n "$input" ]; then
+      IFS=' ' read -ra items <<< "$input"
       emoji=${items[-1]}
-      echo -n "$emoji" | xclip -selection c
+      echo -n "$emoji" | wl-copy
       command -v notify-send > /dev/null && notify-send -t 200 "$emoji copied!"
     fi
     ;;
   "")
-    bash $0 list | dmenu -fn 'NotoSans-BoldItalic' -p 'Emoji: ' | bash $0 copy
+    FONT='NotoSans-BoldItalic'
+    # FONT='NotoKufiArabic-Bold'
+    # FONT='NotoSans-BoldItalic'
+    # FONT='NotoColorEmoji'
+    # FONT='NotoSans-Regular'
+    # FONT='NotoSans-Regular'
+    # FONT='notoemoji'
+
+    bash "$0" list | bemenu -fn $FONT -l 50 -i -p 'Emoji: ' | bash "$0" copy
     ;;
 esac
 
