@@ -13,6 +13,7 @@
 !.tmux.conf
 !.tmux.reset.conf
 !.config/redshift.conf
+!.config/sway
 !.urxvt/
 !.eslintrc
 !.direnvrc
