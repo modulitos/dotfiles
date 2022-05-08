@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+# Ideally, we can have bemeu run a regex etc over the text that is
+# displayed, without altering the text that is output.
+ROW="$(wl-clipboard-history -l 100 | bemenu -l 50 -i -p 'clip history'| cut -d ',' -f1)"
+# Row will have a value like:
+# 249,some copied text
+
+wl-clipboard-history -p "$ROW" | wl-copy
