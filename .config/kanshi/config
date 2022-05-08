@@ -1,0 +1,27 @@
+# # https://sr.ht/~emersion/kanshi/
+# swaymsg -t get_outputs
+# # swaymsg -t get_outputs
+
+# modeline generated like so:
+# ❯ cvt 1600 900 60
+# # 1600x900 59.95 Hz (CVT 1.44M9) hsync: 55.99 kHz; pclk: 118.25 MHz
+# Modeline "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
+
+profile {
+    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 2
+    output "Unknown ASUS VG328 0x000046C9"
+    # output eDP-1 'Unknown 0x0418 0x00000000'
+    # output HDMI-A-2 'Unknown ASUS VG328 0x000046C9'
+
+    # output "Some Company ASDF 4242" mode 1600x900 position 0,0
+    # output eDP-1 mode 2560x1440
+    # output eDP-1 res 2560x1440
+
+    # output eDP-1 modeline 118.25 1600 1696 1856 2112 900 903 908 934 -hsync +vsync
+}
+
+profile {
+    # output eDP-1 'Unknown 0x0418 0x00000000'
+    # output "Unknown 0x0418 0x00000000" mode 1600x900
+    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1
+}

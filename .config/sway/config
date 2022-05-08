@@ -172,12 +172,16 @@ bindsym XF86MonBrightnessUp exec backlight add 200
 ################################################################################
 # windows
 ################################################################################
+
 # focus the child container
 #bindsym $mod+d focus child
 
+# Using kanshi for now, but if we don't have kanshi, do this:
 # https://github.com/swaywm/sway/wiki#configuration
 # https://manpages.debian.org/experimental/sway/sway-output.5.en.html
-output eDP-1 modeline 118.25 1600 1696 1856 2112 900 903 908 934 -hsync +vsync
+# output eDP-1 modeline 118.25 1600 1696 1856 2112 900 903 908 934 -hsync +vsync
+# output * modeline 118.25 1600 1696 1856 2112 900 903 908 934 -hsync +vsync
+
 # swaymsg 'output eDP-1 ...'
 
 # modeline generated like so:
