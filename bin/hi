@@ -1,36 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env sh
+set -euo pipefail
+
 ~/bin/backlight chmod
 
 tmux-session restore
 
-# keyboard setup:
-xmodmap -e 'clear Lock' #ensures you're not stuck in CAPS on mode
-setxkbmap -option caps:backspace
-setxkbmap -option altwin:prtsc_rwin
-
-# to add custom resolutions via cvt, see here:
-# https://unix.stackexchange.com/questions/47749/cannot-add-new-mode-in-xrandr-for-external-monitor?rq=1
-# or here:
-# http://askubuntu.com/questions/377937/how-to-set-a-custom-resolution
-
-resize-screen
-
-# test adding modes:
-# cvt 1600 1080 60
-
-# xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
-# xrandr --newmode "1600x1080_60.00"  144.00  1600 1704 1872 2144  1080 1083 1093 1120 -hsync +vsync
-
-# xrandr --addmode VGA-0 1680x1050_60.00
-# xrandr --addmode HDMI2 1600x1080_60.00
-
-# Perhaps this can be permianently added by creating a config with
-# `Xorg :0 -configure` and updating the config?
-
-
-# mac-spoof
-
-start-redshift
 set-dns google
-# start-airvpn
 
