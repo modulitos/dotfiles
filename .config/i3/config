@@ -38,7 +38,11 @@ bindsym $mod+i exec ~/bin/emoji
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# kill focused window
+# bindsym Control+q exec ~/noctrlq.sh
+
 # start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
 bindsym $mod+space exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -96,6 +100,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
 bindsym $mod+d focus mode_toggle
 
 # focus the parent container
@@ -129,19 +134,54 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # moving between monitors
+# bindsym $mod+w focus output up
 bindsym $mod+w focus output right
 bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
+
+
+# set $workspace1_name 1:me
+# set $workspace2_name 2:me
+# set $workspace3_name 3:me
+# set $workspace4_name 4:me
+# set $workspace5_name 5:me
+# set $workspace6_name 6:me
+# set $workspace7_name 7:me
+# set $workspace8_name 8:me
+# set $workspace8_name 9:me
+# set $workspace8_name 0:me
+
+# workspace "1:me" output eDP1
+# workspace "2:me" output HDMI2
+# workspace "3:me" output HDMI2
+# workspace "4:me" output HDMI2
+# workspace "5:me" output HDMI2
+# workspace "6:me" output HDMI2
+# workspace "7:me" output HDMI2
+# workspace "8:me" output HDMI2
+# workspace "9:me" output HDMI2
+# workspace "0:me" output HDMI2
 
 workspace 1 output eDP1
 workspace 2 output HDMI2
 workspace 3 output HDMI2
 workspace 4 output HDMI2
 workspace 5 output HDMI2
+# workspace 6 output eDP1
 workspace 6 output HDMI2
 workspace 7 output HDMI2
 workspace 8 output HDMI2
 workspace 9 output HDMI2
+workspace 10 output HDMI2
+
+# move 1 to eDP1
+# move 2 to HDMI2
+# move 3 to HDMI2
+# move 4 to HDMI2
+# move 5 to HDMI2
+# move 6 to HDMI2
+# move 7 to HDMI2
+# move 8 to HDMI2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -161,6 +201,7 @@ mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
+        # bindsym semicolon resize grow width 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -180,4 +221,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        # status_command i3status --config ~/.i3status.conf
 }
