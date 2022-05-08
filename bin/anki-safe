@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "starting anki, no sandbox"
+anki --no-sandbox
