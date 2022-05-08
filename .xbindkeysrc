@@ -37,93 +37,101 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-"clipmenu"
-  m:0x50 + c:58 # win + m
-  # m:0x50 + c:57 # win + n
-
-# close notifications
-"dunstctl close-all"
-  m:0x50 + c:54 # win + c
-  # This prevents the backtick key from working(?):
-  # m:0x50 + c:49 # win + backtick
-
+#
+#  "clipmenu"
+#    m:0x50 + c:58 # win + m
+#    # m:0x50 + c:57 # win + n
+# 
+# # close notifications
+# "dunstctl close-all"
+#   m:0x50 + c:54 # win + c
+#   # This prevents the backtick key from working(?):
+#   # m:0x50 + c:49 # win + backtick
+# 
 # LOCK SCREEN HOTKEYS
 "slock"
   m:0x10 + c:235 # "display function" button:
-# pause:
-"slock"
-  m:0x10 + c:127
-"slock"
-  m:0x54 + c:24 # Control+Mod2+Mod4 + q
-
-# AUDIO CONTROLS
-# Increase volume
-"audio i"
-  m:0x10 + c:123
-# Decrease volume
-"audio d"
-  m:0x10 + c:122
-# Toggle mute
-"audio m"
-  m:0x10 + c:121
-# Play/Pause
-"audio p"
-  m:0x10 + c:172
-# bind to the 'tools' button
-"audio p"
-  m:0x10 + c:179
-# Next
-"audio f"
-  m:0x10 + c:171
-# bind to the 'search' button
-"audio f"
-  m:0x10 + c:152
-# Previous
-"audio b"
-  m:0x10 + c:173
-# bind to the 'launch' button
-"audio b"
-  m:0x10 + c:128
-# Stop
-"audio s"
-  m:0x10 + c:174
-# bind to the 'explorer' button
-"audio s"
-  m:0x10 + c:225
-
-# OTHER
-"backlight add -200"
-  m:0x10 + c:232
-
-"backlight add 200"
-  m:0x10 + c:233
-
-
-# Examples of commands:
-
-# set directly keycode (here control + f with my keyboard)
-#"xterm"
-#  c:41 + m:0x4
-
-# specify a mouse button
-#"xterm"
-#  control + b:2
-
-#"xterm -geom 50x20+20+20"
-#   Shift+Mod2+alt + s
-#
-## set directly keycode (here control+alt+mod2 + f with my keyboard)
-#"xterm"
-#  alt + c:0x29 + m:4 + mod2
-#
-## Control+Shift+a  release event starts rxvt
-#"rxvt"
-#  release+control+shift + a
-#
-## Control + mouse button 2 release event starts rxvt
-#"rxvt"
-#  Control + b:2 + Release
-
-##################################
-# End of xbindkeys configuration #
-##################################
+# # pause:
+# "slock"
+#   m:0x10 + c:127
+# "slock"
+#   m:0x54 + c:24 # Control+Mod2+Mod4 + q
+# 
+# # AUDIO CONTROLS
+# # Increase volume
+# "audio i"
+#   m:0x10 + c:123
+# # Decrease volume
+# "audio d"
+#   m:0x10 + c:122
+# # Toggle mute
+# "audio m"
+#   m:0x10 + c:121
+# # Play/Pause
+# "audio p"
+#   m:0x10 + c:172
+# # bind to the 'tools' button
+# "audio p"
+#   m:0x10 + c:179
+# # Next
+# "audio f"
+#   m:0x10 + c:171
+# # bind to the 'search' button
+# "audio f"
+#   m:0x10 + c:152
+# # Previous
+# "audio b"
+#   m:0x10 + c:173
+# # bind to the 'launch' button
+# "audio b"
+#   m:0x10 + c:128
+# # Stop
+# "audio s"
+#   m:0x10 + c:174
+# # bind to the 'explorer' button
+# "audio s"
+#   m:0x10 + c:225
+# 
+# # OTHER
+# "backlight add -200"
+#   m:0x10 + c:232
+# 
+# "backlight add 200"
+#   m:0x10 + c:233
+# 
+# # "emoji"
+# #   m:0x50 + c:31
+# # "noctrlq"
+# #   m:0x4 + c:37
+# 
+# # "xbindkeys_show"
+# #   control+shift + q
+# 
+# # Examples of commands:
+# 
+# # set directly keycode (here control + f with my keyboard)
+# #"xterm"
+# #  c:41 + m:0x4
+# 
+# # specify a mouse button
+# #"xterm"
+# #  control + b:2
+# 
+# #"xterm -geom 50x20+20+20"
+# #   Shift+Mod2+alt + s
+# #
+# ## set directly keycode (here control+alt+mod2 + f with my keyboard)
+# #"xterm"
+# #  alt + c:0x29 + m:4 + mod2
+# #
+# ## Control+Shift+a  release event starts rxvt
+# #"rxvt"
+# #  release+control+shift + a
+# #
+# ## Control + mouse button 2 release event starts rxvt
+# #"rxvt"
+# #  Control + b:2 + Release
+# 
+# ##################################
+# # End of xbindkeys configuration #
+# ##################################

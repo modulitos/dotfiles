@@ -11,6 +11,10 @@ case $1 in
         addy1="8.8.8.8"
         addy2="8.8.4.4"
         ;;
+    local)
+        config=local
+        addy1="127.0.0.1"
+        ;;
     opendns)
         config=opendns
         addy1="208.67.222.222"
@@ -21,6 +25,7 @@ case $1 in
         echo "  set-dns air"
         echo "  set-dns google"
         echo "  set-dns opendns"
+        echo "  set-dns local"
         exit 0
         ;;
 esac

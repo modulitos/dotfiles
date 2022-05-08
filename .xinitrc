@@ -50,6 +50,7 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 xbindkeys
+# [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 xmodmap .Xmodmap
 
 # https://wiki.archlinux.org/index.php/Activating_Numlock_on_Bootup
