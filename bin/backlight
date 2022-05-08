@@ -15,19 +15,19 @@ case "$1" in
     printf "B%s%%" $((BCURR*100/BMAX))
     ;;
   read)
-    printf "%-47s %-6s (%-3s%%) \n" "$B_ROOT$V1" $BCURR $((BCURR*100/BMAX))
+    printf "%-47s %-6s (%-3s%%) \n" "$B_ROOT$V1" "$BCURR" $((BCURR*100/BMAX))
     ;;
   low)
     echo 10 > "$B_ROOT$V1"
     ;;
   add)
     [ $# -ne 2  ] && exit 1
-    BNEW=$(($2 + $BCURR))
-    [ $BNEW -gt $BMAX  ] && BNEW=$BMAX
-    [ $BNEW -lt $BMIN  ] && BNEW=$BMIN
+    BNEW=$(($2 + "$BCURR"))
+    [ "$BNEW" -gt "$BMAX"  ] && BNEW="$BMAX"
+    [ "$BNEW" -lt "$BMIN"  ] && BNEW="$BMIN"
     echo $BNEW > "$B_ROOT$V1"
     ;;
   *)
-    echo "options:\nchmod, conkyread, read, low, add"
+    printf "options:\nchmod, conkyread, read, low, add"
     ;;
 esac
