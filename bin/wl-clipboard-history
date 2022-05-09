@@ -3,8 +3,12 @@ set -euo pipefail
 
 # Ideally, we can have bemeu run a regex etc over the text that is
 # displayed, without altering the text that is output.
-ROW="$(wl-clipboard-manager -l 100 | bemenu -l 100 -i -p 'clip history'| cut -d ',' -f1)"
+ROW="$(wl-clipboard-manager -l 100 | bemenu -l 100 -i -p 'clip history' | cut -d ',' -f1)"
 # Row will have a value like:
 # 249,some copied text
 
-wl-clipboard-manager -p "$ROW" | wl-copy
+# wl-clipboard-manager -p "$ROW" | cut -f1 -z | wl-copy
+# wl-clipboard-manager -p "$ROW" | wl-copy
+wl-clipboard-manager -p "$ROW" |
+  xargs echo -n | # remove trailing newline
+  wl-copy
