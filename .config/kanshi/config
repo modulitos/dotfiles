@@ -23,5 +23,5 @@ profile {
 profile {
     # output eDP-1 'Unknown 0x0418 0x00000000'
     # output "Unknown 0x0418 0x00000000" mode 1600x900
-    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1
+    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1.5
 }
