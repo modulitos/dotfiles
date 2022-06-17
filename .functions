@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
+# We can't set this, because it fails:
+# set -euo pipefail
 
 # Taken from here: https://github.com/addyosmani/dotfiles/blob/master/.functions#L1-L17 -->
 
