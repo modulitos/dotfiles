@@ -78,6 +78,8 @@
     "*.yml.tmpl": "yaml",
     "*.yaml.tmpl": "yaml",
     "*.yaml.tpl": "yaml",
+    "*.yml.tpl": "yaml",
+    "*.tpl": "yaml",
     "*.json.tpl": "json",
     "*.development": "shellscript",
     "*.local": "shellscript",

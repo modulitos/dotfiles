@@ -19,6 +19,11 @@ use_istioctl() {
   load_prefix "$istioctl_dir"
 }
 
+use_prometheus() {
+  local prom_dir=$HOME/sdk/prometheus/$1
+  load_prefix "$prom_dir"
+}
+
 use_helm() {
   local helm_dir=$HOME/helm/$1
   load_prefix "$helm_dir"

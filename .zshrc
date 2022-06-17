@@ -115,6 +115,12 @@ if [ -f "$HOME/.localrc" ]; then
   # shellcheck disable=SC1091
   source "$HOME/.localrc"
 fi
+# Functions config
+if [ -f "$HOME/.functions" ]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.functions"
+fi
+
 
 # Yarn:
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
