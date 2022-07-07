@@ -9,7 +9,9 @@
 
 profile {
     output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 2
+    # Home office monitor:
     output "Unknown ASUS VG328 0x000046C9"
+
     # output eDP-1 'Unknown 0x0418 0x00000000'
     # output HDMI-A-2 'Unknown ASUS VG328 0x000046C9'
 
@@ -21,7 +23,11 @@ profile {
 }
 
 profile {
-    # output eDP-1 'Unknown 0x0418 0x00000000'
-    # output "Unknown 0x0418 0x00000000" mode 1600x900
-    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1.5
+    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1.7
+}
+
+profile {
+    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1.7
+    # katie's parent's tv:
+    output "Unknown NS-50D510NA17 0x00000001"
 }
