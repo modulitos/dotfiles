@@ -16,6 +16,7 @@
 !.config/redshift.conf
 !.config/sway
 !.config/kanshi
+!.config/dunst
 !.urxvt/
 !.eslintrc
 !.direnvrc

@@ -33,6 +33,10 @@ set $lock swaylock -f -c 000000
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# notifications:
+exec dunst
+set $close-notification dunstctl close
+
 # https://github.com/janza/wl-clipboard-history
 exec wl-clipboard-manager -t
 
@@ -82,6 +86,7 @@ bindsym $mod+Ctrl+q exec $lock
 # Start your launcher
 bindsym $mod+space exec $menu
 
+bindsym $mod+grave exec $close-notification
 
 # bindsym $mod+m exec wl-clipboard-history -p "$(wl-clipboard-history -l 20 | fzf --with-nth 2.. -d , | cut -d ',' -f1)"
 bindsym $mod+m exec wl-clipboard-history
