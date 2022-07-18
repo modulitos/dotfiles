@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# We can't set this, because it fails:
+# Don't set this, or else is breaks a bunch of other stuff:
 # set -euo pipefail
 
 # Taken from here: https://github.com/addyosmani/dotfiles/blob/master/.functions#L1-L17 -->
