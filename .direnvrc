@@ -15,7 +15,15 @@ use_go() {
 }
 
 use_istioctl() {
-  local istioctl_dir=$HOME/istioctl/$1
+  # download istioctl here:
+  # https://github.com/istio/istio/releases/tag/1.14.1
+  # mkdir -p ~/sdk/istioctl/istioctl<version>/bin
+  # tar -xvzf istioctl-<version>
+  # mv istioctl ~/sdk/istioctl/istioctl<version>/bin
+  #
+  # eg:
+  # use istioctl istioctl1.10.4
+  local istioctl_dir=$HOME/sdk/istioctl/$1
   load_prefix "$istioctl_dir"
 }
 
