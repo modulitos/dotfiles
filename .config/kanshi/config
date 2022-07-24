@@ -7,6 +7,7 @@
 # # 1600x900 59.95 Hz (CVT 1.44M9) hsync: 55.99 kHz; pclk: 118.25 MHz
 # Modeline "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
 
+# grease lightning:
 profile {
     output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 2
     # Home office monitor:
@@ -31,3 +32,16 @@ profile {
     # katie's parent's tv:
     output "Unknown NS-50D510NA17 0x00000001"
 }
+
+# flx lightning
+profile {
+    output "Unknown 0x06B3 0x00000000" mode 1920x1200 enable scale 1.4
+}
+
+profile {
+    output "Unknown 0x06B3 0x00000000" mode 1920x1200 enable scale 2
+    # Home office monitor:
+    output "Unknown ASUS VG328 0x000046C9"
+}
+
+
