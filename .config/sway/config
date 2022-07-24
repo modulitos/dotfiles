@@ -5,10 +5,6 @@
 
 set $mod Mod4
 
-# TODO: set print
-# bindsym Print exec backlight add 200
-# bindsym Print $mod
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -80,9 +76,6 @@ bindsym $mod+Ctrl+q exec $lock
 # kill focused window
 # bindsym Control+q exec ~/noctrlq.sh
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# bindsym $mod+space exec dmenu_run
 # Start your launcher
 bindsym $mod+space exec $menu
 
@@ -91,11 +84,6 @@ bindsym $mod+grave exec $close-notification
 # bindsym $mod+m exec wl-clipboard-history -p "$(wl-clipboard-history -l 20 | fzf --with-nth 2.. -d , | cut -d ',' -f1)"
 bindsym $mod+m exec wl-clipboard-history
 
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 # bindsym $mod+j focus left
@@ -157,7 +145,8 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+# exit sway (logs out of your wayland session)
+bindsym $mod+Shift+e exit
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
