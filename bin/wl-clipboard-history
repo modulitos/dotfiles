@@ -7,8 +7,14 @@ ROW="$(wl-clipboard-manager -l 100 | bemenu -l 100 -i -p 'clip history' | cut -d
 # Row will have a value like:
 # 249,some copied text
 
-# wl-clipboard-manager -p "$ROW" | cut -f1 -z | wl-copy
-# wl-clipboard-manager -p "$ROW" | wl-copy
-wl-clipboard-manager -p "$ROW" |
-  xargs echo -n | # remove trailing newline
-  wl-copy
+# # wl-clipboard-manager -p "$ROW" | cut -f1 -z | wl-copy
+# # wl-clipboard-manager -p "$ROW" | wl-copy
+# wl-clipboard-manager -p "$ROW" |
+#   # TODO: why is this removing ALL newlines?
+#   xargs echo -n | # remove trailing newline
+#   # while read -r; do echo "$REPLY"; done |
+#   wl-copy
+
+
+TEXT=$(wl-clipboard-manager -p "$ROW")
+echo -n "$TEXT" | wl-copy

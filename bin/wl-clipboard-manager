@@ -5,6 +5,7 @@ clipboard_file="$HOME/.clipboard.sqlite"
 
 query () {
     echo "$1" | sqlite3 -separator "," "$clipboard_file"
+    # printf %b "$1" | sqlite3 -separator "," "$clipboard_file"
 }
 
 if [ ! -f "$clipboard_file" ]; then

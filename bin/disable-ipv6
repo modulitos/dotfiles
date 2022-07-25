@@ -7,6 +7,16 @@ case "${unameOut}" in
   *) machine="UNKNOWN:${unameOut}"
 esac
 
+# TODO:
+# https://www.techrepublic.com/article/how-to-disable-ipv6-on-linux/
+# Issue the command sysctl -w net.ipv6.conf.all.disable_ipv6=1
+# Issue the command sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+# To re-enable IPv6, issue the following commands:
+
+# sysctl -w net.ipv6.conf.all.disable_ipv6=0
+# sysctl -w net.ipv6.conf.default.disable_ipv6=0
+
 if [[ $machine == Mac ]]; then
   # networksetup -setv6automatic Wi-Fi
   networksetup -setv6off "Wi-Fi"

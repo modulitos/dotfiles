@@ -164,3 +164,4 @@ eval "$(direnv hook zsh)"
 gitb() {
   git checkout "$(git branch | fzf| tr -d '[:space:]')"
 }
+
