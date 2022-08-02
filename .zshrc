@@ -9,10 +9,15 @@ source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
+# Ignore duplicates:
+setopt HIST_IGNORE_ALL_DUPS
+# Ignore commands that start with ' ' (good for commands with creds if you don't want those on disk)
+setopt HIST_IGNORE_SPACE
+# All sessions get all history
+setopt SHARE_HISTORY
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
