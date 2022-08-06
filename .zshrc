@@ -137,7 +137,18 @@ if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
 fi
 
 # added by Nix installer
+# shellcheck disable=SC1091
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
+
+# Home Manager vars:
+# shellcheck disable=SC1091
+if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"; fi
+
+# Append ~/.nix-defexpr/channels to $NIX_PATH so that <nixpkgs>
+# paths work when the user has fetched the Nixpkgs channel.
+# https://discourse.nixos.org/t/where-is-nix-path-supposed-to-be-set/16434/8
+# https://nix-community.github.io/home-manager/index.html
+export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/lucas/channels${NIX_PATH:+:$NIX_PATH}
 
 alias diso='OVERCOMMIT_DISABLE=1'
 alias vy="vim -c 'set syntax=yaml' -"
