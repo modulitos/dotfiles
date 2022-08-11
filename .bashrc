@@ -227,3 +227,5 @@ if [ -f "$HOME/.localrc" ]; then
   # shellcheck disable=SC1091
   source "$HOME/.localrc"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
