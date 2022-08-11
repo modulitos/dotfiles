@@ -1,12 +1,5 @@
 # shellcheck shell=bash
 
-export ZSH="$HOME/.oh-my-zsh"
-
-plugins=(git fzf kubectl)
-
-# shellcheck disable=SC1091
-source "$ZSH/oh-my-zsh.sh"
-
 # User configuration
 
 HISTFILE=~/.histfile
@@ -151,6 +144,7 @@ alias vy="vim -c 'set syntax=yaml' -"
 alias vimy="vim -c 'set syntax=yaml'"
 alias vj="vim -c 'set syntax=json' -"
 alias vimj="vim -c 'set syntax=json'"
+alias k="kubectl"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -170,3 +164,5 @@ gitb() {
   git checkout "$(git branch | fzf| tr -d '[:space:]')"
 }
 
+
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
