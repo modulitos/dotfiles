@@ -17,6 +17,7 @@
 !.config/sway
 !.config/kanshi
 !.config/dunst
+!.config/*
 !.urxvt/
 !.eslintrc
 !.direnvrc

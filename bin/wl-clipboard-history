@@ -1,9 +1,13 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
+# Adding this because passing -fn to bemenu somoehow sets the cursor
+# to the top instead of the middle.
+FONT='NotoSans-BoldItalic'
+
 # Ideally, we can have bemeu run a regex etc over the text that is
 # displayed, without altering the text that is output.
-ROW="$(wl-clipboard-manager -l 100 | bemenu -l 100 -i -p 'clip history' | cut -d ',' -f1)"
+ROW="$(wl-clipboard-manager -l 100 | bemenu -fn $FONT -l 100 -i -p 'clip history' | cut -d ',' -f1)"
 # Row will have a value like:
 # 249,some copied text
 
