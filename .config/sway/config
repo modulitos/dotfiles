@@ -34,6 +34,8 @@ exec dunst
 set $close-notification dunstctl close
 set $last-notification dunstctl history-pop
 
+exec emacs --daemon
+
 # https://github.com/janza/wl-clipboard-history
 exec wl-clipboard-manager -t
 
