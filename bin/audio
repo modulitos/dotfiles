@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env sh
+set -euo pipefail
 
 readarray -t SINKS < <(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
 
@@ -18,7 +19,7 @@ readarray -t SINKS < <(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }
 # }
 
 
-case $1 in
+case "$1" in
   mute|m)
     for sink in "${SINKS[@]}"; do
       pactl set-sink-mute "$sink" toggle
@@ -58,18 +59,20 @@ case $1 in
     done
     ;;
   *)
-    echo "Invalid input."
-    echo "Valid inputs are:"
-    echo ""
-    echo "increase|i"
-    echo "decrease|d"
-    echo "play|pause|p"
-    echo "stop|s"
-    echo "forward|f"
-    echo "back|b"
-    echo "mute|m"
-    echo "current|c"
-    echo ""
-    echo "goodbye!"
+
+    printf '%s\n' \
+           'Invalid input.' \
+           '' \
+           'Valid inputs are:' \
+           'increase|i' \
+           'decrease|d' \
+           'play|pause|p' \
+           'stop|s' \
+           'forward|f' \
+           'back|b' \
+           'mute|m' \
+           'current|c' \
+           '' \
+           'goodbye!'
     ;;
 esac
