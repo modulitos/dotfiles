@@ -234,15 +234,15 @@ bindsym $mod+Shift+less move container to output left
 # set $workspace8_name 0:me
 
 workspace 1 output eDP-1
-workspace 2 output HDMI2
-workspace 3 output HDMI2
-workspace 4 output HDMI2
-workspace 5 output HDMI2
-workspace 6 output HDMI2
-workspace 7 output HDMI2
-workspace 8 output HDMI2
-workspace 9 output HDMI2
-workspace 10 output HDMI2
+workspace 2 output HDMI-A-2
+workspace 3 output HDMI-A-2
+workspace 4 output HDMI-A-2
+workspace 5 output HDMI-A-2
+workspace 6 output HDMI-A-2
+workspace 7 output HDMI-A-2
+workspace 8 output HDMI-A-2
+workspace 9 output HDMI-A-2
+workspace 10 output HDMI-A-2
 
 # move 1 to eDP1
 # move 2 to HDMI2

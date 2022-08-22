@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env sh
+set -euo pipefail
+
 B_ROOT="/sys/class/backlight/intel_backlight"
 V1="/brightness"
 V2="/max_brightness"
@@ -28,6 +30,9 @@ case "$1" in
     echo $BNEW > "$B_ROOT$V1"
     ;;
   *)
-    printf "options:\nchmod, conkyread, read, low, add"
+    printf "%s\n" \
+           "options:" \
+           "chmod, conkyread, read, low, add" \
+           ""
     ;;
 esac
