@@ -17,13 +17,13 @@ use_go() {
 use_istioctl() {
   # download istioctl here:
   # https://github.com/istio/istio/releases/tag/1.14.1
-  # mkdir -p ~/sdk/istioctl/istioctl<version>/bin
+  # mkdir -p ~/sdk/istioctl/<version>/bin
   # tar -xvzf istioctl-<version>
-  # mv istioctl ~/sdk/istioctl/istioctl<version>/bin
+  # mv istioctl ~/sdk/istioctl/<version>/bin
   #
   # eg:
-  # use istioctl istioctl1.10.4
   local istioctl_dir=$HOME/sdk/istioctl/$1
+  # use istioctl 1.10.4
   load_prefix "$istioctl_dir"
 }
 
@@ -33,13 +33,37 @@ use_prometheus() {
 }
 
 use_helm() {
-  local helm_dir=$HOME/helm/$1
+  # Downloaded here:
+  # https://github.com/helm/helm/releases/tag/v3.9.3
+  # mkdir -p ~/sdk/helm/<version>/bin
+  # tar -xvzf <helm>
+  # mv <helm>/helm ~/sdk/helm/<version>/bin/
+  local helm_dir=$HOME/sdk/helm/$1
+  # use helm <version>
   load_prefix "$helm_dir"
 }
 
 use_kustomize() {
-  local kustomize_dir=$HOME/kustomize/$1
+  # local kustomize_dir=$HOME/kustomize/$1
+  # Download here:
+  # https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv4.2.0
+  # mkdir -p ~/sdk/kustomize/<version>/bin
+  # tar -xvzf kustomize-<version>
+  # mv kustomize ~/sdk/kustomize/<version>/bin/
+  local kustomize_dir=$HOME/sdk/kustomize/$1
+  # use kustomize <version>
   load_prefix "$kustomize_dir"
+}
+
+use_terraform() {
+  # Downloaded here:
+  # https://releases.hashicorp.com/terraform/0.14.5
+  # unzip terraform_*
+  # mkdir -p ~/sdk/terraform/<version>/bin
+  # mv helm ~/sdk/helm/<version>/bin/
+  local helm_dir=$HOME/sdk/terraform/$1
+  # use helm <version>
+  load_prefix "$helm_dir"
 }
 
 use_node() {
@@ -50,6 +74,8 @@ use_node() {
   # Or a specific version:
   # use node 5.0.0
   #
+  # Install a new node version with "n" package manager, eg:
+  # n 10.16.0
   layout node
 
   local node_version=$1

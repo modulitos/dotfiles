@@ -48,7 +48,7 @@ exec_always "pkill kanshi; kanshi"
 ################################################################################
 # https://www.mankier.com/5/sway-input
 input * natural_scroll enabled
-input * scroll_factor 0.3
+input * scroll_factor 0.4
 
 input * {
     # https://man.archlinux.org/man/xkeyboard-config.7
