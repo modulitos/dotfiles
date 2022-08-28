@@ -2,6 +2,7 @@
 # References:
 # https://github.com/swaywm/sway/blob/master/config.in
 # https://github.com/swaywm/sway/wiki#configuration
+# https://gist.github.com/tuxPT/467f8ae7d15fcc1b67683df36c4b535a
 
 set $mod Mod4
 
@@ -73,7 +74,6 @@ bindsym $mod+i exec ~/bin/emoji
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# set $lock swaylock -c 550000
 bindsym $mod+Ctrl+q exec $lock
 
 # kill focused window
@@ -279,6 +279,25 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# set $Locker swaylock
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $lock, mode "default"
+    bindsym e exec --no-startup-id swaymsg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl kill-emacs-daemon && reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id kill-emacs-daemon && systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+z mode "$mode_system"
 
 ################################################################################
 # status bar

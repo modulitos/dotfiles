@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+FILE="$1"
+# https://www.emacswiki.org/emacs/EmacsClient
+emacsclient --create-frame --alternate-editor="" $FILE
+
+# from foot terminal:
+# foot emacs -nw
