@@ -1,0 +1,5 @@
+[screencast]
+max_fps=30
+output_name=DP-5
+chooser_cmd=slurp -f %o -o
+chooser_type=simple
