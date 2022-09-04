@@ -40,6 +40,9 @@ exec emacs --daemon
 # https://github.com/janza/wl-clipboard-history
 exec wl-clipboard-manager -t
 
+# https://github.com/emersion/xdg-desktop-portal-wlr#running
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # https://www.reddit.com/r/swaywm/comments/ua72so/starting_kanshi_from_sway/
 exec_always "pkill kanshi; kanshi"
 
@@ -288,7 +291,7 @@ mode "$mode_system" {
     bindsym e exec --no-startup-id swaymsg exit, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl kill-emacs-daemon && reboot, mode "default"
+    bindsym r exec --no-startup-id kill-emacs-daemon && systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id kill-emacs-daemon && systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape

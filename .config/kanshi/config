@@ -35,7 +35,7 @@ profile {
 
 # flx lightning
 profile {
-    output "Unknown 0x06B3 0x00000000" mode 1920x1200 enable scale 1.4
+    output "Unknown 0x06B3 0x00000000" mode 1920x1200 enable scale 1.2
 }
 
 profile {

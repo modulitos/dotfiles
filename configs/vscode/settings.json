@@ -83,6 +83,7 @@
     "*.json.tpl": "json",
     "*.development": "shellscript",
     "*.local": "shellscript",
+    "*.rb.tt": "ruby",
     "**.gemfile": "ruby"
   },
   "[typescript]": {
