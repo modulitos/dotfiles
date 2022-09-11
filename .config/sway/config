@@ -35,7 +35,7 @@ exec dunst
 set $close-notification dunstctl close
 set $last-notification dunstctl history-pop
 
-exec emacs --daemon
+exec emacs --daemon --eval='(set-main-editor)'
 
 exec tmux-session restore
 
