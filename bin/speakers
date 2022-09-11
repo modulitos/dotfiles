@@ -4,7 +4,9 @@ set -euo pipefail
 # edifier speakers:
 SPEAKERS_DEVICE_ID="7C:96:D2:05:D1:7D"
 
-case "$1" in
+OPTION="${1:-help}"
+
+case "$OPTION" in
   info|i)
     bluetoothctl info $SPEAKERS_DEVICE_ID
   ;;
@@ -14,11 +16,12 @@ case "$1" in
   disconnect|d)
     bluetoothctl disconnect $SPEAKERS_DEVICE_ID
   ;;
-  *)
+  help|*)
     printf '%s\n' \
            'Invalid input.' \
            '' \
            'Valid inputs are:' \
+           'info|i' \
            'connect|c' \
            'disconnect|d' \
            '' \

@@ -37,6 +37,8 @@ set $last-notification dunstctl history-pop
 
 exec emacs --daemon
 
+exec tmux-session restore
+
 # https://github.com/janza/wl-clipboard-history
 exec wl-clipboard-manager -t
 

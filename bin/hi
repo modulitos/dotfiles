@@ -3,8 +3,6 @@ set -euo pipefail
 
 ~/bin/backlight chmod
 
-tmux-session restore
-
 # check whether our dns is already set as desired:
 echo "checking dns..."
 if ! grep "^nameserver 8.8.8.8" -q /etc/resolv.conf; then
