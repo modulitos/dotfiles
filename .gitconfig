@@ -42,6 +42,7 @@
   set-flexe = !git config user.name luke.swart && git config user.email luke.swart@flexe.com
   st = status --short --branch
   cm = commit
+  c = checkout
   shortstat = diff master --shortstat
   prune = fetch --prune
   undo = reset --soft HEAD^
