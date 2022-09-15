@@ -1,5 +1,7 @@
 [screencast]
 max_fps=30
-output_name=DP-5
-chooser_cmd=slurp -f %o -o
-chooser_type=simple
+# get output_name from wayland-info:
+output_name=DP-2
+chooser_type=none
+# chooser_cmd=slurp -f %o -o
+# chooser_type=simple
