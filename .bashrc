@@ -189,16 +189,6 @@ export INFOPATH=$INFOPATH:/usr/share/info
 # added by Nix installer
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
 
-
-# added by travis gem
-
-# # source autojump (installed via pacman):
-# source /etc/profile.d/autojump.sh
-
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
