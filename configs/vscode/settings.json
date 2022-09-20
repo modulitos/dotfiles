@@ -187,5 +187,6 @@
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
-  }
+  },
+  "redhat.telemetry.enabled": false
 }
