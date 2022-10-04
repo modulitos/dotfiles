@@ -112,3 +112,8 @@ use_node() {
 # python: currently using pyenv:
 # https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
 # ie: layout pyenv 3.9.7
+
+# for ruby:
+# use rbenv
+# export RBENV_VERSION=2.7.6
+# layout ruby
