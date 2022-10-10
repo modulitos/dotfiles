@@ -1,5 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env sh
+set -euo pipefail
 
+nm_mode="none"
 case $1 in
     air)
         config=air
@@ -15,6 +17,10 @@ case $1 in
         config=local
         addy1="127.0.0.1"
         ;;
+    dnsmasq)
+        # use the router's default dns:
+        nm_mode=dnsmasq
+        ;;
     opendns)
         config=opendns
         addy1="208.67.222.222"
@@ -26,9 +32,51 @@ case $1 in
         echo "  set-dns google"
         echo "  set-dns opendns"
         echo "  set-dns local"
+        echo "  set-dns dnsmasq"
         exit 0
         ;;
 esac
+
+
+Set_linux_dns() {
+  mode="$1"
+  nm_dns_file="/etc/NetworkManager/conf.d/dns.conf"
+  # check if the NM DNS mode needs to be set:
+  if ! grep ^dns="$mode" -q "$nm_dns_file"; then
+    # update the NM DNS mode:
+    case "$mode" in
+      dnsmasq)
+        old_mode="none"
+        ;;
+      none)
+        old_mode="dnsmasq"
+        ;;
+      *)
+        echo "unrecognized option to Set_linux_dns: $mode"
+        exit 1
+        ;;
+    esac
+
+    if ! grep ^dns="$old_mode" -q "$nm_dns_file"; then
+      echo "Network Manager DNS should be set to 'none' or 'dnsmasq'. We can't handle any other state."
+      exit 1
+    fi
+
+    echo "setting nmcli to $mode"
+    sudo sed -i "s/^dns=$old_mode/dns=$mode/" "$nm_dns_file"
+
+    if [ "$mode" = "dnsmasq" ]; then
+      echo "Restarting NetworkManager.service"
+      systemctl restart NetworkManager.service
+    fi
+  fi
+
+  if [ "$mode" = "none" ]; then
+    resolv_file="/etc/resolv.$config.conf"
+    echo "setting new conf file: $resolv_file"
+    sudo cp "$resolv_file" /etc/resolv.conf
+  fi
+}
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -37,10 +85,11 @@ case "${unameOut}" in
   *) machine="UNKNOWN:${unameOut}"
 esac
 
+
 if [[ $machine == Mac ]]; then
   networksetup -setdnsservers Wi-Fi $addy1 $addy2
 elif [[ $machine == Linux ]]; then
-  sudo cp /etc/resolv.$config /etc/resolv.conf
+  Set_linux_dns "$nm_mode"
 else
   echo "machine not recognized: $machine"
   exit 1
