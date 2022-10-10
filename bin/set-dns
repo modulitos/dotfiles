@@ -86,9 +86,9 @@ case "${unameOut}" in
 esac
 
 
-if [[ $machine == Mac ]]; then
+if [ "$machine" = "Mac" ]; then
   networksetup -setdnsservers Wi-Fi $addy1 $addy2
-elif [[ $machine == Linux ]]; then
+elif [ "$machine" = "Linux" ]; then
   Set_linux_dns "$nm_mode"
 else
   echo "machine not recognized: $machine"
