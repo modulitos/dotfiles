@@ -43,6 +43,16 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "alt+b",
+    "command": "workbench.action.navigateBack",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+f",
+    "command": "workbench.action.navigateForward",
+    "when": "editorTextFocus"
+  },
+  {
     "key": "alt+f3",
     "command": "workbench.action.compareEditor.nextChange",
     "when": "textCompareEditorVisible"

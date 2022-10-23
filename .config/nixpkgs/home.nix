@@ -34,7 +34,9 @@
     postgresql
     # cloud-sql-proxy
     jq
+    k6
     lsof
+    socat
     # rename
     # shellcheck
     # yamllint
