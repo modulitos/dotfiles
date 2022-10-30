@@ -36,7 +36,7 @@
   # commit-empty = commit --allow-empty -m "Initial commit"
   commit-empty = !sh -c 'git commit --allow-empty -m "!"'
   set-modulitos = !git config user.name modulitos && git config user.email modulitos@users.noreply.github.com
-  set-modulitos-email = !git config user.name modulitos && git config user.email lucas@modulitos.com
+  set-modulitos-official = !git config user.name modulitos && git config user.email hi@modulitos.com
   set-gh-email = !git config user.email modulitos@users.noreply.github.com
   set-jalmogo = !git config user.name jalmogo && git config user.email jalmogo@users.noreply.github.com
   set-flexe = !git config user.name luke.swart && git config user.email luke.swart@flexe.com

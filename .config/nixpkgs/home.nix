@@ -37,6 +37,8 @@
     k6
     lsof
     socat
+    kube3d
+    docker-compose
     # rename
     # shellcheck
     # yamllint
