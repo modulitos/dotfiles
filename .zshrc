@@ -63,9 +63,6 @@ alias ll='ls -la'
 # Ruby configs:
 bex() { bundle exec "$@"; }
 
-# Pandoc
-export PATH=~/.cabal/bin:$PATH
-
 # For Emacs TimeSheet
 export TEXINPUTS=.:$HOME/.emacs.d/elpa/auctex-11.88.8/latex:
 
@@ -121,10 +118,6 @@ if [ -f "$HOME/.functions" ]; then
   source "$HOME/.functions"
 fi
 
-
-# Yarn:
-export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
   # shellcheck source=/dev/null
@@ -156,7 +149,6 @@ alias vy="vim -c 'set syntax=yaml' -"
 alias vimy="vim -c 'set syntax=yaml'"
 alias vj="vim -c 'set syntax=json' -"
 alias vimj="vim -c 'set syntax=json'"
-alias k="kubectl"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -168,6 +160,9 @@ fi
 
 alias tsm=transmission-remote
 alias kx=kubectx
+export KUBECTL_EXTERNAL_DIFF="dyff between --omit-header --set-exit-code"
+alias k="kubectl"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 eval "$(direnv hook zsh)"
 

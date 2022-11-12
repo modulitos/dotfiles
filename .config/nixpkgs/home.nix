@@ -29,16 +29,22 @@
     # kubectl
     # kustomize
     # istioctl
+    dyff
     jsonnet
     jsonnet-bundler
     postgresql
     # cloud-sql-proxy
     jq
     k6
+    krew
     lsof
     socat
+    delta
+    pv
+    nettools
     kube3d
     docker-compose
+    stern
     # rename
     # shellcheck
     # yamllint

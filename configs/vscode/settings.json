@@ -152,13 +152,13 @@
     "editor.formatOnSave": false,
 
     // make sure to run: npm i -g @prettier/plugin-ruby
-    "editor.defaultFormatter": "misogi.ruby-rubocop"
+    "editor.defaultFormatter": "misogi.ruby-rubocop",
     // "ruby.rubocop.executePath": "path/where/rubocop/is/located",
   },
   "python.languageServer": "Default",
   "ruby.rubocop.useBundler": true,
+  "ruby.rubocop.useServer": true,
   "ruby.rubocop.onSave": false,
-  "ruby.format": false,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },

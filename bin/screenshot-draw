@@ -4,7 +4,7 @@ set -euo pipefail
 
 # https://sr.ht/~emersion/grim/
 # note the + has no space after it!
-grim -g "$(slurp)" "$HOME/Pictures/$(date +'screenshot_%s.png')"
+grim -g "$(slurp)" "$HOME/Pictures/screenshots/$(date +'screenshot_%s.png')"
 # More grim utils:
 # https://github.com/swaywm/sway/tree/master/contrib
 
