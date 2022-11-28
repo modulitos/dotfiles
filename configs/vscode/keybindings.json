@@ -53,6 +53,11 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "alt+enter",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
     "key": "alt+f3",
     "command": "workbench.action.compareEditor.nextChange",
     "when": "textCompareEditorVisible"
