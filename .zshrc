@@ -33,6 +33,9 @@ PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
+if [ -d "$HOME/dotfiles/bin" ]; then
+  export PATH=~/dotfiles/bin:$PATH
+fi
 
 # Pyenv:
 export PATH=~/.pyenv/versions/:$PATH
