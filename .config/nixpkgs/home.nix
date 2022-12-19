@@ -42,6 +42,7 @@
     delta
     pv
     nettools
+    netcat
     kube3d
     docker-compose
     stern
