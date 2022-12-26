@@ -1,4 +1,0 @@
-#!/bin/bash
-
-eval 'xscreensaver-command --lock '
-

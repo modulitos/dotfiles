@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# transmission-daemon -f --log-debug
-transmission-daemon

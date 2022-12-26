@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# transmission-remote -t all -r
-# echo "torrent finished!"
-transmission-remote --exit
