@@ -72,13 +72,13 @@ use_terraform() {
 use_node() {
   # https://gist.github.com/gudleik/7ae3ef00f42440671f16
   #
-  # Either use node version specified in package.json:
-  # use node package.json
-  # Or a specific version:
-  # use node 5.0.0
-  #
   # Install a new node version with "n" package manager, eg:
   # n 10.16.0
+  #
+  # Either use node version specified in package.json:
+  # use node package.json
+  # Or specify a specific version in .envrc:
+  # use node 16.17.1
   layout node
 
   local node_version=$1
@@ -88,13 +88,29 @@ use_node() {
     node_version=$(jq --raw-output .engines.node package.json | tr -d "<=> ")
   fi
 
-  local node_path=${NODE_DIR:-$HOME/sdk/n/versions/node}
+  local node_path=${NODE_DIR:-$HOME/sdk/n_install/n/versions/node}
   # This is what the path should look like:
   #
-  # ❯ ls -l ~/sdk/n/versions/node
-  # total 0
-  # drwxr-xr-x  9 lucas  staff  288 Feb 24 11:33 10.16.0
-  # drwxr-xr-x  9 lucas  staff  288 Feb 24 10:50 12.13.1
+  # ❯ ls -l ~/$N_PREFIX
+  # $HOME/sdk/n_install
+  # ├── bin
+  # │   ├── corepack -> ../lib/node_modules/corepack/dist/corepack.js
+  # │   ├── n
+  # │   ├── node
+  # │   ├── npm -> ../lib/node_modules/npm/bin/npm-cli.js
+  # │   ├── npx -> ../lib/node_modules/npm/bin/npx-cli.js
+  # │   ├── n-uninstall
+  # │   └── n-update
+  # ├── include
+  # │   └── node
+  # ├── lib
+  # │   └── node_modules
+  # ├── n
+  # │   └── versions
+  # └── share
+  # ├── doc
+  # ├── man
+  # └── systemtap
 
   if [ -x "$node_path/$node_version/bin/node" ]; then
     PATH_add "$node_path/$node_version/bin"

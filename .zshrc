@@ -56,7 +56,7 @@ export WORKON_HOME=~/.virtualenvs
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 # for n package node version manager: https://github.com/tj/n
-export N_PREFIX=$HOME/sdk
+export N_PREFIX="$HOME/sdk/n_install"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # some helpful posix aliases:
 alias ll='ls -la'
