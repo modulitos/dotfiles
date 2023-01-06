@@ -111,7 +111,6 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 1,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -188,5 +187,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
   },
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "window.zoomLevel": 1
 }
