@@ -63,10 +63,10 @@ use_terraform() {
   # https://releases.hashicorp.com/terraform/0.14.5
   # unzip terraform_*
   # mkdir -p ~/sdk/terraform/<version>/bin
-  # mv helm ~/sdk/helm/<version>/bin/
-  local helm_dir=$HOME/sdk/terraform/$1
+  # mv terraform ~/sdk/terraform/<version>/bin/
+  local tf_dir=$HOME/sdk/terraform/$1
   # use helm <version>
-  load_prefix "$helm_dir"
+  load_prefix "$tf_dir"
 }
 
 use_node() {
