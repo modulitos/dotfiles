@@ -1,6 +1,5 @@
 # # https://sr.ht/~emersion/kanshi/
 # swaymsg -t get_outputs
-# # swaymsg -t get_outputs
 
 # modeline generated like so:
 # ❯ cvt 1600 900 60
@@ -35,13 +34,13 @@ profile {
 
 # flx lightning
 profile {
-    output "Unknown 0x06B3 0x00000000" mode 1920x1200 enable scale 1.2
+    output "LG Display 0x06B3 Unknown" mode 1920x1200 enable scale 1.2
 }
 
 profile {
-    output "Unknown 0x06B3 0x00000000" mode 1920x1200 enable scale 2
+    output "LG Display 0x06B3 Unknown" mode 1920x1200 enable scale 2
     # Home office monitor:
-    output "Unknown ASUS VG328 0x000046C9"
+    output "ASUSTek COMPUTER INC ASUS VG328 0x000046C9"
 }
 
 
