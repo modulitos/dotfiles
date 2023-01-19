@@ -8,7 +8,7 @@
 
 # grease lightning:
 profile {
-    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 2
+    output "LG Display 0x0418 Unknown" mode 2560x1440 enable scale 2
     # Home office monitor:
     output "Unknown ASUS VG328 0x000046C9"
 
@@ -23,11 +23,11 @@ profile {
 }
 
 profile {
-    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1.7
+    output "LG Display 0x0418 Unknown" mode 2560x1440 enable scale 1.7
 }
 
 profile {
-    output "Unknown 0x0418 0x00000000" mode 2560x1440 enable scale 1.7
+    output "LG Display 0x0418 Unknown" mode 2560x1440 enable scale 1.7
     # katie's parent's tv:
     output "Unknown NS-50D510NA17 0x00000001"
 }
