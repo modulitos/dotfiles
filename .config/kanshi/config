@@ -10,7 +10,7 @@
 profile {
     output "LG Display 0x0418 Unknown" mode 2560x1440 enable scale 2
     # Home office monitor:
-    output "Unknown ASUS VG328 0x000046C9"
+    output "ASUSTek COMPUTER INC ASUS VG328 0x000046C9"
 
     # output eDP-1 'Unknown 0x0418 0x00000000'
     # output HDMI-A-2 'Unknown ASUS VG328 0x000046C9'
