@@ -158,9 +158,6 @@
   "ruby.rubocop.useBundler": true,
   "ruby.rubocop.useServer": true,
   "ruby.rubocop.onSave": false,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
   "go.toolsManagement.autoUpdate": true,
   "terraform-ls.rootModules": [
     "environments/customerfacing/sandbox/regional",

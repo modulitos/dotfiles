@@ -65,7 +65,7 @@ use_terraform() {
   # mkdir -p ~/sdk/terraform/<version>/bin
   # mv terraform ~/sdk/terraform/<version>/bin/
   local tf_dir=$HOME/sdk/terraform/$1
-  # use helm <version>
+  # use terraform 1.3.6
   load_prefix "$tf_dir"
 }
 
