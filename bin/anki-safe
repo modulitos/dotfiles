@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-echo "this script is disabled, now that the bug is fixed."
-# https://www.reddit.com/r/Anki/comments/tsv4i3/anki_devs_please_fix_your_archlinux_packages/
-# https://forums.ankiweb.net/
-
-# echo "starting anki, no sandbox"
-# anki --no-sandbox
