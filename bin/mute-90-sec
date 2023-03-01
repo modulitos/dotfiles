@@ -1,7 +1,0 @@
-#!/bin/bash
-
-pactl set-sink-mute 1 1
-sleep 90
-pactl set-sink-mute 1 0
-
-
