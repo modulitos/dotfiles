@@ -33,8 +33,9 @@ PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
-if [ -d "$HOME/dotfiles/bin" ]; then
+if [ -d "$HOME/dotfiles" ]; then
   export PATH=~/dotfiles/bin:$PATH
+  source ~/dotfiles/config/emacs/aliases.zsh
 fi
 
 # Pyenv:
@@ -68,6 +69,7 @@ bex() { bundle exec "$@"; }
 
 # For Emacs TimeSheet
 export TEXINPUTS=.:$HOME/.emacs.d/elpa/auctex-11.88.8/latex:
+export PATH=~/.config/emacs/bin:$PATH
 
 export EDITOR="vim"
 export BROWSER="firefox"
