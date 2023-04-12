@@ -44,12 +44,12 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/shims/python
 export WORKON_HOME=~/.virtualenvs
 
-
 ## Note: Allow NPM to install global command-line tools that are not in ~/npm:
 export PATH=~/npm/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 # for n package node version manager: https://github.com/tj/n
-export N_PREFIX="$HOME/sdk/n_install"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX="$HOME/sdk/n_install"
+[[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
 
 # some helpful posix aliases:
 alias ll='ls -la'
@@ -69,7 +69,6 @@ export BROWSER="firefox"
 export MAILDIR=~/.mail/gmail
 export INFOPATH=$INFOPATH:/usr/share/info
 
-
 # rust
 export PATH=~/.cargo/bin:$PATH
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
@@ -87,9 +86,9 @@ eval "$(starship init zsh)"
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
-  Linux*) machine=Linux;;
-  Darwin*) machine=Mac;;
-  *) machine="UNKNOWN:${unameOut}"
+  Linux*) machine=Linux ;;
+  Darwin*) machine=Mac ;;
+  *) machine="UNKNOWN:${unameOut}" ;;
 esac
 
 if [[ $machine == Mac ]]; then
@@ -101,7 +100,6 @@ elif [[ $machine == Linux ]]; then
 else
   echo "machine not recognized: $machine"
 fi
-
 
 # Overrides config
 if [ -f "$HOME/.localrc" ]; then
@@ -118,13 +116,13 @@ fi
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f ~/google-cloud-sdk/path.zsh.inc ]; then
   # shellcheck source=/dev/null
-  . ~/google-cloud-sdk/path.zsh.inc;
+  . ~/google-cloud-sdk/path.zsh.inc
 fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f ~/google-cloud-sdk/completion.zsh.inc ]; then
   # shellcheck source=/dev/null
-  . ~/google-cloud-sdk/completion.zsh.inc;
+  . ~/google-cloud-sdk/completion.zsh.inc
 fi
 
 # added by Nix installer
@@ -163,12 +161,10 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 
 eval "$(direnv hook zsh)"
 
-
 gitb() {
-  git checkout "$(git branch | fzf| tr -d '[:space:]')"
+  git checkout "$(git branch | fzf | tr -d '[:space:]')"
 }
 
 # on Arch:
 # cp /usr/share/fzf/key-bindings.zsh ~/.fzf.zsh
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
-
