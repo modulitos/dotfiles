@@ -23,14 +23,6 @@ compinit
 
 export AWS_DEFAULT_PROFILE=default
 
-
-# TeX Live PATHS
-TEXDIR="/usr/local/texlive/2014"
-export INFOPATH=$INFOPATH:$TEXDIR/texmf-dist/doc/info
-export MANPATH=$MANPATH:$TEXDIR/texmf-dist/doc/man
-# set path for tlmgr:
-PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH
-
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
 if [ -d "$HOME/dotfiles" ]; then
