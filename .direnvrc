@@ -128,6 +128,11 @@ use_node() {
 # python: currently using pyenv:
 # https://stackabuse.com/managing-python-environments-with-direnv-and-pyenv/
 # ie: layout pyenv 3.9.7
+#
+# # to set the project root as a python path:
+# export PYTHONPATH="${PYTHONPATH}:$PWD"
+# # - useful when custom modules are on the project root
+# # - useful when adding binaries to your path under `.direnv/python-<version>/bin/`
 
 # for ruby:
 # use rbenv

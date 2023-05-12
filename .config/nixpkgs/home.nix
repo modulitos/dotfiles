@@ -35,7 +35,7 @@
     postgresql
     # cloud-sql-proxy
     jq
-    yq
+    yq-go
     k6
     krew
     lsof
