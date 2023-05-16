@@ -1,40 +1,40 @@
-*
-# !.vim/
-!.Xmodmap
-!.Xresources
-!.bashrc
-!.zshrc
-!.bash_aliases
-!.functions
-!.gitconfig
-!.gitignore
-!.gitmodules
-!.ripgreprc
-!.ignore
-!.tmux.conf
-!.tmux.reset.conf
-!.config/redshift.conf
-!.config/sway
-!.config/kanshi
-!.config/dunst
-!.config/*
-!.urxvt/
-!.eslintrc
-!.direnvrc
-!bin/
-!bin/*
-# !.vimrc
-# !.emacs.d
-!.xbindkeysrc
-!.xinitrc
-!.xmobarrc
-!.xmonad/
-!.xmonad/xmonad.hs
-!.ideavimrc
-!.vrapperrc
-!.rtorrent.rc
-!.docker-completion.sh
-!.pyrc
-!configs/
-projects
+# *
+# # !.vim/
+# !.Xmodmap
+# !.Xresources
+# !.bashrc
+# !.zshrc
+# !.bash_aliases
+# !.functions
+# !.gitconfig
+# !.gitignore
+# !.gitmodules
+# !.ripgreprc
+# !.ignore
+# !.tmux.conf
+# !.tmux.reset.conf
+# !.config/redshift.conf
+# !.config/sway
+# !.config/kanshi
+# !.config/dunst
+# !.config/*
+# !.urxvt/
+# !.eslintrc
+# !.direnvrc
+# !bin/
+# !bin/*
+# # !.vimrc
+# # !.emacs.d
+# !.xbindkeysrc
+# !.xinitrc
+# !.xmobarrc
+# !.xmonad/
+# !.xmonad/xmonad.hs
+# !.ideavimrc
+# !.vrapperrc
+# !.rtorrent.rc
+# !.docker-completion.sh
+# !.pyrc
+# !configs/
+# projects
 .cfg
