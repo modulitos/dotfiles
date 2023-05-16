@@ -170,4 +170,6 @@ gitb() {
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
 # https://www.atlassian.com/git/tutorials/dotfiles
+# git clone --bare <git-repo-url> $HOME/.cfg
+# then `config checkout` in $HOME
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
