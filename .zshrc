@@ -168,3 +168,6 @@ gitb() {
 # on Arch:
 # cp /usr/share/fzf/key-bindings.zsh ~/.fzf.zsh
 [ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+
+# https://www.atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
