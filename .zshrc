@@ -172,5 +172,4 @@ gitb() {
 # https://www.atlassian.com/git/tutorials/dotfiles
 # git clone --bare <git-repo-url> $HOME/.cfg
 # then `config checkout` in $HOME
-# test2.
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
