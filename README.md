@@ -11,7 +11,7 @@ Inspired by using a bare repo pattern: https://www.atlassian.com/git/tutorials/d
 git clone --bare <git-repo-url> $HOME/.cfg
 cd ~
 config checkout
-
+config config --local status.showUntrackedFiles no
 
 ```
 
@@ -31,6 +31,8 @@ mkdir -p .config-backup && \
 config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 xargs -I{} mv {} .config-backup/{}
 ```
+
+remove the old `.git` dir, if it exists (`rm -rf .git`)
 
 
 ## tracking the remote branch:
