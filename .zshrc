@@ -173,3 +173,7 @@ gitb() {
 # git clone --bare <git-repo-url> $HOME/.cfg
 # then `config checkout` in $HOME
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# use vim as the default pager when viewing man pages:
+# https://fedoramagazine.org/5-cool-terminal-pagers-in-fedora/
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
