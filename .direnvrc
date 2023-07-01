@@ -51,7 +51,7 @@ use_kustomize() {
   # Download here:
   # https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv4.2.0
   # mkdir -p ~/sdk/kustomize/<version>/bin
-  # tar -xvzf kustomize-<version>
+  # tar -xvzf kustomize_<version>
   # mv kustomize ~/sdk/kustomize/<version>/bin/
   local kustomize_dir=$HOME/sdk/kustomize/$1
   # use kustomize <version>
