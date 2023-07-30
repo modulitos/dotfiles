@@ -41,6 +41,8 @@
     lsof
     socat
     delta
+    httpie
+    nurl
     pv
     nettools
     netcat
