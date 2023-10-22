@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+set -euo pipefail
+
+# -S is added to more efficiently handle Docker images
+# sudo does not affect the backup file ownership!
+#
+# mkdir -p /run/media/lucas/lucas-home
+# mkdir -p /run/media/lucas/root-backup
+#
+# fdisk -l to view the partitions
+# export HOME_DEVICE="/dev/sdb1"
+# export ROOT_DEVICE="/dev/sdb2"
+# sudo mount /dev/sdb1 /run/media/lucas/lucas-home
+# sudo mount /dev/sdb2 /run/media/lucas/root-backup
+#
+# sudo umount /run/media/lucas/lucas-home
+# sudo umount /run/media/lucas/root-backup
+
+cd ~/ || exit 1
+
+OPTION="${1:-help}"
+
+case "$OPTION" in
+    home)
+        echo "backing up home..."
+        sudo rsync -aAXvxHS --info=progress2 --exclude={.cache,.docker/images,.config/Slack/Cache,.config/chromium,.config/google-chrome,.local,.config/emacs/.local,.npm,.asdf,.cargo,.mozilla,trash,bittorrent,postgres_data,trash,.nvm,.pyenv,.dropbox,.rustup,.virtualenvs,.yarn-cache,aur-builds,Applications,.direnv,.devenv} --delete /home/lucas /run/media/lucas/lucas-home/
+        ;;
+    root)
+        # TODO: make sure we are deleting non-existant stuff!!!
+        # eg: /usr/bin/aws should no longer exist!!!
+        echo "backing up root..."
+        # omit spaces in the include list, or else it'll back up everything.
+        sudo rsync -aAXvHS --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found",/home,"/var/run/media/lucas","/nix/store","/var/lib/docker"} / /run/media/lucas/root-backup/
+        ;;
+    help | *)
+        printf '%s\n' \
+            'Invalid input.' \
+            '' \
+            'Valid inputs are:' \
+            'home' \
+            'root' \
+            '' \
+            'goodbye!'
+        ;;
+esac
+
+cd - || exit 1
