@@ -30,7 +30,7 @@ case "$OPTION" in
         # eg: /usr/bin/aws should no longer exist!!!
         echo "backing up root..."
         # omit spaces in the include list, or else it'll back up everything.
-        sudo rsync -aAXvHS --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found",/home,"/var/run/media/lucas","/nix/store","/var/lib/docker"} / /run/media/lucas/root-backup/
+        sudo rsync -aAXvHS --info=progress2 --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found",/home,"/var/run/media/lucas","/var/lib/docker"} / /run/media/lucas/root-backup/
         ;;
     help | *)
         printf '%s\n' \
