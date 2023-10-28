@@ -1,3 +1,7 @@
+/* sync with original: */
+/* ln -s configs/.mozilla/firefox/user_id/chrome/userChrome.css .mozilla/firefox/43ka0hxv.default-release/chrome/use
+rChrome.css */
+
 /* hides the native tabs */
 #TabsToolbar {
   visibility: collapse;
