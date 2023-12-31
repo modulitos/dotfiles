@@ -145,12 +145,12 @@ alias vimy="vim -c 'set syntax=yaml'"
 alias vj="vim -c 'set syntax=json' -"
 alias vimj="vim -c 'set syntax=json'"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# sdkman: https://sdkman.io/install
 export SDKMAN_DIR="$HOME/.sdkman"
 
-if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+if [ -f "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
   # shellcheck source=/dev/null
-  source "$HOME/.sdkman/bin/sdkman-init.sh"
+  source "$SDKMAN_DIR/bin/sdkman-init.sh"
 fi
 
 alias tsm=transmission-remote

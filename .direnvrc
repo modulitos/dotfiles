@@ -60,7 +60,7 @@ use_kustomize() {
 
 use_terraform() {
   # Downloaded here:
-  # https://releases.hashicorp.com/terraform/0.14.5
+  # https://releases.hashicorp.com/terraform/1.6.4
   # unzip terraform_*
   # mkdir -p ~/sdk/terraform/<version>/bin
   # mv terraform ~/sdk/terraform/<version>/bin/
