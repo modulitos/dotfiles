@@ -25,9 +25,9 @@ export AWS_DEFAULT_PROFILE=default
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
-if [ -d "$HOME/dotfiles" ]; then
-  export PATH=~/dotfiles/bin:$PATH
-  source ~/dotfiles/config/emacs/aliases.zsh
+if [ -d "$HOME/dotfiles_misc" ]; then
+  export PATH=~/dotfiles_misc/bin:$PATH
+  source ~/dotfiles_misc/config/emacs/aliases.zsh
 fi
 
 # Pyenv:
@@ -166,14 +166,19 @@ gitb() {
 }
 
 # on Arch:
-# cp /usr/share/fzf/key-bindings.zsh ~/.fzf.zsh
-[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+# https://nixos.wiki/wiki/Fzf
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
 
 # https://www.atlassian.com/git/tutorials/dotfiles
 # git clone --bare <git-repo-url> $HOME/.cfg
 # then `config checkout` in $HOME
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Removing this because vim doesn't render formatting correctly:
 # use vim as the default pager when viewing man pages:
 # https://fedoramagazine.org/5-cool-terminal-pagers-in-fedora/
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+# export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
