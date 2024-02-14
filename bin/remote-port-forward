@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # general implementation:
 # ssh -i $1 -nNt -g -R 0.0.0.0:$2:localhost:$3 $4

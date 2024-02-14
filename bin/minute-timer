@@ -1,5 +1,5 @@
-#!/bin/bash
-# #!/usr/bin/bash
+#!/usr/bin/env bash
+# #!/usr/usr/bin/env bash
 
 source "utils.sh"
 
@@ -22,7 +22,7 @@ printf "%s\n" "$MESSAGE"
 
 
 # # bash version:
-# # #!/bin/bash
+# # #!/usr/bin/env bash
 # # minutes=$1
 # # message=$2
 # # countdown() {

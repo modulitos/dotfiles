@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILES=("$@")
 for i in "${FILES[@]}"

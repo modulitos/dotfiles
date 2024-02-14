@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # Iterates over all files and resizes them according to the -w flag
 # ie `resizepics -w 10 *.png` or
 # `resizepics -w 10 *.png a.png my-file.jpg`

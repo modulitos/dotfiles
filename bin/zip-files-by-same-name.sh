@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # resources for extracting extension and filename: http://www.linuxjournal.com/content/bash-parameter-expansion
 

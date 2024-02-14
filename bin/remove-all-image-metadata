@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 exiftool -all= -r -overwrite_original -ext jpg -ext JPG -ext png -ext PNG "$@"
 

@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# #!/usr/bin/bash
-# !/usr/local/bin/bash
-# #!/bin/bash
+# #!/usr/usr/bin/env bash
+# !/usr/local/usr/bin/env bash
+# #!/usr/bin/env bash
 
 # echo "$BASH_VERSION"
 source "utils.sh"

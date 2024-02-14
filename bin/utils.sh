@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# #!/usr/bin/bash
+# #!/usr/usr/bin/env bash
 
 countdown() {
   unameOut="$(uname -s)"

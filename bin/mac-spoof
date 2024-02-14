@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sudo ip link set dev enp0s20u2 down
 sudo macchanger -e enp0s20u2

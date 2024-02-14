@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## usage: ./download_magnet_url.sh "magnet_link"
 ## magnet link should be enclosed in quotes.
