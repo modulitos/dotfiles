@@ -31,7 +31,7 @@ countdown() {
     afplay ~/sounds/bell-ringing-04.wav
   elif [[ $machine == Linux ]]; then
     notify-send "time is up!" "$MESSAGE"
-    play ~/music/sounds/bell-ringing-04.wav
+    play ~/sounds/timer_ring.mp3
   fi
 }
 # for arch scripts, will need to export:

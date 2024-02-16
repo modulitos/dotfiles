@@ -309,6 +309,19 @@ bindsym $mod+Shift+z mode "$mode_system"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        # status_command i3status --config ~/.i3status.conf
+        # https://git.sr.ht/~tsdh/swayr#a-idswayrbarswayrbara
+        swaybar_command swaybar
+        # Use swayrbar as status command with some logging output which
+        # is redirected to /tmp/swayrbar.log.  Be sure to only redirect
+        # stderr because the swaybar protocol requires the status_command
+        # to emit JSON to stdout which swaybar reads.
+        status_command env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrbar 2> /tmp/swayrbar.log
+        position bottom
+        font pango:Iosevka 8
+        height 20
+
+        colors {
+            statusline #f8c500
+            background #33333390
+        }
 }
