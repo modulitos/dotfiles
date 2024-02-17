@@ -7,8 +7,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  # helpful:
-  # https://github.com/chrisportela/dotfiles/blob/main/flake.nix
   outputs = { self, nixpkgs, home-manager }:
     let
       system = "x86_64-linux";
