@@ -35,9 +35,7 @@
       # };
     in {
       homeConfigurations = {
-        # error: flake 'path:/home/lucas/.config/nixpkgs' does not provide attribute 'apps.x86_64-linux.default', 'defaultApp.x86_64-linux', 'packages.x86_64-linux.default' or 'defaultPackage.x86_64-linux'
         "lucas@grease-lightning" = home-manager.lib.homeManagerConfiguration {
-          # inherit pkgs;
           pkgs = importPkgs "x86_64-linux";
           modules = [ ./home.nix ];
         };
