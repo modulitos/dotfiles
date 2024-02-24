@@ -86,26 +86,19 @@
       emacs
       sqlite
       direnv
-      shellcheck
       python3
       gcc
       libgcc
       bemenu
-      swaylock
-      swayidle
-      swayrbar
+      pavucontrol
       wl-clipboard
-      tmux
       sbcl # lisp compiler
       emacsPackages.editorconfig
-      spotify
       zoom-us
       anki
       dropbox-cli
-      slack
       delta
       bluez
-      pavucontrol
       noto-fonts
       # (import (fetchTarball {
       #   url = "https://install.devenv.sh/latest";
@@ -113,14 +106,6 @@
       # }
       # )).default
 
-      dunst
-      kanshi
-      # signal-desktop
-      # for "notify-send" command to make desktop notifications:
-      libnotify
-      # for the "play" command to play audio:
-      sox
-      chromium
     ];
     shell = pkgs.zsh;
   };
@@ -131,11 +116,8 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     wayland
-    grim
-    slurp
-    ripgrep
-    brightnessctl
     file
+    brightnessctl
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
