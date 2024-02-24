@@ -35,20 +35,30 @@
       homeConfigurations = {
         "lucas@grease-lightning" = home-manager.lib.homeManagerConfiguration {
           pkgs = importPkgs "x86_64-linux";
-          modules = [ ./home.nix ];
+          modules = [ ./home ./home/linux ];
         };
+
+        # TODO: set up macbook:
+        # "lucas@my-macbook" = home-manager.lib.homeManagerConfiguration {
+        #   pkgs = importPkgs "aarch64-darwin";
+
+        #   modules = [ ./home ./home/darwin ];
+        # };
       };
       nixosConfigurations = {
         oolong = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./configuration.nix
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.lucas = import ./home.nix;
+              home-manager.users.lucas = import ./home;
             }
+            # this doesn't work:
+            ./home/linux
           ];
         };
       };
