@@ -19,4 +19,7 @@
     # for the "play" command to play audio:
     sox
   ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "spotify" "slack" ];
+
 }

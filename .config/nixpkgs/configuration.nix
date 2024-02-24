@@ -94,8 +94,8 @@
       wl-clipboard
       sbcl # lisp compiler
       emacsPackages.editorconfig
-      zoom-us
       anki
+      zoom-us
       dropbox-cli
       delta
       bluez
@@ -121,7 +121,7 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "spotify" "zoom" "slack" "dropbox" ];
+    builtins.elem (lib.getName pkg) [ "dropbox" "zoom" ];
 
   programs.sway = { enable = true; };
 
