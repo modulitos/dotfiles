@@ -87,6 +87,8 @@
       sqlite
       direnv
       python3
+      swaylock
+      swayidle
       gcc
       libgcc
       bemenu

@@ -8,8 +8,6 @@
     slack
     spotify
     chromium
-    swaylock
-    swayidle
     swayrbar
     grim
     slurp
