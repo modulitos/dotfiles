@@ -4,42 +4,41 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.initrd.luks.devices.lvm = {
-   device = "/dev/disk/by-uuid/b5e56a2e-2ac8-4322-86d2-51bce84ed199";
+    device = "/dev/disk/by-uuid/b5e56a2e-2ac8-4322-86d2-51bce84ed199";
   };
   # b5e56a2e-2ac8-4322-86d2-51bce84ed199 
   # /dev/nvme0n1p2: UUID="b5e56a2e-2ac8-4322-86d2-51bce84ed199" TYPE="crypto_LUKS" PARTUUID="ad200955-df11-43da-8bf2-f5d69dbf4bc7"
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  # boot.extraModulePackages = with config.boot.kernelPackages; [ ];
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/70421b9f-c2a5-4ac9-bd23-4a80ecc1b8c6";
-      # device = "/dev/mapper/lvm";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/70421b9f-c2a5-4ac9-bd23-4a80ecc1b8c6";
+    # device = "/dev/mapper/lvm";
+    fsType = "ext4";
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/c44d158c-8f54-4a34-90f4-cddca278777f";
-      fsType = "ext4";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/c44d158c-8f54-4a34-90f4-cddca278777f";
+    fsType = "ext4";
+  };
 
   # github.com/NixOS/nixpkgsissues/279362
-  fileSystems."/boot" = 
-    {
-      options =  [ "umask=0077" "defaults" ];
-      device = "/dev/disk/by-uuid/0252-B581";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    options = [ "umask=0077" "defaults" ];
+    device = "/dev/disk/by-uuid/0252-B581";
+    fsType = "vfat";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/9d186d69-a79c-42ce-ab97-0b19838bde00"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/9d186d69-a79c-42ce-ab97-0b19838bde00"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -50,7 +49,8 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  boot.kernel.sysctl = { "vm.swappiness" = 10;};
+  boot.kernel.sysctl = { "vm.swappiness" = 10; };
 }

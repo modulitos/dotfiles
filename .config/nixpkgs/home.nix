@@ -77,6 +77,9 @@ in {
     tree
     starship
     git
+    calibre
+    libqalculate
+    exiftool
     # rename
     # shellcheck
     # yamllint

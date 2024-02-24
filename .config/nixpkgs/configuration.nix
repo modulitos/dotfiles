@@ -19,6 +19,12 @@
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable =
       true; # Easiest to use and most distros use this by default.
+    nameservers = [
+      "8.8.8.8"
+      "8.8.4.4" # google
+      # "208.67.222.222"
+      # "208.67.220.220" # opendns
+    ];
   };
 
   # Set your time zone.
@@ -100,6 +106,7 @@
       delta
       bluez
       pavucontrol
+      noto-fonts
       # (import (fetchTarball {
       #   url = "https://install.devenv.sh/latest";
       #   sha256 = "0wj5455mk0kgm4vnvqia6x4qhkwwf3cn07pdsd4wmfdbp9rxr44a";
@@ -225,4 +232,3 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
-
