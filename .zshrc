@@ -178,7 +178,19 @@ fi
 # then `config checkout` in $HOME
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+
+# return info about the nix pkg owning the given command:
+fdnix() {
+  echo -e $(which $1) | awk '{print $NF}' | xargs file | awk '{print $NF}' | xargs file
+}
+
+# returns whether the given package is installed
+lsnixpkgs() {
+  nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq
+}
+
 # Removing this because vim doesn't render formatting correctly:
 # use vim as the default pager when viewing man pages:
 # https://fedoramagazine.org/5-cool-terminal-pagers-in-fedora/
 # export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+

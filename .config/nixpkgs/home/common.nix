@@ -41,47 +41,71 @@ in {
     # vim
     # curl
     # zsh
-    # git
     # slack
     # ripgrep
     # kubectl
     # kustomize
     # istioctl
-    dyff
+    # cloud-sql-proxy
+    lsof
+    socat
+    httpie
+    nurl
+    pv
+
+    # misc tools:
+    tex
+
+    # infra tools:
+    kube3d
+    stern
+    kind
+    docker-compose
     jsonnet
     jsonnet-bundler
-    postgresql
-    # cloud-sql-proxy
     jq
     yq-go
     k6
     krew
-    lsof
-    socat
-    delta
-    httpie
-    nurl
-    pv
-    nettools
-    netcat
-    kube3d
-    docker-compose
-    stern
-    fzf
-    tex
-    htop
-    fd
+    k9s
+
+    # linters:
     dockfmt
     nixfmt
     shfmt
     shellcheck
-    tree
-    starship
+    tflint
+
+    # dev tools:
+    yaml-language-server
+    postgresql
+    dyff
     git
-    calibre
+    gnumake
+
+    # os tools:
+    tmux
+    starship
+    nettools
+    netcat
+    htop
+    inetutils
+
+    # utils:
+    delta
+    fd
+    fzf
+    tree
     libqalculate
     exiftool
-    tmux
+
+    # desktop:
+    calibre
+
+    # golang
+    gopls
+    gomodifytags
+
     # rename
     # shellcheck
     # yamllint

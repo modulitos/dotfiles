@@ -79,6 +79,7 @@
       "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
       "video" # brightness/volume keys
+      "docker"
     ];
     # packages = myPackages.myPackages;
     packages = with pkgs; [
@@ -123,7 +124,7 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "dropbox" "zoom" ];
+    builtins.elem (lib.getName pkg) [ "dropbox" "zoom" "slack" "spotify" ];
 
   programs.sway = { enable = true; };
 
@@ -171,6 +172,8 @@
     #   }
     # ];
   };
+
+  virtualisation.docker.enable = true;
 
   # https://nixos.wiki/wiki/Extend_NixOS#Quick_Implementation
   systemd.services.dbox = {
