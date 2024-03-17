@@ -90,6 +90,8 @@ in {
     netcat
     htop
     inetutils
+    bind
+    wireguard-tools
 
     # utils:
     delta
@@ -98,6 +100,7 @@ in {
     tree
     libqalculate
     exiftool
+    ispell
 
     # desktop:
     calibre
@@ -105,6 +108,9 @@ in {
     # golang
     gopls
     gomodifytags
+
+    # node
+    nodejs_20
 
     # rename
     # shellcheck

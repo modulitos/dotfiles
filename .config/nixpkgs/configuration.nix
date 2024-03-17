@@ -7,6 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    modules/battery_monitor.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -93,12 +94,14 @@
       gcc
       libgcc
       bemenu
+      acpi
       pavucontrol
       wl-clipboard
       sbcl # lisp compiler
       emacsPackages.editorconfig
       anki
       zoom-us
+      vscode
       dropbox-cli
       delta
       bluez
@@ -124,7 +127,13 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "dropbox" "zoom" "slack" "spotify" ];
+    builtins.elem (lib.getName pkg) [
+      "dropbox"
+      "zoom"
+      "slack"
+      "spotify"
+      "vscode"
+    ];
 
   programs.sway = { enable = true; };
 
@@ -188,6 +197,8 @@
       ExecStart = "${pkgs.dropbox}/bin/dropbox";
     };
   };
+
+  modules.battery_monitor.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
