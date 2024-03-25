@@ -182,6 +182,8 @@
     # ];
   };
 
+  services.upower.criticalPowerAction = "Hibernate";
+
   virtualisation.docker.enable = true;
 
   # https://nixos.wiki/wiki/Extend_NixOS#Quick_Implementation

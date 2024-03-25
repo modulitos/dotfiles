@@ -30,7 +30,7 @@ case "$1" in
     # FONT='NotoSans-Regular'
     # FONT='notoemoji'
 
-    bash "$0" list | bemenu -fn $FONT -l 50 -i -p 'Emoji: ' | bash "$0" copy
+    bash "$0" list | bemenu -l 30 -i -p 'Emoji: ' | bash "$0" copy
     ;;
 esac
 

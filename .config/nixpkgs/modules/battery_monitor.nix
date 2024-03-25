@@ -25,7 +25,7 @@ in {
         check () { [[ $1 -ge $val ]] && [[ $1 -lt $prev_val ]]; }
         notify () {
           ${pkgs.libnotify}/bin/notify-send -a Battery "$@" \
-            -h "int:value:$val" "Discharging"
+            -h "int:value:$val" "Discharging, $val%, $remaining."
         }
         while true; do
           # eg bat0: "Battery 0: Discharging, 99%, 01:23:45"
@@ -37,7 +37,7 @@ in {
           # echo "running battery monitor: val: $val, prev_val: $prev_val, status: $status, remaining: $remaining"
           if [[ $status = Discharging ]]; then
             echo "$val%, $remaining"
-            if check 90 || check 70 || check 50 || check 30 || check 25 || check 20; then notify
+            if check 70 || check 50 || check 30 || check 25 || check 20; then notify
             elif check 15 || [[ $val -le 10 ]]; then notify -u critical
             fi
           fi

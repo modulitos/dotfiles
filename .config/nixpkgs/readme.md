@@ -12,4 +12,10 @@ linux:
 home-manager switch --flake .
 ```
 
-That's all for now!
+to upgrade packages/system:
+(the `--upgrade` flag doesn't work on nixos-rebuild for flakes)
+```bash
+nix flake update .
+```
+which will update the `flake.lock` file
+

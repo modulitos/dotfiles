@@ -180,12 +180,12 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 
 # return info about the nix pkg owning the given command:
-fdnix() {
+nixfd() {
   echo -e $(which $1) | awk '{print $NF}' | xargs file | awk '{print $NF}' | xargs file
 }
 
 # returns whether the given package is installed
-lsnixpkgs() {
+nixlspkgs() {
   nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq
 }
 
