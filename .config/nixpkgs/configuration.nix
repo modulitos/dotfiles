@@ -65,6 +65,12 @@
 
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-experimental-features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "@wheel" ];
+  nix.settings = {
+    substituters = [ "https://devenv.cachix.org" ];
+    trusted-public-keys =
+      [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+  };
 
   # Automatic Garbage Collection
   nix.gc = {
@@ -106,6 +112,8 @@
       delta
       bluez
       noto-fonts
+
+      awscli
       # (import (fetchTarball {
       #   url = "https://install.devenv.sh/latest";
       #   sha256 = "0wj5455mk0kgm4vnvqia6x4qhkwwf3cn07pdsd4wmfdbp9rxr44a";

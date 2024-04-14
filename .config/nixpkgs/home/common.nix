@@ -75,9 +75,12 @@ in {
     shfmt
     shellcheck
     tflint
+    prettierd
 
     # dev tools:
+    # (because sometimes we need to view packages in the nix store)
     yaml-language-server
+    go
     postgresql
     dyff
     git
