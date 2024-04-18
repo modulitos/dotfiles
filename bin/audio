@@ -1,7 +1,11 @@
 #!/usr/bin/env sh
 set -euo pipefail
 
-readarray -t SINKS < <(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
+# https://wiki.archlinux.org/title/WirePlumber
+
+
+# readarray -t SINKS < <(wpctl list short sinks | awk '$7 == "RUNNING"{ print $1 }')
+# SINKS=("@DEFAULT_AUDIO_SINK@")
 
 # printf 'sinks!: %s\n' "${SINKS[@]}"
 
@@ -21,9 +25,13 @@ readarray -t SINKS < <(pactl list short sinks | awk '$7 == "RUNNING"{ print $1 }
 
 case "$1" in
   mute|m)
-    for sink in "${SINKS[@]}"; do
-      pactl set-sink-mute "$sink" toggle
-    done
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    # for sink in "${SINKS[@]}"; do
+    #   wpctl set-sink-mute "$sink" toggle
+    # done
+    ;;
+  mutemic|mc)
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
     ;;
   play|pause|p)
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -38,25 +46,28 @@ case "$1" in
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
     ;;
   increase|i)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
     # TODO: make the sinks to start at the same volume?
-    for sink in "${SINKS[@]}"; do
-      echo "adjusting sink volume: $sink"
-      pactl set-sink-volume "$sink" +5000
-    done
+    # for sink in "${SINKS[@]}"; do
+    #   echo "adjusting sink volume: $sink"
+    #   wpctl set-sink-volume "$sink" +5000
+    # done
     ;;
   current|c)
-    for sink in "${SINKS[@]}"; do
-      # pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( "$sink" + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
-      VOLUME_INFO=$(pactl list sinks | grep "Sink #$sink" -A 10 | grep '^[[:space:]]Volume:')
-      DESCRIPTION=$(pactl list sinks | grep "Sink #$sink" -A 10 | grep '^[[:space:]]Description:')
-      printf "sink $sink:\n%s\n%s\n" "$DESCRIPTION" "$VOLUME_INFO"
-    done
+    wpctl get-volume @DEFAULT_AUDIO_SINK@
+    # for sink in "${SINKS[@]}"; do
+    #   # pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( "$sink" + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+    #   VOLUME_INFO=$(pactl list sinks | grep "Sink #$sink" -A 10 | grep '^[[:space:]]Volume:')
+    #   DESCRIPTION=$(pactl list sinks | grep "Sink #$sink" -A 10 | grep '^[[:space:]]Description:')
+    #   printf "sink $sink:\n%s\n%s\n" "$DESCRIPTION" "$VOLUME_INFO"
+    # done
     ;;
   decrease|d)
-    for sink in "${SINKS[@]}"; do
-      echo "adjusting sink volume: $sink"
-      pactl set-sink-volume "$sink" -5000
-    done
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    # for sink in "${SINKS[@]}"; do
+    #   echo "adjusting sink volume: $sink"
+    #   wpctl set-sink-volume "$sink" -5000
+    # done
     ;;
   *)
 
@@ -71,6 +82,7 @@ case "$1" in
            'forward|f' \
            'back|b' \
            'mute|m' \
+           'mutemic|mc' \
            'current|c' \
            '' \
            'goodbye!'
