@@ -122,6 +122,7 @@
       delta
       bluez
       noto-fonts
+      unzip
 
       awscli
       # (import (fetchTarball {
