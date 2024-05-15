@@ -22,7 +22,7 @@ case "$1" in
     fi
     ;;
   "")
-    FONT='NotoSans-BoldItalic'
+    # FONT='NotoSans-BoldItalic'
     # FONT='NotoKufiArabic-Bold'
     # FONT='NotoSans-BoldItalic'
     # FONT='NotoColorEmoji'

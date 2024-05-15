@@ -102,6 +102,7 @@
     packages = with pkgs; [
       firefox
       emacs
+      gimp-with-plugins
       sqlite
       direnv
       python3
@@ -123,6 +124,8 @@
       bluez
       noto-fonts
       unzip
+      man-pages
+      man-pages-posix
 
       awscli
       # (import (fetchTarball {
