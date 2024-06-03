@@ -102,6 +102,7 @@
     packages = with pkgs; [
       firefox
       emacs
+      obs-studio
       gimp-with-plugins
       sqlite
       direnv
