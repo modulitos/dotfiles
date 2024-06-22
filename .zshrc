@@ -165,12 +165,16 @@ gitb() {
   git checkout "$(git branch | fzf | tr -d '[:space:]')"
 }
 
-# on Arch:
-# https://nixos.wiki/wiki/Fzf
 if [ -n "${commands[fzf-share]}" ]; then
+  # on Arch:
+  # https://nixos.wiki/wiki/Fzf
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
+elif [ -f ~/.fzf.zsh ]; then
+  # macos, and others:
+  source ~/.fzf.zsh
 fi
+
 
 
 # https://www.atlassian.com/git/tutorials/dotfiles

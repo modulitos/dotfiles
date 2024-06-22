@@ -1,6 +1,9 @@
 /* sync with original: */
-/* ln -s configs/.mozilla/firefox/user_id/chrome/userChrome.css .mozilla/firefox/43ka0hxv.default-release/chrome/use
+/* ln -s configs/.mozilla/firefox/user_id/chrome/userChrome.css .mozilla/firefox/123.default-release/chrome/use
 rChrome.css */
+
+/* macos: */
+/* ln -s configs/.mozilla/firefox/user_id/chrome/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/123.default-release/chrome/userChrome.css
 
 /* hides the native tabs */
 #TabsToolbar {
