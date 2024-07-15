@@ -101,6 +101,7 @@
     # packages = myPackages.myPackages;
     packages = with pkgs; [
       firefox
+      psmisc
       emacs
       obs-studio
       gimp-with-plugins
@@ -117,10 +118,12 @@
       wl-clipboard
       sbcl # lisp compiler
       emacsPackages.editorconfig
+
       anki
       zoom-us
       vscode
       dropbox-cli
+
       delta
       bluez
       noto-fonts

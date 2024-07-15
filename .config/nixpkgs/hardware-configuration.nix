@@ -30,7 +30,7 @@
     fsType = "ext4";
   };
 
-  # github.com/NixOS/nixpkgsissues/279362
+  # github.com/NixOS/nixpkgs/issues/279362
   fileSystems."/boot" = {
     options = [ "umask=0077" "defaults" ];
     device = "/dev/disk/by-uuid/0252-B581";
