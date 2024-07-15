@@ -1,2 +1,4 @@
 .git
 !projects
+vendor
+.direnv
