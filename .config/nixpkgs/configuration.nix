@@ -6,7 +6,6 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     modules/battery_monitor.nix
   ];
 
@@ -15,7 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "oolong"; # Define your hostname.
+    hostName = "puerh"; # Define your hostname.
     # Pick only one of the below networking options.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable =
@@ -54,7 +53,7 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
+  # sound.enable = true; # not needed - use pipewire instead
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot =
     true; # powers up the default Bluetooth controller on boot
@@ -62,8 +61,8 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    # alsa.enable = true;
+    # alsa.support32Bit = true;
     pulse.enable = true;
     #
     # If you want to use JACK applications, uncomment this
@@ -90,7 +89,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lucas = {
+  users.users.lswart = {
     isNormalUser = true;
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
@@ -134,7 +133,6 @@
       awscli
 
       runc
-
       # (import (fetchTarball {
       #   url = "https://install.devenv.sh/latest";
       #   sha256 = "0wj5455mk0kgm4vnvqia6x4qhkwwf3cn07pdsd4wmfdbp9rxr44a";
@@ -224,7 +222,7 @@
     # man systemd.service
     serviceConfig = {
       Type = "exec";
-      User = "lucas";
+      User = "lswart";
       ExecStart = "${pkgs.dropbox}/bin/dropbox";
     };
   };
@@ -258,6 +256,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
-
+  # system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
+
