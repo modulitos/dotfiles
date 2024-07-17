@@ -1,11 +1,12 @@
 /* sync with original: */
-/* ln -s configs/.mozilla/firefox/user_id/chrome/userChrome.css .mozilla/firefox/123.default-release/chrome/use
-rChrome.css */
+/* ln -s $HOME/configs/.mozilla/firefox/user_id/chrome/userChrome.css .mozilla/firefox/123.default-release/chrome/userChrome.css */
 
 /* macos: */
-/* ln -s configs/.mozilla/firefox/user_id/chrome/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/123.default-release/chrome/userChrome.css
+/* ln -s $HOME/configs/.mozilla/firefox/user_id/chrome/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/123.default-release/chrome/userChrome.css
 
 /* hides the native tabs */
 #TabsToolbar {
   visibility: collapse;
 }
+
+/* NOTE: Before you close and relaunch, you must open about:config and toggle the property toolkit.legacyUserProfileCustomizations.stylesheets to true for this to be enabled. */
