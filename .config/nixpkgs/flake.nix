@@ -16,6 +16,17 @@
           modules = [ ./home/archlinux.nix ];
         };
 
+        "lswart@black" = home-manager.lib.homeManagerConfiguration {
+          pkgs = importPkgs "x86_64-linux";
+
+          extraSpecialArgs =
+            {
+              username = "lswart";
+            };
+          modules = [
+            ./home/common.nix
+	  ];
+        };
         # TODO: set up macbook:
         # "lucas@my-macbook" = home-manager.lib.homeManagerConfiguration {
         #   pkgs = importPkgs "aarch64-darwin";
