@@ -15,6 +15,7 @@ in {
     slurp
     ripgrep
     gdk
+    calibre
     # for "notify-send" command to make desktop notifications:
     libnotify
     # for the "play" command to play audio:

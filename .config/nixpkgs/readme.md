@@ -16,6 +16,15 @@ linux:
 home-manager switch --flake .
 ```
 
+macos:
+```bash
+# http://daiderd.com/nix-darwin/#flakes
+darwin-rebuild switch --flake ~/.config/nix-darwin
+
+# or:
+# nix --extra-experimental-features flakes --extra-experimental-features nix-command run nix-darwin -- switch --flake flake.nix
+```
+
 to upgrade packages/system:
 (the `--upgrade` flag doesn't work on nixos-rebuild for flakes)
 ```bash

@@ -10,11 +10,6 @@ let
     #(setq org-preview-latex-default-process 'dvisvgm)
   });
   # Until this issue is fixed: https://github.com/NixOS/nixpkgs/issues/305577
-  custom_mech = pkgs.python311Packages.mechanize.overridePythonAttrs
-    (old: { doCheck = false; });
-  custom_calibre = pkgs.calibre.override (old: {
-    python3Packages = old.python3Packages // { mechanize = custom_mech; };
-  });
 in {
   # # Home Manager needs a bit of information about you and the
   # # paths it should manage.
@@ -84,7 +79,7 @@ in {
       nurl
       pv
 
-      # misc tools:
+      # # misc tools:
       tex
 
       # infra tools:
@@ -136,8 +131,6 @@ in {
       exiftool
       ispell
 
-      # desktop:
-      custom_calibre
 
       # golang
       gopls
