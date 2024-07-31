@@ -71,6 +71,7 @@ in {
       kubectl
       kubectx
       # kustomize
+      ripgrep
       # istioctl
       # cloud-sql-proxy
       lsof
@@ -104,6 +105,7 @@ in {
       prettierd
 
       # dev tools:
+      devenv
       # (because sometimes we need to view packages in the nix store)
       yaml-language-server
       go
@@ -139,8 +141,12 @@ in {
       # node
       nodejs_20
 
+      # macos
+      # kitty
+
+      gh
+
       # rename
-      # shellcheck
       # yamllint
       # go_1_18
       # sublime4

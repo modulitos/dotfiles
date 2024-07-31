@@ -1,15 +1,13 @@
 {
-  description = "flake for oolong";
+  description = "my flakes of boiled leaf juice";
 
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin }:
+  outputs = { self, nixpkgs, home-manager }:
     let importPkgs = (system: import nixpkgs { inherit system; });
     in {
       homeConfigurations = {
@@ -21,23 +19,18 @@
         "lswart@black" = home-manager.lib.homeManagerConfiguration {
           pkgs = importPkgs "x86_64-linux";
 
-          extraSpecialArgs =
-            {
-              username = "lswart";
-            };
-          modules = [
-            ./home/common.nix
-	  ];
+          extraSpecialArgs = { username = "lswart"; };
+          modules = [ ./home/common.nix ];
         };
-        # TODO: set up macbook:
-        # "lucas@my-macbook" = home-manager.lib.homeManagerConfiguration {
-        #   pkgs = importPkgs "aarch64-darwin";
 
-        #   modules = [
-        #     ./home/common.nix
-        #   ];
-        # };
+        "lswart@earlgrey" = home-manager.lib.homeManagerConfiguration {
+          pkgs = importPkgs "aarch64-darwin";
+
+          extraSpecialArgs = { username = "lswart"; };
+          modules = [ ./home/common.nix ];
+        };
       };
+
       nixosConfigurations = {
         oolong = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -68,25 +61,6 @@
           ];
         };
       };
-      darwinConfigurations = {
-        # http://daiderd.com/nix-darwin/#flakes
-        # https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-nix-darwin-module
-        "earlygrey" = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
-          # Declaritvely configure MacOS options:
-          # https://daiderd.com/nix-darwin/manual/index.html
-          modules = [
-            ./darwin-configuration.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.lswart = import ./home/common.nix;
 
-              home-manager.extraSpecialArgs = { username = "lswart"; };
-            }
-          ];
-        };
-      };
     };
 }

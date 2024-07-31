@@ -146,7 +146,7 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then . "$HOME/.
 # # paths work when the user has fetched the Nixpkgs channel.
 # # https://discourse.nixos.org/t/where-is-nix-path-supposed-to-be-set/16434/8
 # # https://nix-community.github.io/home-manager/index.html
-# export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/lucas/channels${NIX_PATH:+:$NIX_PATH}
+# export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/$USER/channels${NIX_PATH:+:$NIX_PATH}
 
 alias diso='OVERCOMMIT_DISABLE=1'
 alias vy="vim -c 'set syntax=yaml' -"
