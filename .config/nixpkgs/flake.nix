@@ -1,5 +1,5 @@
 {
-  description = "flake for oolong";
+  description = "my flakes of boiled leaf juice";
 
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
@@ -19,21 +19,18 @@
         "lswart@black" = home-manager.lib.homeManagerConfiguration {
           pkgs = importPkgs "x86_64-linux";
 
-          extraSpecialArgs =
-            {
-              username = "lswart";
-            };
-          modules = [
-            ./home/common.nix
-	  ];
+          extraSpecialArgs = { username = "lswart"; };
+          modules = [ ./home/common.nix ];
         };
-        # TODO: set up macbook:
-        # "lucas@my-macbook" = home-manager.lib.homeManagerConfiguration {
-        #   pkgs = importPkgs "aarch64-darwin";
 
-        #   modules = [ ./home/macos.nix ];
-        # };
+        "lswart@earlgrey" = home-manager.lib.homeManagerConfiguration {
+          pkgs = importPkgs "aarch64-darwin";
+
+          extraSpecialArgs = { username = "lswart"; };
+          modules = [ ./home/common.nix ];
+        };
       };
+
       nixosConfigurations = {
         oolong = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -64,5 +61,6 @@
           ];
         };
       };
+
     };
 }

@@ -10,11 +10,6 @@ let
     #(setq org-preview-latex-default-process 'dvisvgm)
   });
   # Until this issue is fixed: https://github.com/NixOS/nixpkgs/issues/305577
-  custom_mech = pkgs.python311Packages.mechanize.overridePythonAttrs
-    (old: { doCheck = false; });
-  custom_calibre = pkgs.calibre.override (old: {
-    python3Packages = old.python3Packages // { mechanize = custom_mech; };
-  });
 in {
   # # Home Manager needs a bit of information about you and the
   # # paths it should manage.
@@ -76,6 +71,7 @@ in {
       kubectl
       kubectx
       # kustomize
+      ripgrep
       # istioctl
       # cloud-sql-proxy
       lsof
@@ -84,7 +80,7 @@ in {
       nurl
       pv
 
-      # misc tools:
+      # # misc tools:
       tex
 
       # infra tools:
@@ -109,6 +105,7 @@ in {
       prettierd
 
       # dev tools:
+      devenv
       # (because sometimes we need to view packages in the nix store)
       yaml-language-server
       go
@@ -136,8 +133,6 @@ in {
       exiftool
       ispell
 
-      # desktop:
-      custom_calibre
 
       # golang
       gopls
@@ -146,8 +141,12 @@ in {
       # node
       nodejs_20
 
+      # macos
+      # kitty
+
+      gh
+
       # rename
-      # shellcheck
       # yamllint
       # go_1_18
       # sublime4

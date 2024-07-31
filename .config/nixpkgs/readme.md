@@ -10,10 +10,19 @@ nixos-rebuild --flake . switch
 # (ideally it should infer it from $USER@$HOST)
 ```
 
-linux:
+linux and macos:
 ```bash
 # uses the default $USER@$HOST, as configured in this flake:
 home-manager switch --flake .
+```
+
+macos (nix-darwin):
+```bash
+# http://daiderd.com/nix-darwin/#flakes
+darwin-rebuild switch --flake ~/.config/nix-darwin
+
+# or:
+# nix --extra-experimental-features 'flakes nix-command' run nix-darwin -- switch --flake flake.nix
 ```
 
 to upgrade packages/system:

@@ -10,6 +10,7 @@ Inspired by using a bare repo pattern: https://www.atlassian.com/git/tutorials/d
 ```
 git clone --bare <git-repo-url> $HOME/.cfg
 cd ~
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME' # set this as a one-off, as it's in ~/.zshrc
 config checkout
 config config --local status.showUntrackedFiles no
 
