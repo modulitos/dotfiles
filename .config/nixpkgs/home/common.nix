@@ -73,7 +73,8 @@ in {
       # zsh
       # slack
       # ripgrep
-      # kubectl
+      kubectl
+      kubectx
       # kustomize
       # istioctl
       # cloud-sql-proxy
