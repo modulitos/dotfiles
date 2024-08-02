@@ -58,7 +58,6 @@ in {
     krew
     lsof
     socat
-    delta
     httpie
     nurl
     pv

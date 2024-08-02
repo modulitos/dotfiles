@@ -106,6 +106,7 @@ in {
 
       # dev tools:
       devenv
+      direnv
       # (because sometimes we need to view packages in the nix store)
       yaml-language-server
       go

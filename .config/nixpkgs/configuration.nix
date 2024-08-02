@@ -105,7 +105,6 @@
       obs-studio
       gimp-with-plugins
       sqlite
-      direnv
       python3
       swaylock
       swayidle
@@ -123,7 +122,6 @@
       vscode
       dropbox-cli
 
-      delta
       bluez
       noto-fonts
       unzip
