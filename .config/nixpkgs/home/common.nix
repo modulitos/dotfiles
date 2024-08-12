@@ -117,7 +117,6 @@ in {
 
       # os tools:
       tmux
-      starship
       nettools
       netcat
       htop
@@ -133,7 +132,6 @@ in {
       libqalculate
       exiftool
       ispell
-
 
       # golang
       gopls
@@ -157,6 +155,9 @@ in {
       # ruby_2_7
     ];
   };
+
+  programs.starship.enable = true;
+  programs.starship.settings = { kubernetes = { disabled = false; }; };
 
   # home.activation = {
   #   linkDesktopApplications = {
