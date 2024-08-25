@@ -90,7 +90,7 @@ bindsym $mod+grave exec $close-notification
 bindsym $mod+Shift+grave exec $last-notification
 
 # bindsym $mod+m exec wl_clipboard_history -p "$(wl_clipboard_history -l 20 | fzf --with-nth 2.. -d , | cut -d ',' -f1)"
-bindsym $mod+Shift+c exec wl_clipboard_history
+bindsym $mod+m exec wl_clipboard_history
 
 
 # change focus

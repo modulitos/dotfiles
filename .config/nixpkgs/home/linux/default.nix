@@ -20,6 +20,9 @@ in {
     libnotify
     # for the "play" command to play audio:
     sox
+
+    transmission_4
+    vlc
   ];
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "spotify" "slack" ];
