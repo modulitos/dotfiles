@@ -132,6 +132,7 @@ in {
       libqalculate
       exiftool
       ispell
+      hunspell
 
       # golang
       gopls

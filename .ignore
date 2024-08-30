@@ -2,3 +2,4 @@
 !projects
 vendor
 .direnv
+.devenv

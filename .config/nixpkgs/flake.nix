@@ -27,7 +27,7 @@
           pkgs = importPkgs "aarch64-darwin";
 
           extraSpecialArgs = { username = "lswart"; };
-          modules = [ ./home/common.nix ];
+          modules = [ ./home/common.nix ./home/macos ];
         };
       };
 
