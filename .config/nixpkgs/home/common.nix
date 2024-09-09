@@ -138,6 +138,9 @@ in {
       gopls
       gomodifytags
 
+      # rust
+      rustup
+
       # node
       nodejs_20
 
