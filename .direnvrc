@@ -8,10 +8,10 @@ use_go() {
   # golang versions get installed to the sdk dir:
   # https://golang.org/doc/manage-install
   # eg:
-  # go install golang.org/dl/go1.19@latest
-  # go1.19 download
+  # go install golang.org/dl/go1.22.3@latest
+  # go1.22.3 download
   #
-  # use go go1.19
+  # use go go1.22.3
   local go_dir=$HOME/sdk/$1
   load_prefix "$go_dir"
   layout go
