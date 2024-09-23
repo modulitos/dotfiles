@@ -99,7 +99,7 @@
     ];
     # packages = myPackages.myPackages;
     packages = with pkgs; [
-      firefox
+      firefox-bin
       psmisc
       emacs
       obs-studio
@@ -158,7 +158,8 @@
       "slack"
       "spotify"
       "vscode"
-      "terraform"
+      # there's a bug with installing terraform - opt for opentofu instead!
+      # "terraform"
     ];
 
   programs.sway = { enable = true; };
