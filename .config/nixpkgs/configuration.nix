@@ -158,6 +158,7 @@
       "slack"
       "spotify"
       "vscode"
+      "terraform"
     ];
 
   programs.sway = { enable = true; };
