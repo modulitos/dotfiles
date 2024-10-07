@@ -70,6 +70,7 @@ in {
       # ripgrep
       kubectl
       kubectx
+      ko
       # kustomize
       ripgrep
       # istioctl
@@ -95,6 +96,7 @@ in {
       k6
       krew
       k9s
+      cfssl
 
       # linters:
       dockfmt
@@ -102,7 +104,7 @@ in {
       shfmt
       shellcheck
       tflint
-      prettierd
+      nodePackages.prettier
 
       # dev tools:
       devenv
@@ -114,6 +116,11 @@ in {
       dyff
       git
       gnumake
+      mise
+
+      # aws tools
+      aws-iam-authenticator
+      nodePackages_latest.aws-cdk
 
       # os tools:
       tmux
