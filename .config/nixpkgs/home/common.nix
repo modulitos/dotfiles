@@ -3,6 +3,7 @@
 let
   tex = (pkgs.texlive.combine {
     inherit (pkgs.texlive)
+      koma-script pgf # for org-mode letters
       scheme-basic dvisvgm dvipng # for preview and export as html
       etoolbox titlesec enumitem preprint metafont charter # for org-mode resume
       wrapfig amsmath ulem hyperref capt-of;
