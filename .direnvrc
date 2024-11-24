@@ -5,8 +5,12 @@ use_go() {
   # By default, this will add "$HOME/sdk/$1/bin" to PATH.
   # Is there a way to use "$HOME/go/bin/go1.17" instead?
 
+  # Golang release history:
+  # https://go.dev/doc/devel/release#go1.23.minor
+  #
   # golang versions get installed to the sdk dir:
   # https://golang.org/doc/manage-install
+  #
   # eg:
   # go install golang.org/dl/go1.22.3@latest
   # go1.22.3 download

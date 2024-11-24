@@ -131,6 +131,7 @@ in {
       inetutils
       bind
       wireguard-tools
+      openssl
 
       # utils:
       delta
@@ -156,6 +157,7 @@ in {
       # kitty
 
       gh
+      hub
 
       # rename
       # yamllint
