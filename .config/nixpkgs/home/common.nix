@@ -81,6 +81,7 @@ in {
       httpie
       nurl
       pv
+      imagemagick_light
 
       # # misc tools:
       tex
