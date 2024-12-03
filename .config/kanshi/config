@@ -44,4 +44,13 @@ profile {
 }
 
 
+profile {
+    output "BOE 0x09DE Unknown" mode 1920x1080 enable scale 1.4
+}
+
+profile {
+    output "BOE 0x09DE Unknown" mode 1920x1080 enable scale 2
+    # Home office monitor:
+    output "ASUSTek COMPUTER INC ASUS VG328 0x000046C9"
+}
 # TODO: projector
