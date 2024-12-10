@@ -44,6 +44,7 @@ profile {
 }
 
 
+# oolong
 profile {
     output "BOE 0x09DE Unknown" mode 1920x1080 enable scale 1.4
 }
