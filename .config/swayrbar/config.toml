@@ -34,12 +34,11 @@ instance = "0"
 format = "🔋 Bat: {state_of_charge:{:5.1}}%, {state}, Health: {state_of_health:{:5.1}}%"
 html_escape = false
 
-# either install pipe-wire compatible pactl, or add native pipewire support: https://todo.sr.ht/~tsdh/swayr/41
-# [[modules]]
-# name = "pactl"
-# instance = "0"
-# format = "🔈 Vol: {volume:{:3}}%{muted}"
-# html_escape = true
+[[modules]]
+name = "wpctl"
+instance = "0"
+format = "🔈 vol: {volume:{:3}}%{muted}"
+html_escape = true
 
 # [modules.on_click]
 # Right = [
