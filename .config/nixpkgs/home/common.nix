@@ -160,6 +160,9 @@ in {
       gh
       hub
 
+      buck2
+      clang
+      lld_19
       # rename
       # yamllint
       # go_1_18
