@@ -2,18 +2,34 @@
 [
   {
     "key": "ctrl+;",
-    "command": "multiCommand.comment",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "editor.action.commentLine",
+        "cursorDown"
+      ]
+    },
     "when": "editorTextFocus && !editorReadonly"
   },
   {
     "key": "ctrl+/",
-    "command": "-editor.action.commentLine",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "editor.action.commentLine",
+        "cursorDown"
+      ]
+    },
     "when": "editorTextFocus && !editorReadonly"
   },
   {
     "key": "ctrl+i",
     "command": "editor.action.showHover",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.save",
   },
   {
     "key": "ctrl+k ctrl+i",
