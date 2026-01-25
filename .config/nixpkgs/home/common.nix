@@ -87,7 +87,7 @@ in {
       tex
 
       # infra tools:
-      kube3d
+      k3d
       stern
       kind
       docker-compose

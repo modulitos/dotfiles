@@ -63,7 +63,7 @@ in {
     pv
     nettools
     netcat
-    kube3d
+    k3d
     docker-compose
     stern
     fzf
