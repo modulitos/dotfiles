@@ -162,6 +162,8 @@
       "firefox-bin-unwrapped"
       # there's a bug with installing terraform - opt for opentofu instead!
       # "terraform"
+      "steam"
+      "steam-unwrapped"
     ];
 
   programs.sway = { enable = true; };

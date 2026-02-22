@@ -52,5 +52,10 @@
   hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; # <- needed for Steam & other 32-bit stuff
+  };
+
   boot.kernel.sysctl = { "vm.swappiness" = 10; };
 }

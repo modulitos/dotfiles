@@ -23,8 +23,11 @@ in {
 
     transmission_4
     vlc
+    steam
+    vulkan-tools
   ];
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "spotify" "slack" ];
+  # # TODO: this is overridden by configuration.nix?
+  # nixpkgs.config.allowUnfreePredicate = pkg:
+  #   builtins.elem (lib.getName pkg) [ "spotify" "slack" "steam-unwrapped" ];
 
 }
