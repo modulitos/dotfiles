@@ -115,7 +115,7 @@
       pavucontrol
       wl-clipboard
       sbcl # lisp compiler
-      emacsPackages.editorconfig
+      emacs.pkgs.editorconfig
 
       anki
       zoom-us
