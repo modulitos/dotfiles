@@ -103,7 +103,6 @@
       psmisc
       emacs
       obs-studio
-      gimp-with-plugins
       sqlite
       python3
       swaylock
@@ -169,8 +168,6 @@
   programs.sway = { enable = true; };
 
   # qt.style = "adwaita";
-
-  programs.light.enable = true;
 
   programs.zsh.enable = true;
 

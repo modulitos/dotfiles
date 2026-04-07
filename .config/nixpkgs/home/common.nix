@@ -106,7 +106,6 @@ in {
       shfmt
       shellcheck
       tflint
-      nodePackages.prettier
 
       # dev tools:
       devenv
@@ -122,7 +121,6 @@ in {
 
       # aws tools
       aws-iam-authenticator
-      nodePackages_latest.aws-cdk
 
       # os tools:
       tmux
