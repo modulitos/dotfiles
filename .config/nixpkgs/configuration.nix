@@ -179,6 +179,9 @@
   #   enableSSHSupport = true;
   # };
 
+  # for bdg 3:
+  programs.gamemode.enable = true;
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

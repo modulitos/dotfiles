@@ -55,6 +55,14 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true; # <- needed for Steam & other 32-bit stuff
+    extraPackages = with pkgs; [
+      intel-media-driver # VAAPI for newer Intel (Broadwell+)
+      intel-vaapi-driver
+      # vaapiIntel # older fallback
+      libva-vdpau-driver
+      # vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
 
   boot.kernel.sysctl = { "vm.swappiness" = 10; };
