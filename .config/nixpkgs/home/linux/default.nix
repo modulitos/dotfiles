@@ -25,6 +25,7 @@ in {
     vlc
     steam
     vulkan-tools
+    claude-code
   ];
   # # TODO: this is overridden by configuration.nix?
   # nixpkgs.config.allowUnfreePredicate = pkg:
