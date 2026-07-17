@@ -102,7 +102,7 @@ in {
 
       # linters:
       dockfmt
-      nixfmt-classic
+      nixfmt
       shfmt
       shellcheck
       tflint
@@ -150,7 +150,7 @@ in {
       rustup
 
       # node
-      nodejs_20
+      # nodejs_20
 
       # macos
       # kitty

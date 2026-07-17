@@ -163,6 +163,7 @@
       # "terraform"
       "steam"
       "steam-unwrapped"
+      "claude-code"
     ];
 
   programs.sway = { enable = true; };
